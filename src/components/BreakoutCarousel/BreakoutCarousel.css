@@ -88,19 +88,35 @@
   min-width: 0;
 }
 
-/* Navigation Arrows - Glassmorphic premium design */
-.ui-breakout-carousel__arrow {
-  --_arrow-size: var(--carousel-arrow-size, 52px);
-  --_arrow-bg: var(--carousel-arrow-bg, rgba(255, 255, 255, 0.12));
-  --_arrow-bg-hover: var(--carousel-arrow-bg-hover, rgba(255, 255, 255, 0.2));
-  --_arrow-color: var(--carousel-arrow-color, var(--onSurface, #fff));
-  --_arrow-border: var(--carousel-arrow-border, rgba(255, 255, 255, 0.15));
-  --_arrow-shadow: var(--carousel-arrow-shadow, 0 4px 24px rgba(0, 0, 0, 0.25));
+/* =========================================================================
+   Navigation Container - Below carousel, right-aligned to container
+   ========================================================================= */
+
+.ui-breakout-carousel__nav {
+  --_container: var(--carousel-container-width, var(--container-max, 1400px));
+  --_gutter: var(--carousel-gutter, var(--margin-horizontal, 1.5rem));
   
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
+  display: flex;
+  gap: var(--size-3, 0.75rem);
+  justify-content: flex-end;
+  align-items: center;
+  
+  /* Align with container */
+  max-width: var(--_container);
+  margin: 0 auto;
+  padding: var(--size-6, 1.5rem) var(--_gutter) 0;
+}
+
+/* Navigation Arrows - Refined minimal circles */
+.ui-breakout-carousel__arrow {
+  --_arrow-size: var(--carousel-arrow-size, 48px);
+  --_arrow-bg: var(--carousel-arrow-bg, rgba(255, 255, 255, 0.08));
+  --_arrow-bg-hover: var(--carousel-arrow-bg-hover, rgba(255, 255, 255, 0.15));
+  --_arrow-color: var(--carousel-arrow-color, var(--onSurface, #fff));
+  --_arrow-border: var(--carousel-arrow-border, rgba(255, 255, 255, 0.12));
+  
+  position: relative;
+  z-index: 1;
   
   display: flex;
   align-items: center;
@@ -110,49 +126,43 @@
   height: var(--_arrow-size);
   padding: 0;
   
-  /* Glassmorphic styling */
+  /* Refined minimal styling */
   background: var(--_arrow-bg);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
   color: var(--_arrow-color);
   
   border: 1px solid var(--_arrow-border);
   border-radius: 50%;
-  box-shadow: var(--_arrow-shadow);
   
   cursor: pointer;
   
-  /* Premium spring transitions */
+  /* Smooth transitions */
   transition: 
     opacity 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1),
     background 200ms ease,
-    box-shadow 200ms ease;
+    border-color 200ms ease;
 }
 
 .ui-breakout-carousel__arrow:hover:not(:disabled) {
-  transform: translateY(-50%) scale(1.08);
+  transform: scale(1.06);
   background: var(--_arrow-bg-hover);
-  box-shadow: 
-    var(--_arrow-shadow),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .ui-breakout-carousel__arrow:active:not(:disabled) {
-  transform: translateY(-50%) scale(0.95);
+  transform: scale(0.94);
   transition-duration: 100ms;
 }
 
 .ui-breakout-carousel__arrow:disabled {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-50%) scale(0.9);
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .ui-breakout-carousel__arrow svg {
-  width: 22px;
-  height: 22px;
-  stroke-width: 2.5;
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
   transition: transform 200ms ease;
 }
 
@@ -165,32 +175,19 @@
   transform: translateX(2px);
 }
 
-/* Position arrows at container edges */
-.ui-breakout-carousel__arrow--left {
-  left: max(var(--_gutter), calc((100% - var(--_container)) / 2 + var(--size-4, 1rem)));
-}
-
-.ui-breakout-carousel__arrow--right {
-  right: var(--_gutter);
-}
-
 /* Responsive adjustments */
 @media (max-width: 839px) {
+  .ui-breakout-carousel__nav {
+    padding-top: var(--size-5, 1.25rem);
+  }
+  
   .ui-breakout-carousel__arrow {
-    --_arrow-size: 44px;
-  }
-  
-  .ui-breakout-carousel__arrow--left {
-    left: var(--size-4, 1rem);
-  }
-  
-  .ui-breakout-carousel__arrow--right {
-    right: var(--size-4, 1rem);
+    --_arrow-size: 42px;
   }
   
   .ui-breakout-carousel__arrow svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 }
 

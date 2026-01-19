@@ -135,7 +135,7 @@ export const BreakoutCarousel = React.forwardRef<HTMLDivElement, BreakoutCarouse
         </div>
 
         {showArrows && (
-          <>
+          <div className="ui-breakout-carousel__nav">
             <button
               type="button"
               className="ui-breakout-carousel__arrow ui-breakout-carousel__arrow--left"
@@ -158,7 +158,7 @@ export const BreakoutCarousel = React.forwardRef<HTMLDivElement, BreakoutCarouse
                 <path d="M9 18l6-6-6-6" />
               </svg>
             </button>
-          </>
+          </div>
         )}
       </div>
     );
