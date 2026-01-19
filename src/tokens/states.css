@@ -1,0 +1,71 @@
+/**
+ * State Layer System
+ * 
+ * Material Design 3 state layers using currentColor for automatic inheritance.
+ * Apply .state-layer to any interactive element and the hover/focus/active
+ * states will automatically use the element's text color at the correct opacity.
+ * 
+ * @see https://m3.material.io/foundations/interaction/states
+ */
+
+@layer tokens {
+  :root {
+    /* State Layer Opacities (M3 Standard) */
+    --state-hover-opacity: 0.08;
+    --state-focus-opacity: 0.10;
+    --state-pressed-opacity: 0.10;
+    --state-dragged-opacity: 0.16;
+    --state-disabled-opacity: 0.38;
+    --state-disabled-container-opacity: 0.12;
+  }
+}
+
+/* =============================================================================
+   STATE LAYER UTILITY CLASSES
+   Uses background-image to overlay without replacing background-color.
+   currentColor inherits the element's text color (the "on" color in M3).
+   ============================================================================= */
+
+.state-layer {
+  position: relative;
+  isolation: isolate;
+}
+
+.state-layer:hover {
+  background-image: linear-gradient(
+    color-mix(in srgb, currentColor calc(var(--state-hover-opacity) * 100%), transparent),
+    color-mix(in srgb, currentColor calc(var(--state-hover-opacity) * 100%), transparent)
+  );
+}
+
+.state-layer:focus-visible {
+  background-image: linear-gradient(
+    color-mix(in srgb, currentColor calc(var(--state-focus-opacity) * 100%), transparent),
+    color-mix(in srgb, currentColor calc(var(--state-focus-opacity) * 100%), transparent)
+  );
+}
+
+.state-layer:active {
+  background-image: linear-gradient(
+    color-mix(in srgb, currentColor calc(var(--state-pressed-opacity) * 100%), transparent),
+    color-mix(in srgb, currentColor calc(var(--state-pressed-opacity) * 100%), transparent)
+  );
+}
+
+/* Dragged state - apply via JS when dragging */
+.state-layer--dragged,
+.state-layer.dragging {
+  background-image: linear-gradient(
+    color-mix(in srgb, currentColor calc(var(--state-dragged-opacity) * 100%), transparent),
+    color-mix(in srgb, currentColor calc(var(--state-dragged-opacity) * 100%), transparent)
+  );
+}
+
+/* Disabled state */
+.state-layer:disabled,
+.state-layer[aria-disabled="true"],
+.state-layer--disabled {
+  opacity: var(--state-disabled-opacity);
+  pointer-events: none;
+  cursor: not-allowed;
+}

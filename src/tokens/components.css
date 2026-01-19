@@ -1,0 +1,135 @@
+/**
+ * Component Tokens
+ * 
+ * Component-specific design tokens that reference the size scale.
+ * These define the standard dimensions for UI components following M3 Expressive.
+ * 
+ * Depends on: size.css, shape.css
+ * 
+ * RULE: NEVER hardcode sizes - always use --size-* tokens
+ * 
+ * @see https://m3.material.io/components/navigation-rail/specs
+ */
+
+@layer tokens {
+  :root {
+    /* =========================================================================
+       NAVIGATION RAIL
+       M3 Expressive measurements mapped to size scale
+       ========================================================================= */
+    
+    /* Container widths */
+    --nav-rail-width-collapsed: var(--size-16);  /* 96px - M3 Expressive */
+    --nav-rail-width-expanded: var(--size-80);   /* 320px - expanded state */
+    
+    /* Content spacing */
+    --nav-rail-content-margin-top: var(--size-11);    /* 48px (M3: 44dp, closest match) */
+    --nav-rail-header-margin-bottom: var(--size-10);  /* 40px - M3 Expressive */
+    --nav-rail-item-spacing: var(--size-2);           /* 4px - M3 Expressive */
+    --nav-rail-top-padding: var(--size-3);            /* 8px (M3: 6dp, closest match) */
+    --nav-rail-bottom-padding: var(--size-2);         /* 4px - M3 Expressive */
+    
+    /* Item dimensions */
+    --nav-rail-item-min-height: var(--size-13);           /* 64px - M3 Expressive */
+    --nav-rail-item-min-height-collapsed: var(--size-13); /* 64px */
+    --nav-rail-item-min-height-expanded: var(--size-12);  /* 56px */
+    
+    /* Active indicator (collapsed) */
+    --nav-rail-indicator-width: var(--size-12);           /* 56px - M3 */
+    --nav-rail-indicator-height: var(--size-9);           /* 32px - M3 */
+    --nav-rail-indicator-radius: var(--rad-corner-full);  /* pill shape */
+    --nav-rail-indicator-margin-horizontal: var(--size-2); /* 4px - M3 */
+    --nav-rail-indicator-label-padding: var(--size-2);    /* 4px - M3 */
+    
+    /* Active indicator (expanded) */
+    --nav-rail-indicator-expanded-height: var(--size-12); /* 56px - M3 */
+    --nav-rail-indicator-expanded-margin-horizontal: var(--size-6); /* 20px - M3 */
+    --nav-rail-indicator-expanded-padding: var(--size-5); /* 16px - M3 */
+    
+    /* Icon */
+    --nav-rail-icon-size: var(--size-7);          /* 24px - M3 */
+    --nav-rail-icon-label-spacing: var(--size-3); /* 8px - M3 horizontal spacing */
+    
+    /* =========================================================================
+       ICON BUTTON
+       Standard icon button dimensions
+       ========================================================================= */
+    
+    --icon-button-size: var(--size-10);       /* 40px - standard touch target */
+    --icon-button-size-small: var(--size-9);  /* 32px */
+    --icon-button-size-large: var(--size-11); /* 48px */
+    --icon-button-icon-size: var(--size-7);   /* 24px */
+    
+    /* =========================================================================
+       FAB (Floating Action Button)
+       Optional header element in navigation rail
+       ========================================================================= */
+    
+    --fab-size: var(--size-12);                       /* 56px - standard FAB */
+    --fab-size-small: var(--size-10);                 /* 40px */
+    --fab-size-large: var(--size-16);                 /* 96px */
+    --fab-icon-size: var(--size-7);                   /* 24px */
+    --fab-extended-height: var(--size-12);            /* 56px */
+    --fab-extended-padding-horizontal: var(--size-5); /* 16px */
+    
+    /* =========================================================================
+       BADGE
+       Notification badges on nav items
+       ========================================================================= */
+    
+    --badge-size-small: var(--size-3);            /* 8px - dot badge (M3: 6dp, closest) */
+    --badge-size-large: var(--size-5);            /* 16px - with count */
+    --badge-padding-horizontal: var(--size-2);    /* 4px */
+    
+    /* =========================================================================
+       AVATAR
+       User profile avatars
+       ========================================================================= */
+    
+    --avatar-size-small: var(--size-9);   /* 32px */
+    --avatar-size-medium: var(--size-10); /* 40px */
+    --avatar-size-large: var(--size-12);  /* 56px */
+    
+    /* =========================================================================
+       DIVIDER
+       Section separators
+       ========================================================================= */
+    
+    --divider-thickness: var(--size-1);           /* 2px (closest to 1px) */
+    --divider-margin-vertical: var(--size-3);     /* 8px */
+    
+    /* =========================================================================
+       COMMON BUTTON
+       M3 Expressive button measurements mapped to size scale
+       @see https://m3.material.io/components/buttons/specs
+       ========================================================================= */
+    
+    /* Container heights */
+    --button-height-xs: var(--size-9);    /* 32px */
+    --button-height-sm: var(--size-10);   /* 40px (default) */
+    --button-height-md: var(--size-11);   /* 48px */
+    --button-height-lg: var(--size-12);   /* 56px */
+    --button-height-xl: var(--size-14);   /* 72px */
+    
+    /* Horizontal padding (left/right) */
+    --button-padding-xs: var(--size-4);   /* 12px */
+    --button-padding-sm: var(--size-7);   /* 24px */
+    --button-padding-md: var(--size-7);   /* 24px */
+    --button-padding-lg: var(--size-9);   /* 32px */
+    --button-padding-xl: var(--size-10);  /* 40px */
+    
+    /* Icon sizes per button size */
+    --button-icon-size-xs: var(--size-5); /* 16px (M3: 18dp, closest) */
+    --button-icon-size-sm: var(--size-6); /* 20px */
+    --button-icon-size-md: var(--size-7); /* 24px */
+    --button-icon-size-lg: var(--size-7); /* 24px */
+    --button-icon-size-xl: var(--size-9); /* 32px */
+    
+    /* Icon-to-label spacing */
+    --button-icon-spacing-xs: var(--size-2); /* 4px */
+    --button-icon-spacing-sm: var(--size-3); /* 8px */
+    --button-icon-spacing-md: var(--size-3); /* 8px */
+    --button-icon-spacing-lg: var(--size-4); /* 12px */
+    --button-icon-spacing-xl: var(--size-5); /* 16px */
+  }
+}

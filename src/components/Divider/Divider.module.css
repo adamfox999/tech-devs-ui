@@ -1,0 +1,184 @@
+/**
+ * M3 Divider Styles
+ * 
+ * Material Design 3 dividers - horizontal and vertical with inset options.
+ */
+
+/* ========================================
+   BASE DIVIDER
+   ======================================== */
+
+.divider {
+  flex-shrink: 0;
+  background-color: var(--outlineVariant);
+}
+
+/* ========================================
+   HORIZONTAL
+   ======================================== */
+
+.horizontal {
+  width: 100%;
+  height: 1px;
+}
+
+/* Heavy variant */
+.horizontal[data-variant="heavy"] {
+  height: 8px;
+}
+
+/* Inset variants */
+.horizontal[data-inset="start"] {
+  margin-left: 16px;
+  width: calc(100% - 16px);
+}
+
+.horizontal[data-inset="end"] {
+  margin-right: 16px;
+  width: calc(100% - 16px);
+}
+
+.horizontal[data-inset="both"] {
+  margin-left: 16px;
+  margin-right: 16px;
+  width: calc(100% - 32px);
+}
+
+/* Custom inset values */
+.horizontal[data-inset="start"][data-inset-start] {
+  margin-left: var(--inset-start, 16px);
+  width: calc(100% - var(--inset-start, 16px));
+}
+
+.horizontal[data-inset="end"][data-inset-end] {
+  margin-right: var(--inset-end, 16px);
+  width: calc(100% - var(--inset-end, 16px));
+}
+
+.horizontal[data-inset="both"][data-inset-start][data-inset-end] {
+  margin-left: var(--inset-start, 16px);
+  margin-right: var(--inset-end, 16px);
+  width: calc(100% - var(--inset-start, 16px) - var(--inset-end, 16px));
+}
+
+/* ========================================
+   VERTICAL
+   ======================================== */
+
+.vertical {
+  width: 1px;
+  height: 100%;
+  align-self: stretch;
+}
+
+/* Heavy variant */
+.vertical[data-variant="heavy"] {
+  width: 8px;
+}
+
+/* Inset variants */
+.vertical[data-inset="start"] {
+  margin-top: 16px;
+  height: calc(100% - 16px);
+}
+
+.vertical[data-inset="end"] {
+  margin-bottom: 16px;
+  height: calc(100% - 16px);
+}
+
+.vertical[data-inset="both"] {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  height: calc(100% - 32px);
+}
+
+/* ========================================
+   WITH TEXT (Subheader style)
+   ======================================== */
+
+.dividerWithText {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background-color: var(--outlineVariant);
+}
+
+.dividerText {
+  font-family: var(--font-plain);
+  font-size: var(--font-size-label-large);
+  font-weight: var(--font-weight-medium);
+  color: var(--onSurfaceVariant);
+  white-space: nowrap;
+}
+
+/* Text alignment */
+.dividerWithText[data-text-align="start"] .dividerLine:first-child {
+  flex: 0 0 16px;
+}
+
+.dividerWithText[data-text-align="end"] .dividerLine:last-child {
+  flex: 0 0 16px;
+}
+
+/* ========================================
+   SPACING VARIANTS
+   ======================================== */
+
+/* Vertical spacing (margin top/bottom) */
+.horizontal[data-spacing="none"] {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.horizontal[data-spacing="xs"] {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.horizontal[data-spacing="sm"] {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.horizontal[data-spacing="md"] {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.horizontal[data-spacing="lg"] {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+/* Horizontal spacing (margin left/right) */
+.vertical[data-spacing="none"] {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.vertical[data-spacing="xs"] {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.vertical[data-spacing="sm"] {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.vertical[data-spacing="md"] {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.vertical[data-spacing="lg"] {
+  margin-left: 24px;
+  margin-right: 24px;
+}

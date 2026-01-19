@@ -1,0 +1,37 @@
+/**
+ * Elevation Tokens
+ * 
+ * Material Design 3 elevation system with dual shadows.
+ * 
+ * Generated from _elevation.scss
+ */
+
+@layer tokens {
+  :root {
+    /* Level 0: No elevation */
+    --elev-shadow-0: 0px 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    
+    /* Level 1: Cards, raised buttons */
+    --elev-shadow-1: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    
+    /* Level 2: Menus, dropdowns */
+    --elev-shadow-2: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+    
+    /* Level 3: Navigation drawers, modals */
+    --elev-shadow-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+    
+    /* Level 4: Dialogs */
+    --elev-shadow-4: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.3);
+    
+    /* Level 5: Navigation bar, FAB (highest) */
+    --elev-shadow-5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Utility classes */
+.elevation-0 { box-shadow: var(--elev-shadow-0); }
+.elevation-1 { box-shadow: var(--elev-shadow-1); }
+.elevation-2 { box-shadow: var(--elev-shadow-2); }
+.elevation-3 { box-shadow: var(--elev-shadow-3); }
+.elevation-4 { box-shadow: var(--elev-shadow-4); }
+.elevation-5 { box-shadow: var(--elev-shadow-5); }

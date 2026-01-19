@@ -1,0 +1,275 @@
+/**
+ * M3 Bottom Navigation (Navigation Bar) Styles
+ * 
+ * Material Design 3 navigation bar for switching between top-level views.
+ * Supports 3-5 destinations with active indicator.
+ */
+
+/* ========================================
+   CONTAINER
+   ======================================== */
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
+  background: var(--surfaceContainer);
+  box-shadow: var(--elevation-2);
+}
+
+/* M3 Expressive (shorter) */
+.navBar[data-expressive="true"] {
+  height: 64px;
+}
+
+/* Horizontal layout for medium+ screens */
+.navBar[data-layout="horizontal"] {
+  height: 64px;
+}
+
+/* ========================================
+   NAV ITEMS CONTAINER
+   ======================================== */
+
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 8px;
+  list-style: none;
+  margin: 0;
+}
+
+/* ========================================
+   NAV ITEM
+   ======================================== */
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 48px;
+  max-width: 96px;
+  height: 100%;
+  padding: 12px 0 16px;
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  transition: all var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+/* M3 Expressive item padding */
+.navBar[data-expressive="true"] .item {
+  padding: 6px 0;
+}
+
+/* Horizontal item layout (icon + label side by side) */
+.navBar[data-layout="horizontal"] .item {
+  flex-direction: row;
+  flex: 0 1 auto;
+  max-width: none;
+  padding: 0 16px;
+  gap: 4px;
+}
+
+/* ========================================
+   ACTIVE INDICATOR
+   ======================================== */
+
+.activeIndicator {
+  position: absolute;
+  top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 32px;
+  border-radius: var(--rad-corner-full);
+  background: transparent;
+  transition:
+    background-color var(--motion-duration-short-2) var(--motion-easing-standard),
+    width var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+/* M3 Expressive indicator */
+.navBar[data-expressive="true"] .activeIndicator {
+  width: 56px;
+}
+
+/* Active state */
+.item[data-active="true"] .activeIndicator {
+  background: var(--secondaryContainer);
+}
+
+/* Hover state */
+.item:hover .activeIndicator {
+  background: color-mix(in srgb, var(--onSurfaceVariant) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.item[data-active="true"]:hover .activeIndicator {
+  background: color-mix(in srgb, var(--onSecondaryContainer) calc(var(--state-hover-opacity) * 100%), var(--secondaryContainer));
+}
+
+/* Focus state */
+.item:focus-visible .activeIndicator {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Horizontal layout indicator */
+.navBar[data-layout="horizontal"] .activeIndicator {
+  position: static;
+  width: auto;
+  height: 56px;
+  padding: 0 16px;
+}
+
+/* ========================================
+   ICON
+   ======================================== */
+
+.icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--onSurfaceVariant);
+  z-index: 1;
+  transition: color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Active icon color */
+.item[data-active="true"] .icon {
+  color: var(--onSecondaryContainer);
+}
+
+/* Filled icon for active state */
+.iconFilled {
+  display: none;
+}
+
+.iconOutlined {
+  display: block;
+}
+
+.item[data-active="true"] .iconFilled {
+  display: block;
+}
+
+.item[data-active="true"] .iconOutlined {
+  display: none;
+}
+
+/* ========================================
+   LABEL
+   ======================================== */
+
+.label {
+  margin-top: 4px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-label-medium);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-label-medium);
+  color: var(--onSurfaceVariant);
+  text-align: center;
+  white-space: nowrap;
+  transition: color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+/* Active label */
+.item[data-active="true"] .label {
+  color: var(--onSurface);
+}
+
+/* M3 Expressive: no bold on active */
+.navBar[data-expressive="true"] .item[data-active="true"] .label {
+  font-weight: var(--font-weight-medium);
+}
+
+/* Horizontal layout label */
+.navBar[data-layout="horizontal"] .label {
+  margin-top: 0;
+  margin-left: 4px;
+}
+
+/* Hide label option */
+.item[data-show-label="false"] .label {
+  display: none;
+}
+
+.item[data-show-label="active-only"]:not([data-active="true"]) .label {
+  display: none;
+}
+
+/* ========================================
+   BADGE
+   ======================================== */
+
+.badge {
+  position: absolute;
+  top: 2px;
+  right: calc(50% - 22px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 6px;
+  height: 6px;
+  border-radius: var(--rad-corner-full);
+  background: var(--error);
+  z-index: 2;
+}
+
+/* Large badge with count */
+.badge[data-size="large"] {
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  right: calc(50% - 26px);
+}
+
+.badgeLabel {
+  font-family: var(--font-plain);
+  font-size: var(--font-size-label-small);
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  color: var(--onError);
+}
+
+/* ========================================
+   LABEL VISIBILITY MODES
+   ======================================== */
+
+/* Always show labels */
+.navBar[data-label-visibility="labeled"] .label {
+  display: block;
+}
+
+/* Show only active label */
+.navBar[data-label-visibility="selected"] .item:not([data-active="true"]) .label {
+  display: none;
+}
+
+/* Never show labels */
+.navBar[data-label-visibility="unlabeled"] .label {
+  display: none;
+}
+
+/* Auto - show labels when 3 items, hide when 4-5 */
+/* Controlled by JS based on item count */

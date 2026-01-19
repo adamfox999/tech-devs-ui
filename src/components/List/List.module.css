@@ -1,0 +1,351 @@
+/**
+ * M3 List Styles
+ * 
+ * Material Design 3 list items with one/two/three-line variants,
+ * leading/trailing content, and interactive states.
+ */
+
+/* ========================================
+   LIST CONTAINER
+   ======================================== */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Segmented style (cards) */
+.list[data-variant="segmented"] {
+  gap: 2px;
+}
+
+/* ========================================
+   LIST ITEM
+   ======================================== */
+
+.listItem {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  min-height: 56px;
+  padding: 8px 24px 8px 16px;
+  background: transparent;
+  cursor: default;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+/* Interactive items */
+.listItem[data-interactive="true"] {
+  cursor: pointer;
+}
+
+.listItem[data-interactive="true"]:hover {
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.listItem[data-interactive="true"]:focus-visible {
+  outline: none;
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-focus-opacity) * 100%), transparent);
+}
+
+.listItem[data-interactive="true"]:active {
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-pressed-opacity) * 100%), transparent);
+}
+
+/* Selected state */
+.listItem[data-selected="true"] {
+  background-color: var(--secondaryContainer);
+}
+
+.listItem[data-selected="true"]:hover {
+  background-color: color-mix(in srgb, var(--onSecondaryContainer) calc(var(--state-hover-opacity) * 100%), var(--secondaryContainer));
+}
+
+/* Disabled state */
+.listItem[data-disabled="true"] {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+/* Size variants based on line count */
+.listItem[data-lines="1"] {
+  min-height: 56px;
+  align-items: center;
+}
+
+.listItem[data-lines="2"] {
+  min-height: 72px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.listItem[data-lines="3"] {
+  min-height: 88px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  align-items: flex-start;
+}
+
+/* Segmented variant (card style) */
+.list[data-variant="segmented"] .listItem {
+  background: var(--surfaceContainerLow);
+  border-radius: var(--rad-corner-medium);
+}
+
+.list[data-variant="segmented"] .listItem:first-child {
+  border-radius: var(--rad-corner-extra-large) var(--rad-corner-extra-large) var(--rad-corner-medium) var(--rad-corner-medium);
+}
+
+.list[data-variant="segmented"] .listItem:last-child {
+  border-radius: var(--rad-corner-medium) var(--rad-corner-medium) var(--rad-corner-extra-large) var(--rad-corner-extra-large);
+}
+
+.list[data-variant="segmented"] .listItem:only-child {
+  border-radius: var(--rad-corner-extra-large);
+}
+
+/* ========================================
+   LEADING CONTENT
+   ======================================== */
+
+.leading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+
+/* Icon */
+.leadingIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--onSurfaceVariant);
+}
+
+/* Avatar container */
+.leadingAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--rad-corner-full);
+  overflow: hidden;
+  background: var(--primaryContainer);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leadingAvatarText {
+  font-family: var(--font-plain);
+  font-size: var(--font-size-title-medium);
+  font-weight: var(--font-weight-medium);
+  color: var(--onPrimaryContainer);
+}
+
+.leadingAvatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Image/Thumbnail */
+.leadingImage {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--rad-corner-small);
+  overflow: hidden;
+  background: var(--surfaceContainerHighest);
+}
+
+.leadingImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Video thumbnail (larger) */
+.leadingVideo {
+  width: 114px;
+  height: 64px;
+  border-radius: var(--rad-corner-medium);
+  overflow: hidden;
+  background: var(--surfaceContainerHighest);
+}
+
+.leadingVideo img,
+.leadingVideo video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Checkbox/Radio */
+.leadingCheckbox {
+  width: 24px;
+  height: 24px;
+}
+
+/* ========================================
+   CONTENT (TEXT AREA)
+   ======================================== */
+
+.content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+}
+
+/* Headline (primary text) */
+.headline {
+  font-family: var(--font-plain);
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body-large);
+  color: var(--onSurface);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.listItem[data-lines="2"] .headline,
+.listItem[data-lines="3"] .headline {
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+
+/* Supporting text (secondary text) */
+.supportingText {
+  font-family: var(--font-plain);
+  font-size: var(--font-size-body-medium);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body-medium);
+  color: var(--onSurfaceVariant);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.listItem[data-lines="3"] .supportingText {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+/* ========================================
+   TRAILING CONTENT
+   ======================================== */
+
+.trailing {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  margin-left: 16px;
+  gap: 8px;
+}
+
+/* Trailing icon */
+.trailingIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--onSurfaceVariant);
+}
+
+/* Trailing text (meta info) */
+.trailingText {
+  font-family: var(--font-plain);
+  font-size: var(--font-size-label-small);
+  font-weight: var(--font-weight-medium);
+  color: var(--onSurfaceVariant);
+  white-space: nowrap;
+}
+
+/* Trailing checkbox/switch */
+.trailingControl {
+  flex-shrink: 0;
+}
+
+/* ========================================
+   LIST SUBHEADER
+   ======================================== */
+
+.subheader {
+  padding: 16px 16px 8px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-title-small);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-title-small);
+  color: var(--onSurfaceVariant);
+}
+
+/* ========================================
+   DIVIDERS IN LIST
+   ======================================== */
+
+.listItem + .listItem::before {
+  display: none;
+}
+
+.list[data-dividers="full"] .listItem + .listItem::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--outlineVariant);
+}
+
+.list[data-dividers="inset"] .listItem + .listItem::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 56px;
+  right: 24px;
+  height: 1px;
+  background: var(--outlineVariant);
+}
+
+/* ========================================
+   DENSE VARIANT
+   ======================================== */
+
+.list[data-dense="true"] .listItem {
+  min-height: 48px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.list[data-dense="true"] .listItem[data-lines="2"] {
+  min-height: 64px;
+}
+
+.list[data-dense="true"] .listItem[data-lines="3"] {
+  min-height: 76px;
+}
+
+/* ========================================
+   INTERACTIVE RIPPLE EFFECT
+   ======================================== */
+
+.ripple {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}

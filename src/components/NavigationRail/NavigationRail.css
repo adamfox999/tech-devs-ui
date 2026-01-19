@@ -1,0 +1,650 @@
+/**
+ * Navigation Rail
+ * 
+ * Material 3 Expressive vertical navigation component.
+ * Supports collapsed (icon-only) and expanded states with mobile drawer.
+ * 
+ * M3 Expressive Specifications:
+ * - Collapsed Rail: 96px width
+ * - Expanded Drawer: 220-360px width (default 280px)
+ * - Item Height: 56px
+ * - Active Indicator: Pill-shaped 56×32px (collapsed), full-width (expanded)
+ * - Icon Size: 24px
+ * - FAB: 56×56px, Extended FAB in expanded state
+ * 
+ * Uses tokens from /tokens/
+ * @see https://m3.material.io/components/navigation-rail
+ */
+
+/* ============================================================================
+   CSS CUSTOM PROPERTIES (Component Hooks)
+   ============================================================================ */
+
+.ui-navigation-rail {
+  /* M3 Expressive Dimensions */
+  --rail-width-collapsed: var(--navigation-rail-width-collapsed, 96px);
+  --rail-width-expanded: var(--navigation-rail-width-expanded, 280px);
+  --rail-width-expanded-min: 220px;
+  --rail-width-expanded-max: 360px;
+  
+  /* M3 Expressive Spacing */
+  --rail-header-height: 72px;
+  --rail-item-height: 56px;
+  --rail-icon-size: 24px;
+  --rail-fab-size: 56px;
+  --rail-indicator-height: 32px;
+  --rail-indicator-width: 56px;
+  --rail-indicator-radius: 16px;
+  --rail-item-gap: 4px;
+  --rail-group-gap: 8px;
+  --rail-section-padding-top: 12px;
+  --rail-section-padding-bottom: 8px;
+  --rail-content-padding: 12px;
+  --rail-fab-margin: 16px;
+  
+  /* Motion - M3 Standard */
+  --rail-transition: var(--navigation-rail-transition, var(--motion-duration-Medium-2, 300ms) var(--motion-ease-Standard, cubic-bezier(0.2, 0, 0, 1)));
+  --rail-expand-duration: 400ms;
+  
+  /* M3 Expressive Colors */
+  --rail-bg: var(--navigation-rail-bg, var(--surfaceContainerLow, #F3F3F3));
+  --rail-surface-container: var(--surfaceContainer, #F0F0F0);
+  --rail-border-color: var(--navigation-rail-border, transparent);
+  
+  /* Item Colors - M3 Expressive */
+  --rail-item-color: var(--navigation-rail-item-color, var(--onSurfaceVariant, #49454F));
+  --rail-item-hover-bg: var(--navigation-rail-item-hover-bg, color-mix(in srgb, var(--onSurface, #1D1B20) 8%, transparent));
+  --rail-item-active-bg: var(--navigation-rail-item-active-bg, var(--secondaryContainer, #E8DEF8));
+  --rail-item-active-color: var(--navigation-rail-item-active-color, var(--onSecondaryContainer, #1D1B20));
+  
+  /* Badge */
+  --rail-badge-bg: var(--navigation-rail-badge-bg, var(--error, #ba1a1a));
+  --rail-badge-color: var(--navigation-rail-badge-color, var(--onError, #ffffff));
+  
+  /* Avatar */
+  --rail-avatar-bg: var(--navigation-rail-avatar-bg, var(--primaryContainer, #E8DEF8));
+  --rail-avatar-color: var(--navigation-rail-avatar-color, var(--onPrimaryContainer, #1D1B20));
+  
+  /* FAB */
+  --rail-fab-bg: var(--navigation-rail-fab-bg, var(--primaryContainer, #E8DEF8));
+  --rail-fab-color: var(--navigation-rail-fab-color, var(--onPrimaryContainer, #1D1B20));
+  --rail-fab-radius: 16px;
+}
+
+/* ============================================================================
+   LAYOUT & STRUCTURE
+   ============================================================================ */
+
+.ui-navigation-rail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  
+  display: flex;
+  flex-direction: column;
+  
+  width: var(--rail-width-collapsed);
+  height: 100dvh;
+  
+  background-color: var(--rail-bg);
+  
+  transition: width var(--rail-expand-duration) var(--motion-ease-Standard, cubic-bezier(0.2, 0, 0, 1));
+  overflow: hidden;
+}
+
+.ui-navigation-rail[data-expanded="true"] {
+  width: var(--rail-width-expanded);
+  min-width: var(--rail-width-expanded-min);
+  max-width: var(--rail-width-expanded-max);
+}
+
+/* ============================================================================
+   HEADER
+   ============================================================================ */
+
+.ui-navigation-rail__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  min-height: var(--rail-header-height);
+  padding: var(--rail-content-padding);
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__header {
+  justify-content: flex-start;
+  padding: var(--rail-content-padding) 16px;
+}
+
+/* ============================================================================
+   FAB (Floating Action Button)
+   ============================================================================ */
+
+.ui-navigation-rail__fab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: var(--rail-fab-size);
+  height: var(--rail-fab-size);
+  margin: 0 auto var(--rail-fab-margin);
+  
+  background-color: var(--rail-fab-bg);
+  border: none;
+  border-radius: var(--rail-fab-radius);
+  
+  color: var(--rail-fab-color);
+  cursor: pointer;
+  
+  transition: 
+    width var(--rail-expand-duration) var(--motion-ease-Standard, cubic-bezier(0.2, 0, 0, 1)),
+    border-radius var(--rail-expand-duration) var(--motion-ease-Standard, cubic-bezier(0.2, 0, 0, 1)),
+    box-shadow var(--motion-duration-Short-4, 200ms) ease;
+  
+  box-shadow: var(--elevation-1, 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15));
+}
+
+.ui-navigation-rail__fab:hover {
+  box-shadow: var(--elevation-2, 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15));
+}
+
+.ui-navigation-rail__fab:active {
+  transform: scale(0.96);
+}
+
+.ui-navigation-rail__fab svg {
+  width: var(--rail-icon-size);
+  height: var(--rail-icon-size);
+  flex-shrink: 0;
+}
+
+.ui-navigation-rail__fab-label {
+  display: none;
+  margin-left: 12px;
+  
+  font-family: var(--font-plain, system-ui, sans-serif);
+  font-size: var(--type-scale-0, 1rem);
+  font-weight: var(--weight-medium, 500);
+  letter-spacing: 0.1px;
+  
+  white-space: nowrap;
+}
+
+/* Extended FAB when expanded */
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__fab {
+  width: calc(100% - 32px);
+  border-radius: var(--rail-fab-radius);
+  justify-content: flex-start;
+  padding: 0 16px;
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__fab-label {
+  display: block;
+}
+
+/* ============================================================================
+   CONTENT AREA
+   ============================================================================ */
+
+.ui-navigation-rail__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-group-gap);
+  
+  padding: var(--rail-content-padding);
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.ui-navigation-rail__content::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================================================
+   NAVIGATION GROUPS
+   ============================================================================ */
+
+.ui-navigation-rail__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-item-gap);
+}
+
+.ui-navigation-rail__group-label {
+  display: none;
+  
+  padding: var(--rail-section-padding-top) 16px var(--rail-section-padding-bottom);
+  
+  font-family: var(--font-plain, system-ui, sans-serif);
+  font-size: var(--type-scale-n2, 0.6875rem);
+  font-weight: var(--weight-semibold, 600);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  
+  color: var(--rail-item-color);
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__group-label {
+  display: block;
+}
+
+/* ============================================================================
+   NAVIGATION ITEMS - M3 Expressive
+   ============================================================================ */
+
+.ui-navigation-rail__item {
+  position: relative;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  
+  height: var(--rail-item-height);
+  padding: 0;
+  
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  
+  color: var(--rail-item-color);
+  text-decoration: none;
+  
+  cursor: pointer;
+  transition: color var(--motion-duration-Short-4, 200ms) ease;
+}
+
+/* Expanded state - horizontal layout with full-width pill */
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__item {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 12px;
+  
+  height: var(--rail-item-height);
+  padding: 0 16px;
+  margin: 0 8px;
+  
+  border-radius: 28px;
+  
+  transition: 
+    background-color var(--motion-duration-Short-4, 200ms) ease,
+    color var(--motion-duration-Short-4, 200ms) ease;
+}
+
+/* Icon container - pill indicator in collapsed state */
+.ui-navigation-rail__item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: var(--rail-indicator-width);
+  height: var(--rail-indicator-height);
+  
+  border-radius: var(--rail-indicator-radius);
+  
+  background-color: transparent;
+  
+  transition: 
+    background-color var(--motion-duration-Short-4, 200ms) ease,
+    transform var(--motion-duration-Short-4, 200ms) ease;
+}
+
+.ui-navigation-rail__item-icon svg {
+  width: var(--rail-icon-size);
+  height: var(--rail-icon-size);
+  flex-shrink: 0;
+  
+  transition: transform var(--motion-duration-Short-4, 200ms) ease;
+}
+
+/* In expanded state, icon container is just for the icon */
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__item-icon {
+  width: var(--rail-icon-size);
+  height: var(--rail-icon-size);
+  border-radius: 0;
+  background-color: transparent;
+}
+
+/* Label */
+.ui-navigation-rail__item-label {
+  font-family: var(--font-plain, system-ui, sans-serif);
+  font-size: var(--type-scale-n2, 0.75rem);
+  font-weight: var(--weight-medium, 500);
+  letter-spacing: 0.4px;
+  line-height: 1;
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__item-label {
+  font-size: var(--type-scale-0, 0.875rem);
+  font-weight: var(--weight-medium, 500);
+  letter-spacing: 0.1px;
+}
+
+/* ============================================================================
+   STATES - M3 Expressive
+   ============================================================================ */
+
+/* Hover State - Collapsed (show pill bg on icon) */
+.ui-navigation-rail__item:hover .ui-navigation-rail__item-icon {
+  background-color: var(--rail-item-hover-bg);
+}
+
+/* Hover State - Expanded (full row highlight) */
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__item:hover {
+  background-color: var(--rail-item-hover-bg);
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__item:hover .ui-navigation-rail__item-icon {
+  background-color: transparent;
+}
+
+/* Active/Selected State - Collapsed (pill indicator) */
+.ui-navigation-rail__item[data-active="true"] .ui-navigation-rail__item-icon {
+  background-color: var(--rail-item-active-bg);
+}
+
+.ui-navigation-rail__item[data-active="true"] {
+  color: var(--rail-item-active-color);
+}
+
+.ui-navigation-rail__item[data-active="true"] .ui-navigation-rail__item-label {
+  font-weight: var(--weight-semibold, 600);
+}
+
+/* Active/Selected State - Expanded (full row pill) */
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__item[data-active="true"] {
+  background-color: var(--rail-item-active-bg);
+  color: var(--rail-item-active-color);
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__item[data-active="true"] .ui-navigation-rail__item-icon {
+  background-color: transparent;
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__item[data-active="true"] .ui-navigation-rail__item-label {
+  font-weight: var(--weight-semibold, 600);
+}
+
+/* Focus State */
+.ui-navigation-rail__item:focus-visible {
+  outline: 2px solid var(--primary, #6750A4);
+  outline-offset: 2px;
+}
+
+/* Pressed State */
+.ui-navigation-rail__item:active .ui-navigation-rail__item-icon {
+  transform: scale(0.92);
+}
+
+/* ============================================================================
+   BADGE
+   ============================================================================ */
+
+.ui-navigation-rail__badge {
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  
+  border-radius: 8px;
+  
+  background-color: var(--rail-badge-bg);
+  color: var(--rail-badge-color);
+  
+  font-family: var(--font-plain, system-ui, sans-serif);
+  font-size: 11px;
+  font-weight: var(--weight-medium, 500);
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__badge {
+  position: static;
+  margin-left: auto;
+}
+
+/* ============================================================================
+   DIVIDER
+   ============================================================================ */
+
+.ui-navigation-rail__divider {
+  width: var(--rail-indicator-width);
+  height: 1px;
+  margin: var(--rail-group-gap) auto;
+  
+  background-color: var(--outlineVariant, #CAC4D0);
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__divider {
+  width: calc(100% - 32px);
+}
+
+/* ============================================================================
+   FOOTER
+   ============================================================================ */
+
+.ui-navigation-rail__footer {
+  margin-top: auto;
+  
+  padding: var(--rail-content-padding);
+  
+  border-top: 1px solid var(--outlineVariant, #CAC4D0);
+}
+
+/* ============================================================================
+   USER PROFILE
+   ============================================================================ */
+
+.ui-navigation-rail__user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  
+  padding: 12px;
+  
+  border-radius: 16px;
+  
+  cursor: pointer;
+  transition: background-color var(--motion-duration-Short-4, 200ms) ease;
+}
+
+.ui-navigation-rail__user:hover {
+  background-color: var(--rail-item-hover-bg);
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__user {
+  flex-direction: row;
+  padding: 12px 16px;
+}
+
+.ui-navigation-rail__avatar {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  
+  border-radius: 20px;
+  
+  background-color: var(--rail-avatar-bg);
+  color: var(--rail-avatar-color);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-family: var(--font-plain, system-ui, sans-serif);
+  font-size: var(--type-scale-0, 1rem);
+  font-weight: var(--weight-medium, 500);
+  
+  overflow: hidden;
+}
+
+.ui-navigation-rail__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ui-navigation-rail__user-info {
+  display: none;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  gap: 2px;
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__user-info {
+  display: flex;
+}
+
+.ui-navigation-rail__user-name {
+  font-family: var(--font-plain, system-ui, sans-serif);
+  font-size: var(--type-scale-0, 0.875rem);
+  font-weight: var(--weight-medium, 500);
+  
+  color: var(--onSurface, #1D1B20);
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ui-navigation-rail__user-email {
+  font-family: var(--font-plain, system-ui, sans-serif);
+  font-size: var(--type-scale-n1, 0.75rem);
+  
+  color: var(--rail-item-color);
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============================================================================
+   TOGGLE BUTTON
+   ============================================================================ */
+
+.ui-navigation-rail__toggle {
+  position: absolute;
+  bottom: 88px;
+  right: -12px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 24px;
+  height: 24px;
+  
+  border: 1px solid var(--outlineVariant, #CAC4D0);
+  border-radius: 12px;
+  
+  background-color: var(--surface, #FFFBFE);
+  color: var(--rail-item-color);
+  
+  cursor: pointer;
+  
+  transition: 
+    background-color var(--motion-duration-Short-4, 200ms) ease,
+    transform var(--motion-duration-Short-4, 200ms) ease;
+}
+
+.ui-navigation-rail__toggle:hover {
+  background-color: var(--surfaceContainerHigh, #ECE6F0);
+}
+
+.ui-navigation-rail__toggle svg {
+  width: 16px;
+  height: 16px;
+  
+  transition: transform var(--rail-expand-duration) var(--motion-ease-Standard, cubic-bezier(0.2, 0, 0, 1));
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__toggle svg {
+  transform: rotate(180deg);
+}
+
+/* ============================================================================
+   MOBILE OVERLAY
+   ============================================================================ */
+
+.ui-navigation-rail__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  
+  background-color: var(--scrim, rgba(0, 0, 0, 0.32));
+}
+
+/* ============================================================================
+   MOBILE RESPONSIVE
+   ============================================================================ */
+
+@media (max-width: 599px) {
+  .ui-navigation-rail {
+    transform: translateX(-100%);
+  }
+  
+  .ui-navigation-rail[data-mobile-open="true"] {
+    transform: translateX(0);
+    width: var(--rail-width-expanded);
+  }
+}
+
+/* ============================================================================
+   MOBILE TRIGGER
+   ============================================================================ */
+
+.ui-navigation-rail__mobile-trigger {
+  display: none;
+  
+  width: 48px;
+  height: 48px;
+  
+  align-items: center;
+  justify-content: center;
+  
+  border: none;
+  border-radius: 24px;
+  
+  background-color: transparent;
+  color: var(--onSurface, #1D1B20);
+  
+  cursor: pointer;
+  transition: background-color var(--motion-duration-Short-4, 200ms) ease;
+}
+
+.ui-navigation-rail__mobile-trigger:hover {
+  background-color: var(--rail-item-hover-bg);
+}
+
+.ui-navigation-rail__mobile-trigger svg {
+  width: var(--rail-icon-size);
+  height: var(--rail-icon-size);
+}
+
+@media (max-width: 599px) {
+  .ui-navigation-rail__mobile-trigger {
+    display: flex;
+  }
+  
+  .ui-navigation-rail__toggle {
+    display: none;
+  }
+}

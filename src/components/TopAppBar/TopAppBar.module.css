@@ -1,0 +1,310 @@
+/**
+ * M3 Top App Bar Styles
+ * 
+ * Material Design 3 app bars - small, medium, and large variants
+ * with scroll behavior support.
+ */
+
+/* ========================================
+   BASE APP BAR
+   ======================================== */
+
+.appBar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--surface);
+  z-index: 10;
+  transition: 
+    background-color var(--motion-duration-medium-2) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-medium-2) var(--motion-easing-standard);
+}
+
+/* Elevated (scrolled) state */
+.appBar[data-elevated="true"] {
+  background: var(--surfaceContainer);
+  box-shadow: var(--elevation-2);
+}
+
+/* Sticky positioning */
+.appBar[data-sticky="true"] {
+  position: sticky;
+  top: 0;
+}
+
+/* Fixed positioning */
+.appBar[data-fixed="true"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* ========================================
+   SMALL APP BAR (Default)
+   ======================================== */
+
+.small {
+  min-height: 64px;
+}
+
+.smallContent {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 4px;
+}
+
+/* ========================================
+   CENTER-ALIGNED
+   ======================================== */
+
+.appBar[data-align="center"] .title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+/* ========================================
+   MEDIUM APP BAR
+   ======================================== */
+
+.medium {
+  min-height: 112px;
+}
+
+.mediumContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.mediumTopRow {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 4px;
+}
+
+.mediumBottomRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 16px 20px;
+}
+
+/* ========================================
+   LARGE APP BAR
+   ======================================== */
+
+.large {
+  min-height: 152px;
+}
+
+.largeContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.largeTopRow {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 4px;
+}
+
+.largeBottomRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+  padding: 0 16px 28px;
+}
+
+/* ========================================
+   NAVIGATION ICON
+   ======================================== */
+
+.navigationIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-left: 4px;
+  border-radius: var(--rad-corner-full);
+  color: var(--onSurface);
+  cursor: pointer;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.navigationIcon:hover {
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.navigationIcon:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.navigationIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ========================================
+   TITLE
+   ======================================== */
+
+.title {
+  flex: 1;
+  padding: 0 16px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-title-large);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-title-large);
+  color: var(--onSurface);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Subtitle */
+.subtitle {
+  margin-top: 4px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-title-medium);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-title-medium);
+  color: var(--onSurfaceVariant);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Medium title sizing */
+.mediumBottomRow .title {
+  font-size: var(--font-size-headline-small);
+  line-height: var(--line-height-headline-small);
+  padding: 0;
+}
+
+/* Large title sizing */
+.largeBottomRow .title {
+  font-size: var(--font-size-headline-medium);
+  line-height: var(--line-height-headline-medium);
+  padding: 0;
+}
+
+/* ========================================
+   ACTIONS
+   ======================================== */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding-right: 4px;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--rad-corner-full);
+  color: var(--onSurfaceVariant);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.action:hover {
+  background-color: color-mix(in srgb, var(--onSurfaceVariant) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.action:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.action svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ========================================
+   CONTEXTUAL MODE
+   ======================================== */
+
+.appBar[data-contextual="true"] {
+  background: var(--primaryContainer);
+}
+
+.appBar[data-contextual="true"] .navigationIcon,
+.appBar[data-contextual="true"] .title,
+.appBar[data-contextual="true"] .action {
+  color: var(--onPrimaryContainer);
+}
+
+/* ========================================
+   COLLAPSING BEHAVIOR
+   ======================================== */
+
+/* CSS for scroll-based collapse - use with Intersection Observer in JS */
+.appBar[data-collapsed="true"].medium {
+  min-height: 64px;
+}
+
+.appBar[data-collapsed="true"].medium .mediumBottomRow {
+  display: none;
+}
+
+.appBar[data-collapsed="true"].medium .mediumTopRow .title {
+  display: block;
+}
+
+.appBar[data-collapsed="true"].large {
+  min-height: 64px;
+}
+
+.appBar[data-collapsed="true"].large .largeBottomRow {
+  display: none;
+}
+
+.appBar[data-collapsed="true"].large .largeTopRow .title {
+  display: block;
+}
+
+/* Transition for collapse */
+.appBar.medium,
+.appBar.large {
+  transition:
+    min-height var(--motion-duration-medium-2) var(--motion-easing-standard),
+    background-color var(--motion-duration-medium-2) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-medium-2) var(--motion-easing-standard);
+}
+
+/* ========================================
+   COLOR VARIANTS
+   ======================================== */
+
+.appBar[data-color="primary"] {
+  background: var(--primary);
+}
+
+.appBar[data-color="primary"] .navigationIcon,
+.appBar[data-color="primary"] .title,
+.appBar[data-color="primary"] .subtitle,
+.appBar[data-color="primary"] .action {
+  color: var(--onPrimary);
+}
+
+.appBar[data-color="surface-container"] {
+  background: var(--surfaceContainer);
+}

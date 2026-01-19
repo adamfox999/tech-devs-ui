@@ -1,0 +1,200 @@
+/**
+ * M3 Chip Styles
+ * 
+ * Material Design 3 chip variants using design tokens.
+ */
+
+/* =============================================================================
+   BASE CHIP
+   ============================================================================= */
+
+.chip {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-3);
+  height: var(--size-9);
+  padding-inline: var(--size-5);
+  
+  /* Reset */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  
+  /* Typography */
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-0);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1px;
+  white-space: nowrap;
+  
+  /* Shape */
+  border-radius: var(--rad-corner-small);
+  
+  /* Base style */
+  background-color: transparent;
+  color: var(--onSurfaceVariant);
+  border: 1px solid var(--outline);
+  
+  /* State layer */
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  
+  /* Motion */
+  transition: 
+    background-color var(--motion-duration-short-2) var(--motion-easing-standard),
+    border-color var(--motion-duration-short-2) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.chip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity var(--motion-duration-short-2) var(--motion-easing-standard);
+  pointer-events: none;
+}
+
+.chip:hover::before {
+  opacity: var(--state-hover-opacity);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.chip:focus-visible::before {
+  opacity: var(--state-focus-opacity);
+}
+
+.chip:active::before {
+  opacity: var(--state-pressed-opacity);
+}
+
+.chip:disabled {
+  cursor: not-allowed;
+  opacity: var(--state-disabled-opacity);
+}
+
+/* =============================================================================
+   VARIANTS
+   ============================================================================= */
+
+/* Assist - For smart or contextual actions */
+.assist {
+  padding-left: var(--size-3);
+}
+
+/* Filter - For filtering content */
+.filter {
+  padding-left: var(--size-3);
+}
+
+/* Input - For user-entered information */
+.input {
+  padding-left: var(--size-3);
+  padding-right: var(--size-3);
+}
+
+/* Suggestion - For dynamically generated suggestions */
+.suggestion {
+  /* Same as base */
+}
+
+/* =============================================================================
+   ELEVATED STATE
+   ============================================================================= */
+
+.elevated {
+  background-color: var(--surfaceContainerLow);
+  border: none;
+  box-shadow: var(--elev-shadow-1);
+}
+
+.elevated:hover {
+  box-shadow: var(--elev-shadow-2);
+}
+
+/* =============================================================================
+   SELECTED STATE
+   ============================================================================= */
+
+.selected {
+  background-color: var(--secondaryContainer);
+  color: var(--onSecondaryContainer);
+  border-color: transparent;
+}
+
+.selected.elevated {
+  background-color: var(--secondaryContainer);
+  box-shadow: var(--elev-shadow-1);
+}
+
+/* =============================================================================
+   INNER ELEMENTS
+   ============================================================================= */
+
+.icon,
+.checkIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.icon svg,
+.checkIcon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.checkIcon {
+  color: var(--onSecondaryContainer);
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+}
+
+.removeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.removeButton svg {
+  width: 14px;
+  height: 14px;
+}
+
+.removeButton:hover {
+  background-color: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.removeButton:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+/* =============================================================================
+   CHIP GROUP
+   ============================================================================= */
+
+.chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-3);
+}

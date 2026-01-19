@@ -1,0 +1,251 @@
+/**
+ * M3 Button Styles
+ * 
+ * Material Design 3 button variants using design tokens.
+ * Uses state layers for hover/focus/active states.
+ * 
+ * Class Prefix: .ui-button (per DESIGN_SYSTEM.MD spec)
+ */
+
+/* =============================================================================
+   BASE BUTTON
+   ============================================================================= */
+
+.ui-button {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-3);
+  
+  /* Reset */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  
+  /* Typography */
+  font-family: var(--font-plain);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1px;
+  white-space: nowrap;
+  
+  /* Shape - default round */
+  border-radius: var(--rad-corner-full);
+  
+  /* Motion */
+  transition: 
+    background-color var(--motion-duration-short-2) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-short-2) var(--motion-easing-standard),
+    transform var(--motion-duration-short-1) var(--motion-easing-standard);
+  
+  /* State layer via pseudo-element */
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.ui-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity var(--motion-duration-short-2) var(--motion-easing-standard);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* State layers */
+.ui-button:hover::before {
+  opacity: var(--state-hover-opacity);
+}
+
+.ui-button:focus-visible::before {
+  opacity: var(--state-focus-opacity);
+}
+
+.ui-button:active::before {
+  opacity: var(--state-pressed-opacity);
+}
+
+/* Disabled state */
+.ui-button:disabled {
+  cursor: not-allowed;
+  opacity: var(--state-disabled-opacity);
+}
+
+.ui-button:disabled::before {
+  display: none;
+}
+
+/* Loading state */
+.ui-button--loading {
+  cursor: wait;
+}
+
+/* =============================================================================
+   VARIANTS
+   ============================================================================= */
+
+/* Filled - Primary emphasis */
+.ui-button--filled {
+  background-color: var(--primary);
+  color: var(--onPrimary);
+}
+
+/* Tonal - Secondary emphasis */
+.ui-button--tonal {
+  background-color: var(--secondaryContainer);
+  color: var(--onSecondaryContainer);
+}
+
+/* Outlined - Medium emphasis */
+.ui-button--outlined {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--outline);
+}
+
+.ui-button--outlined:focus-visible {
+  border-color: var(--primary);
+}
+
+/* Elevated - Low emphasis with shadow */
+.ui-button--elevated {
+  background-color: var(--surfaceContainerLow);
+  color: var(--primary);
+  box-shadow: var(--elev-shadow-1);
+}
+
+.ui-button--elevated:hover {
+  box-shadow: var(--elev-shadow-2);
+}
+
+.ui-button--elevated:active {
+  box-shadow: var(--elev-shadow-1);
+}
+
+/* Text - Lowest emphasis */
+.ui-button--text {
+  background-color: transparent;
+  color: var(--primary);
+  padding-inline: var(--size-4);
+}
+
+/* =============================================================================
+   SIZES (M3 Expressive)
+   ============================================================================= */
+
+/* Extra Small - 28px height */
+.ui-button--xs {
+  height: var(--size-8);
+  padding-inline: var(--size-4);
+  font-size: var(--type-scale-n1);
+}
+
+/* Small - 40px height (default) */
+.ui-button--sm {
+  height: var(--size-10);
+  padding-inline: var(--size-7);
+  font-size: var(--type-scale-0);
+}
+
+/* Medium - 48px height */
+.ui-button--md {
+  height: var(--size-11);
+  padding-inline: var(--size-7);
+  font-size: var(--type-scale-0);
+}
+
+/* Large - 56px height */
+.ui-button--lg {
+  height: var(--size-12);
+  padding-inline: var(--size-9);
+  font-size: var(--type-scale-1);
+}
+
+/* Extra Large - 72px height */
+.ui-button--xl {
+  height: var(--size-14);
+  padding-inline: var(--size-10);
+  font-size: var(--type-scale-2);
+}
+
+/* =============================================================================
+   SHAPES
+   ============================================================================= */
+
+.ui-button--round {
+  border-radius: var(--rad-corner-full);
+}
+
+.ui-button--square {
+  border-radius: var(--rad-corner-medium);
+}
+
+/* =============================================================================
+   MODIFIERS
+   ============================================================================= */
+
+.ui-button--full-width {
+  width: 100%;
+}
+
+.ui-button--icon-only {
+  padding-inline: 0;
+  aspect-ratio: 1;
+}
+
+/* =============================================================================
+   INNER ELEMENTS
+   ============================================================================= */
+
+.ui-button__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ui-button__icon svg {
+  width: 1.125em;
+  height: 1.125em;
+}
+
+/* Adjust icon size per button size */
+.ui-button--xs .ui-button__icon svg {
+  width: 1em;
+  height: 1em;
+}
+
+.ui-button--lg .ui-button__icon svg,
+.ui-button--xl .ui-button__icon svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+/* Loading spinner */
+.ui-button__spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ui-button__spinner svg {
+  width: 1.25em;
+  height: 1.25em;
+  animation: ui-button-spin 1s linear infinite;
+}
+
+@keyframes ui-button-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

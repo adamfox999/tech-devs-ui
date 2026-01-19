@@ -1,0 +1,175 @@
+/**
+ * M3 IconButton Styles
+ * 
+ * Material Design 3 icon button variants using design tokens.
+ */
+
+/* =============================================================================
+   BASE ICON BUTTON
+   ============================================================================= */
+
+.iconButton {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Reset */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  
+  /* Shape */
+  border-radius: 50%;
+  
+  /* State layer */
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  
+  /* Motion */
+  transition: 
+    background-color var(--motion-duration-short-2) var(--motion-easing-standard),
+    border-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.iconButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity var(--motion-duration-short-2) var(--motion-easing-standard);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.iconButton:hover::before {
+  opacity: var(--state-hover-opacity);
+}
+
+.iconButton:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.iconButton:focus-visible::before {
+  opacity: var(--state-focus-opacity);
+}
+
+.iconButton:active::before {
+  opacity: var(--state-pressed-opacity);
+}
+
+.iconButton:disabled {
+  cursor: not-allowed;
+  opacity: var(--state-disabled-opacity);
+}
+
+.iconButton:disabled::before {
+  display: none;
+}
+
+/* =============================================================================
+   SIZES
+   ============================================================================= */
+
+.sm {
+  width: var(--size-10);
+  height: var(--size-10);
+}
+
+.md {
+  width: var(--size-11);
+  height: var(--size-11);
+}
+
+.lg {
+  width: var(--size-12);
+  height: var(--size-12);
+}
+
+/* =============================================================================
+   VARIANTS
+   ============================================================================= */
+
+/* Standard - No container */
+.standard {
+  color: var(--onSurfaceVariant);
+}
+
+.standard.selected {
+  color: var(--primary);
+}
+
+/* Filled */
+.filled {
+  background-color: var(--primary);
+  color: var(--onPrimary);
+}
+
+.filled.selected {
+  background-color: var(--primary);
+  color: var(--onPrimary);
+}
+
+.filled:not(.selected) {
+  background-color: var(--surfaceContainerHighest);
+  color: var(--primary);
+}
+
+/* Tonal */
+.tonal {
+  background-color: var(--secondaryContainer);
+  color: var(--onSecondaryContainer);
+}
+
+.tonal.selected {
+  background-color: var(--secondaryContainer);
+  color: var(--onSecondaryContainer);
+}
+
+.tonal:not(.selected) {
+  background-color: var(--surfaceContainerHighest);
+  color: var(--onSurfaceVariant);
+}
+
+/* Outlined */
+.outlined {
+  border: 1px solid var(--outline);
+  color: var(--onSurfaceVariant);
+}
+
+.outlined.selected {
+  background-color: var(--inverseSurface);
+  color: var(--inverseOnSurface);
+  border-color: transparent;
+}
+
+/* =============================================================================
+   INNER ELEMENTS
+   ============================================================================= */
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.sm .icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.lg .icon svg {
+  width: 28px;
+  height: 28px;
+}

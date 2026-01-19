@@ -1,0 +1,219 @@
+/**
+ * M3 Dialog Styles
+ * 
+ * Material Design 3 dialog using design tokens.
+ * 
+ * Class Prefix: .ui-dialog (per DESIGN_SYSTEM.MD spec)
+ */
+
+/* =============================================================================
+   OVERLAY (SCRIM)
+   ============================================================================= */
+
+.ui-dialog__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: color-mix(in srgb, var(--scrim) 32%, transparent);
+  
+  /* Animation */
+  animation: ui-dialog-overlay-show var(--motion-duration-medium-2) var(--motion-easing-emphasized-decelerate);
+}
+
+@keyframes ui-dialog-overlay-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* =============================================================================
+   CONTENT (DIALOG CONTAINER)
+   ============================================================================= */
+
+.ui-dialog__content {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 50;
+  transform: translate(-50%, -50%);
+  
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  max-width: 560px;
+  max-height: 85vh;
+  
+  /* Style */
+  background-color: var(--surfaceContainerHigh);
+  color: var(--onSurface);
+  border-radius: var(--rad-corner-extra-large);
+  box-shadow: var(--elev-shadow-3);
+  
+  /* Padding */
+  padding: var(--size-7);
+  
+  /* Animation */
+  animation: ui-dialog-content-show var(--motion-duration-medium-2) var(--motion-easing-emphasized-decelerate);
+}
+
+@keyframes ui-dialog-content-show {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* =============================================================================
+   FULLSCREEN DIALOG
+   ============================================================================= */
+
+.ui-dialog--fullscreen {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
+  border-radius: 0;
+  padding: 0;
+  
+  animation: ui-dialog-fullscreen-show var(--motion-duration-medium-2) var(--motion-easing-emphasized-decelerate);
+}
+
+@keyframes ui-dialog-fullscreen-show {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.ui-dialog--fullscreen .ui-dialog__header {
+  padding: var(--size-5) var(--size-7);
+  border-bottom: 1px solid var(--outlineVariant);
+}
+
+.ui-dialog--fullscreen .ui-dialog__description {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--size-7);
+}
+
+.ui-dialog__close-button {
+  position: absolute;
+  top: var(--size-5);
+  right: var(--size-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-11);
+  height: var(--size-11);
+  border: none;
+  background: transparent;
+  color: var(--onSurfaceVariant);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.ui-dialog__close-button:hover {
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.ui-dialog__close-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.ui-dialog__close-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* =============================================================================
+   HEADER
+   ============================================================================= */
+
+.ui-dialog__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--size-5);
+  text-align: center;
+}
+
+/* Left-aligned variant (for dialogs without icon) */
+.ui-dialog__header:not(:has(.ui-dialog__icon)) {
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* =============================================================================
+   ICON
+   ============================================================================= */
+
+.ui-dialog__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+}
+
+.ui-dialog__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* =============================================================================
+   TITLE
+   ============================================================================= */
+
+.ui-dialog__title {
+  font-family: var(--font-brand);
+  font-size: var(--type-scale-5);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-large);
+  color: var(--onSurface);
+  margin: 0;
+}
+
+/* =============================================================================
+   DESCRIPTION (SUPPORTING TEXT)
+   ============================================================================= */
+
+.ui-dialog__description {
+  margin-top: var(--size-5);
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-0);
+  line-height: var(--line-height-small);
+  color: var(--onSurfaceVariant);
+}
+
+/* =============================================================================
+   ACTIONS
+   ============================================================================= */
+
+.ui-dialog__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--size-3);
+  margin-top: var(--size-7);
+}
+
+/* Fullscreen dialog actions in header */
+.ui-dialog--fullscreen .ui-dialog__actions {
+  position: absolute;
+  top: var(--size-5);
+  right: var(--size-14);
+  margin-top: 0;
+}

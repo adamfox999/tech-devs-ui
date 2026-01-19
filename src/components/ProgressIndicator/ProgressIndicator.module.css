@@ -1,0 +1,301 @@
+/**
+ * M3 Progress Indicator Styles
+ * 
+ * Material Design 3 progress indicators - linear and circular variants
+ * with determinate and indeterminate modes.
+ */
+
+/* ========================================
+   LINEAR PROGRESS INDICATOR
+   ======================================== */
+
+.linearContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--surfaceContainerHighest);
+}
+
+/* Size variants */
+.linearContainer[data-size="thin"] {
+  height: 4px;
+  border-radius: var(--rad-corner-full);
+}
+
+.linearContainer[data-size="default"] {
+  height: 4px;
+  border-radius: var(--rad-corner-full);
+}
+
+.linearContainer[data-size="thick"] {
+  height: 8px;
+  border-radius: var(--rad-corner-small);
+}
+
+/* Track */
+.linearTrack {
+  position: absolute;
+  inset: 0;
+  background: var(--surfaceContainerHighest);
+  border-radius: inherit;
+}
+
+/* Active indicator */
+.linearIndicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--primary);
+  border-radius: inherit;
+  transition: width var(--motion-duration-medium-2) var(--motion-easing-standard);
+}
+
+/* Stop indicator (determinate) */
+.linearStop {
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  width: 4px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: var(--rad-corner-full);
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.linearContainer[data-determinate="true"] .linearStop {
+  opacity: 1;
+}
+
+/* Indeterminate animation */
+.linearIndicator[data-indeterminate="true"] {
+  width: 50%;
+  animation: linearIndeterminate var(--motion-duration-extra-long-4) var(--motion-easing-standard) infinite;
+}
+
+@keyframes linearIndeterminate {
+  0% {
+    left: -50%;
+  }
+  50% {
+    left: 100%;
+  }
+  50.01% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Wavy variant animation */
+.linearContainer[data-wavy="true"] .linearIndicator[data-indeterminate="true"] {
+  animation: linearWavy var(--motion-duration-extra-long-4) var(--motion-easing-emphasized) infinite;
+  clip-path: url(#wavy-clip);
+}
+
+@keyframes linearWavy {
+  0% {
+    left: -60%;
+    transform: translateX(0);
+  }
+  100% {
+    left: 100%;
+    transform: translateX(0);
+  }
+}
+
+/* ========================================
+   CIRCULAR PROGRESS INDICATOR
+   ======================================== */
+
+.circularContainer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Size variants */
+.circularContainer[data-size="small"] {
+  width: 24px;
+  height: 24px;
+}
+
+.circularContainer[data-size="default"] {
+  width: 48px;
+  height: 48px;
+}
+
+.circularContainer[data-size="large"] {
+  width: 64px;
+  height: 64px;
+}
+
+.circularSvg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+/* Track circle */
+.circularTrack {
+  fill: none;
+  stroke: var(--surfaceContainerHighest);
+}
+
+.circularContainer[data-size="small"] .circularTrack {
+  stroke-width: 3px;
+}
+
+.circularContainer[data-size="default"] .circularTrack {
+  stroke-width: 4px;
+}
+
+.circularContainer[data-size="large"] .circularTrack {
+  stroke-width: 4px;
+}
+
+/* Indicator circle */
+.circularIndicator {
+  fill: none;
+  stroke: var(--primary);
+  stroke-linecap: round;
+  transition: stroke-dashoffset var(--motion-duration-medium-2) var(--motion-easing-standard);
+}
+
+.circularContainer[data-size="small"] .circularIndicator {
+  stroke-width: 3px;
+}
+
+.circularContainer[data-size="default"] .circularIndicator {
+  stroke-width: 4px;
+}
+
+.circularContainer[data-size="large"] .circularIndicator {
+  stroke-width: 4px;
+}
+
+/* Indeterminate animation */
+.circularSvg[data-indeterminate="true"] {
+  animation: circularRotate var(--motion-duration-extra-long-4) linear infinite;
+}
+
+.circularIndicator[data-indeterminate="true"] {
+  stroke-dasharray: 80, 200;
+  stroke-dashoffset: 0;
+  animation: circularDash var(--motion-duration-extra-long-2) var(--motion-easing-emphasized) infinite;
+}
+
+@keyframes circularRotate {
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes circularDash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -15;
+  }
+  100% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -125;
+  }
+}
+
+/* ========================================
+   COLOR VARIANTS
+   ======================================== */
+
+/* Primary (default) */
+.linearIndicator,
+.circularIndicator {
+  stroke: var(--primary);
+  background: var(--primary);
+}
+
+/* Secondary */
+[data-color="secondary"] .linearIndicator,
+[data-color="secondary"] .linearStop {
+  background: var(--secondary);
+}
+
+[data-color="secondary"] .circularIndicator {
+  stroke: var(--secondary);
+}
+
+/* Tertiary */
+[data-color="tertiary"] .linearIndicator,
+[data-color="tertiary"] .linearStop {
+  background: var(--tertiary);
+}
+
+[data-color="tertiary"] .circularIndicator {
+  stroke: var(--tertiary);
+}
+
+/* Error */
+[data-color="error"] .linearIndicator,
+[data-color="error"] .linearStop {
+  background: var(--error);
+}
+
+[data-color="error"] .circularIndicator {
+  stroke: var(--error);
+}
+
+/* ========================================
+   LABEL
+   ======================================== */
+
+.label {
+  position: absolute;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-label-small);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-label-small);
+  color: var(--onSurfaceVariant);
+}
+
+/* Linear label positioning */
+.linearContainer .label {
+  right: 0;
+  top: calc(100% + 4px);
+}
+
+/* Circular label (centered) */
+.circularContainer .label {
+  position: static;
+  margin-top: 8px;
+}
+
+/* Circular label inside */
+.circularLabelInside {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-plain);
+  font-size: var(--font-size-label-medium);
+  font-weight: var(--font-weight-medium);
+  color: var(--onSurface);
+}
+
+/* Buffer (for video/streaming progress) */
+.linearBuffer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--primaryContainer);
+  border-radius: inherit;
+  opacity: 0.38;
+  transition: width var(--motion-duration-medium-2) var(--motion-easing-standard);
+}

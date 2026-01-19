@@ -1,0 +1,260 @@
+/**
+ * M3 TextField Styles
+ * 
+ * Material Design 3 text input using design tokens.
+ */
+
+/* =============================================================================
+   BASE TEXT FIELD
+   ============================================================================= */
+
+.textField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2);
+  width: 100%;
+}
+
+/* =============================================================================
+   CONTAINER
+   ============================================================================= */
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: var(--size-5);
+  position: relative;
+  min-height: var(--size-12);
+  cursor: text;
+}
+
+/* =============================================================================
+   FILLED VARIANT
+   ============================================================================= */
+
+.filled .container {
+  background-color: var(--surfaceContainerHighest);
+  border-radius: var(--rad-corner-extra-small) var(--rad-corner-extra-small) 0 0;
+  padding: 0 var(--size-5);
+}
+
+.filled .activeIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--onSurfaceVariant);
+  transition: 
+    height var(--motion-duration-short-2) var(--motion-easing-standard),
+    background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.filled.focused .activeIndicator {
+  height: 2px;
+  background-color: var(--primary);
+}
+
+.filled.error .activeIndicator {
+  background-color: var(--error);
+}
+
+.filled:hover:not(.focused):not(.disabled) .container {
+  background-color: color-mix(in srgb, var(--surfaceContainerHighest) 92%, var(--onSurface));
+}
+
+/* =============================================================================
+   OUTLINED VARIANT
+   ============================================================================= */
+
+.outlined .container {
+  background-color: transparent;
+  border: 1px solid var(--outline);
+  border-radius: var(--rad-corner-extra-small);
+  padding: 0 var(--size-5);
+  transition: border-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.outlined.focused .container {
+  border-color: var(--primary);
+  border-width: 2px;
+  padding: 0 calc(var(--size-5) - 1px);
+}
+
+.outlined.error .container {
+  border-color: var(--error);
+}
+
+.outlined:hover:not(.focused):not(.disabled) .container {
+  border-color: var(--onSurface);
+}
+
+/* =============================================================================
+   INPUT WRAPPER
+   ============================================================================= */
+
+.inputWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: var(--size-3);
+  padding-bottom: var(--size-3);
+}
+
+/* =============================================================================
+   LABEL
+   ============================================================================= */
+
+.label {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--onSurfaceVariant);
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-1);
+  font-weight: var(--weight-regular);
+  pointer-events: none;
+  transition: 
+    transform var(--motion-duration-short-2) var(--motion-easing-standard),
+    font-size var(--motion-duration-short-2) var(--motion-easing-standard),
+    color var(--motion-duration-short-2) var(--motion-easing-standard);
+  transform-origin: left center;
+  white-space: nowrap;
+}
+
+.labelFloating {
+  transform: translateY(-120%);
+  font-size: var(--type-scale-n1);
+}
+
+/* Focused label color */
+.focused .label {
+  color: var(--primary);
+}
+
+/* Error label color */
+.error .label {
+  color: var(--error);
+}
+
+/* Outlined floating label background */
+.outlined .labelFloating {
+  background-color: var(--surface);
+  padding: 0 var(--size-1);
+  margin-left: calc(var(--size-1) * -1);
+}
+
+/* =============================================================================
+   INPUT
+   ============================================================================= */
+
+.input {
+  flex: 1;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--onSurface);
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-1);
+  line-height: var(--line-height-small);
+  caret-color: var(--primary);
+}
+
+.input::placeholder {
+  color: transparent;
+}
+
+.focused .input::placeholder {
+  color: var(--onSurfaceVariant);
+  opacity: 0.6;
+}
+
+.input:disabled {
+  color: var(--onSurface);
+  opacity: var(--state-disabled-opacity);
+  cursor: not-allowed;
+}
+
+/* Error caret color */
+.error .input {
+  caret-color: var(--error);
+}
+
+/* =============================================================================
+   ICONS
+   ============================================================================= */
+
+.leadingIcon,
+.trailingIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--onSurfaceVariant);
+  flex-shrink: 0;
+}
+
+.leadingIcon svg,
+.trailingIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.error .trailingIcon {
+  color: var(--error);
+}
+
+/* =============================================================================
+   PREFIX / SUFFIX
+   ============================================================================= */
+
+.prefix,
+.suffix {
+  color: var(--onSurfaceVariant);
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-1);
+  white-space: nowrap;
+}
+
+.prefix {
+  margin-right: var(--size-1);
+}
+
+.suffix {
+  margin-left: var(--size-1);
+}
+
+/* =============================================================================
+   SUPPORTING TEXT
+   ============================================================================= */
+
+.supportingText {
+  padding-inline: var(--size-5);
+  color: var(--onSurfaceVariant);
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-n1);
+  line-height: var(--line-height-small);
+}
+
+.error .supportingText {
+  color: var(--error);
+}
+
+/* =============================================================================
+   DISABLED STATE
+   ============================================================================= */
+
+.disabled {
+  pointer-events: none;
+}
+
+.disabled .container {
+  opacity: var(--state-disabled-container-opacity);
+}
+
+.disabled .label,
+.disabled .supportingText {
+  opacity: var(--state-disabled-opacity);
+}

@@ -1,0 +1,45 @@
+/**
+ * Size Scale - Foundation Layer
+ * 
+ * The base size scale that all other tokens reference.
+ * Uses a 4px grid system.
+ * 
+ * NEVER use hardcoded pixel values elsewhere - always reference --size-*
+ */
+
+@layer tokens {
+  :root {
+    /* =========================================================================
+       SIZE SCALE
+       Based on 4px increments for visual harmony
+       ========================================================================= */
+    
+    --size-1: 2px;
+    --size-2: 0.25rem;   /* 4px */
+    --size-3: 0.5rem;    /* 8px */
+    --size-4: 0.75rem;   /* 12px */
+    --size-5: 1rem;      /* 16px */
+    --size-6: 1.25rem;   /* 20px */
+    --size-7: 1.5rem;    /* 24px */
+    --size-8: 1.75rem;   /* 28px */
+    --size-9: 2rem;      /* 32px */
+    --size-10: 2.5rem;   /* 40px */
+    --size-11: 3rem;     /* 48px */
+    --size-12: 3.5rem;   /* 56px */
+    --size-13: 4rem;     /* 64px */
+    --size-14: 4.5rem;   /* 72px */
+    --size-15: 5rem;     /* 80px */
+    --size-16: 6rem;     /* 96px */
+    --size-17: 8rem;     /* 128px */
+    --size-18: 10rem;    /* 160px */
+    
+    /* =========================================================================
+       LAYOUT SIZES
+       Fixed sizes for layout components (navigation rails, sidebars, etc.)
+       ========================================================================= */
+    
+    --size-80: 320px;
+    --size-90: 360px;
+    --size-100: 400px;
+  }
+}

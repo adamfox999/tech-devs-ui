@@ -1,0 +1,99 @@
+/**
+ * Motion Tokens
+ * 
+ * Material Design 3 easing curves and duration scale.
+ * 
+ * @see https://m3.material.io/styles/motion/easing-and-duration/applying-easing-and-duration
+ */
+
+@layer tokens {
+  :root {
+    /* =========================================================================
+       DURATION SCALE
+       Duration increases as animation area/distance increases.
+       ========================================================================= */
+    
+    /* Short - Small utility animations (icons, switches) */
+    --motion-duration-short-1: 50ms;
+    --motion-duration-short-2: 100ms;
+    --motion-duration-short-3: 150ms;
+    --motion-duration-short-4: 200ms;
+    
+    /* Medium - Component animations (cards, menus) */
+    --motion-duration-medium-1: 250ms;
+    --motion-duration-medium-2: 300ms;
+    --motion-duration-medium-3: 350ms;
+    --motion-duration-medium-4: 400ms;
+    
+    /* Long - Page transitions, modals */
+    --motion-duration-long-1: 450ms;
+    --motion-duration-long-2: 500ms;
+    --motion-duration-long-3: 550ms;
+    --motion-duration-long-4: 600ms;
+    
+    /* Extra Long - Complex choreographed animations */
+    --motion-duration-extra-long-1: 700ms;
+    --motion-duration-extra-long-2: 800ms;
+    --motion-duration-extra-long-3: 900ms;
+    --motion-duration-extra-long-4: 1000ms;
+    
+    /* =========================================================================
+       EASING CURVES
+       
+       Standard: Utility-focused animations (functional, less expressive)
+       Emphasized: Common M3-styled animations (expressive, branded)
+       Linear: Simple, non-stylized motion (progress bars, color fades)
+       ========================================================================= */
+    
+    /* Standard - Utility animations that start and end on screen */
+    --motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+    
+    /* Standard Decelerate - Utility animations entering the screen */
+    --motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+    
+    /* Standard Accelerate - Utility animations exiting the screen */
+    --motion-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
+    
+    /* Emphasized - M3-styled animations that start and end on screen
+       Note: M3 spec uses a path curve; this is the CSS cubic-bezier approximation */
+    --motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+    
+    /* Emphasized Decelerate - M3-styled animations entering the screen */
+    --motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+    
+    /* Emphasized Accelerate - M3-styled animations exiting the screen */
+    --motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+    
+    /* Linear - Non-stylized motion (progress indicators, color transitions) */
+    --motion-easing-linear: cubic-bezier(0, 0, 1, 1);
+    
+    /* =========================================================================
+       SPRING PARAMETERS (for JS animations)
+       
+       Fast: Small components (switches, buttons)
+       Default: Partial screen (bottom sheets, drawers)
+       Slow: Full screen animations
+       
+       Spatial: Position animations (x, y, scale)
+       Effects: Non-overshooting animations (color, opacity)
+       ========================================================================= */
+    
+    /* Fast Springs - Small component animations */
+    --motion-spring-fast-spatial-damping: 0.9;
+    --motion-spring-fast-spatial-stiffness: 1400;
+    --motion-spring-fast-effects-damping: 1;
+    --motion-spring-fast-effects-stiffness: 3800;
+    
+    /* Default Springs - Partial screen animations */
+    --motion-spring-default-spatial-damping: 0.9;
+    --motion-spring-default-spatial-stiffness: 700;
+    --motion-spring-default-effects-damping: 1;
+    --motion-spring-default-effects-stiffness: 1600;
+    
+    /* Slow Springs - Full screen animations */
+    --motion-spring-slow-spatial-damping: 0.9;
+    --motion-spring-slow-spatial-stiffness: 300;
+    --motion-spring-slow-effects-damping: 1;
+    --motion-spring-slow-effects-stiffness: 800;
+  }
+}

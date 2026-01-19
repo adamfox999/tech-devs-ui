@@ -1,0 +1,208 @@
+/**
+ * M3 Snackbar Styles
+ * 
+ * Material Design 3 snackbar using design tokens.
+ */
+
+/* =============================================================================
+   VIEWPORT
+   ============================================================================= */
+
+.viewport {
+  position: fixed;
+  bottom: var(--size-7);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-3);
+  max-width: 100vw;
+  padding: 0 var(--size-5);
+  pointer-events: none;
+}
+
+/* Mobile: full width at bottom */
+@media (max-width: 599px) {
+  .viewport {
+    bottom: var(--size-5);
+    left: 0;
+    right: 0;
+    transform: none;
+  }
+}
+
+/* =============================================================================
+   SNACKBAR CONTAINER
+   ============================================================================= */
+
+.snackbar {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  gap: var(--size-3);
+  min-height: var(--size-11);
+  padding: 0 var(--size-3) 0 var(--size-5);
+  
+  /* Style */
+  background-color: var(--inverseSurface);
+  color: var(--inverseOnSurface);
+  border-radius: var(--rad-corner-extra-small);
+  box-shadow: var(--elev-shadow-3);
+  
+  /* Pointer events */
+  pointer-events: auto;
+  
+  /* Animation */
+  animation: snackbarIn var(--motion-duration-medium-1) var(--motion-easing-emphasized-decelerate);
+}
+
+.snackbar[data-state='closed'] {
+  animation: snackbarOut var(--motion-duration-short-4) var(--motion-easing-emphasized-accelerate);
+}
+
+@keyframes snackbarIn {
+  from {
+    opacity: 0;
+    transform: translateY(100%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes snackbarOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%) scale(0.95);
+  }
+}
+
+/* =============================================================================
+   MULTILINE VARIANT
+   ============================================================================= */
+
+.multiline {
+  flex-direction: column;
+  align-items: stretch;
+  padding: var(--size-4) var(--size-3) var(--size-3) var(--size-5);
+  gap: var(--size-2);
+}
+
+.multiline .message {
+  /* Allow wrapping */
+}
+
+.multiline .action,
+.multiline .close {
+  align-self: flex-end;
+}
+
+/* =============================================================================
+   MESSAGE
+   ============================================================================= */
+
+.message {
+  flex: 1;
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-0);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-small);
+  color: var(--inverseOnSurface);
+}
+
+/* =============================================================================
+   ACTION BUTTON
+   ============================================================================= */
+
+.action {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--size-10);
+  padding: 0 var(--size-4);
+  
+  /* Reset */
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  
+  /* Typography */
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-0);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1px;
+  
+  /* Color */
+  color: var(--inversePrimary);
+  
+  /* Shape */
+  border-radius: var(--rad-corner-full);
+  
+  /* Transition */
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.action:hover {
+  background-color: color-mix(in srgb, var(--inversePrimary) 8%, transparent);
+}
+
+.action:focus-visible {
+  outline: 2px solid var(--inversePrimary);
+  outline-offset: 2px;
+}
+
+.action:active {
+  background-color: color-mix(in srgb, var(--inversePrimary) 12%, transparent);
+}
+
+/* =============================================================================
+   CLOSE BUTTON
+   ============================================================================= */
+
+.close {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-11);
+  height: var(--size-11);
+  
+  /* Reset */
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  
+  /* Color */
+  color: var(--inverseOnSurface);
+  
+  /* Shape */
+  border-radius: 50%;
+  
+  /* Transition */
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.close svg {
+  width: 20px;
+  height: 20px;
+}
+
+.close:hover {
+  background-color: color-mix(in srgb, var(--inverseOnSurface) 8%, transparent);
+}
+
+.close:focus-visible {
+  outline: 2px solid var(--inversePrimary);
+  outline-offset: 2px;
+}
+
+.close:active {
+  background-color: color-mix(in srgb, var(--inverseOnSurface) 12%, transparent);
+}

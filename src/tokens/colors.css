@@ -1,0 +1,242 @@
+/**
+ * Color Tokens
+ * 
+ * Material Design 3 color system with automatic light/dark mode via light-dark().
+ * Includes contrast mode variants for accessibility.
+ * 
+ * Generated from _colors.scss
+ */
+
+:root {
+  color-scheme: light dark;
+  
+  /* Primary */
+  --primary: light-dark(#4f1c9e, #d3bbff);
+  --surfaceTint: light-dark(#6f43c0, #d3bbff);
+  --onPrimary: light-dark(#ffffff, #3f008d);
+  --primaryContainer: light-dark(#673ab7, #673ab7);
+  --onPrimaryContainer: light-dark(#d8c2ff, #d8c2ff);
+  
+  /* Secondary */
+  --secondary: light-dark(#675687, #d1bdf5);
+  --onSecondary: light-dark(#ffffff, #372855);
+  --secondaryContainer: light-dark(#dac5fe, #4e3e6d);
+  --onSecondaryContainer: light-dark(#605080, #c0ace3);
+  
+  /* Tertiary */
+  --tertiary: light-dark(#770860, #ffade0);
+  --onTertiary: light-dark(#ffffff, #60004c);
+  --tertiaryContainer: light-dark(#952979, #952979);
+  --onTertiaryContainer: light-dark(#ffb6e2, #ffb6e2);
+  
+  /* Error */
+  --error: light-dark(#ba1a1a, #ffb4ab);
+  --onError: light-dark(#ffffff, #690005);
+  --errorContainer: light-dark(#ffdad6, #93000a);
+  --onErrorContainer: light-dark(#93000a, #ffdad6);
+  
+  /* Background & Surface */
+  --background: light-dark(#fef7ff, #15121a);
+  --onBackground: light-dark(#1d1a22, #e7e0eb);
+  --surface: light-dark(#fef7ff, #15121a);
+  --onSurface: light-dark(#1d1a22, #e7e0eb);
+  --surfaceVariant: light-dark(#e8dff1, #4a4453);
+  --onSurfaceVariant: light-dark(#4a4453, #ccc3d5);
+  
+  /* Outline */
+  --outline: light-dark(#7b7484, #958e9e);
+  --outlineVariant: light-dark(#ccc3d5, #4a4453);
+  
+  /* Utility */
+  --shadow: light-dark(#000000, #000000);
+  --scrim: light-dark(#000000, #000000);
+  
+  /* Inverse */
+  --inverseSurface: light-dark(#322f37, #e7e0eb);
+  --inverseOnSurface: light-dark(#f6eef9, #322f37);
+  --inversePrimary: light-dark(#d3bbff, #6f43c0);
+  
+  /* Fixed Colors (don't change with theme) */
+  --primaryFixed: light-dark(#ebddff, #ebddff);
+  --onPrimaryFixed: light-dark(#250059, #250059);
+  --primaryFixedDim: light-dark(#d3bbff, #d3bbff);
+  --onPrimaryFixedVariant: light-dark(#5727a6, #5727a6);
+  --secondaryFixed: light-dark(#ebddff, #ebddff);
+  --onSecondaryFixed: light-dark(#22123f, #22123f);
+  --secondaryFixedDim: light-dark(#d1bdf5, #d1bdf5);
+  --onSecondaryFixedVariant: light-dark(#4e3e6d, #4e3e6d);
+  --tertiaryFixed: light-dark(#ffd8ed, #ffd8ed);
+  --onTertiaryFixed: light-dark(#3b002e, #3b002e);
+  --tertiaryFixedDim: light-dark(#ffade0, #ffade0);
+  --onTertiaryFixedVariant: light-dark(#811568, #811568);
+  
+  /* Surface Containers (elevation tones) */
+  --surfaceDim: light-dark(#dfd7e3, #15121a);
+  --surfaceBright: light-dark(#fef7ff, #3b3840);
+  --surfaceContainerLowest: light-dark(#ffffff, #100d14);
+  --surfaceContainerLow: light-dark(#f9f1fc, #1d1a22);
+  --surfaceContainer: light-dark(#f3ebf7, #211e26);
+  --surfaceContainerHigh: light-dark(#ede6f1, #2c2931);
+  --surfaceContainerHighest: light-dark(#e7e0eb, #37333c);
+}
+
+/* Medium Contrast Mode */
+:root[data-contrast="medium"] {
+  --primary: light-dark(#460a95, #e5d5ff);
+  --surfaceTint: light-dark(#6f43c0, #d3bbff);
+  --onPrimary: light-dark(#ffffff, #320072);
+  --primaryContainer: light-dark(#673ab7, #a478f7);
+  --onPrimaryContainer: light-dark(#fff9fd, #000000);
+  --secondary: light-dark(#3d2e5b, #e5d5ff);
+  --onSecondary: light-dark(#ffffff, #2c1d4a);
+  --secondaryContainer: light-dark(#766596, #9a88bc);
+  --onSecondaryContainer: light-dark(#ffffff, #000000);
+  --tertiary: light-dark(#6a0054, #ffcfe9);
+  --onTertiary: light-dark(#ffffff, #4d003d);
+  --tertiaryContainer: light-dark(#952979, #dc66b7);
+  --onTertiaryContainer: light-dark(#fffafa, #000000);
+  --error: light-dark(#740006, #ffd2cc);
+  --onError: light-dark(#ffffff, #540003);
+  --errorContainer: light-dark(#cf2c27, #ff5449);
+  --onErrorContainer: light-dark(#ffffff, #000000);
+  --background: light-dark(#fef7ff, #15121a);
+  --onBackground: light-dark(#1d1a22, #e7e0eb);
+  --surface: light-dark(#fef7ff, #15121a);
+  --onSurface: light-dark(#131017, #ffffff);
+  --surfaceVariant: light-dark(#e8dff1, #4a4453);
+  --onSurfaceVariant: light-dark(#393442, #e2d9eb);
+  --outline: light-dark(#56505f, #b7afc0);
+  --outlineVariant: light-dark(#716a7a, #958d9e);
+  --shadow: light-dark(#000000, #000000);
+  --scrim: light-dark(#000000, #000000);
+  --inverseSurface: light-dark(#322f37, #e7e0eb);
+  --inverseOnSurface: light-dark(#f6eef9, #2c2931);
+  --inversePrimary: light-dark(#d3bbff, #5828a8);
+  --primaryFixed: light-dark(#7f53d0, #ebddff);
+  --onPrimaryFixed: light-dark(#ffffff, #19003f);
+  --primaryFixedDim: light-dark(#6538b5, #d3bbff);
+  --onPrimaryFixedVariant: light-dark(#ffffff, #460a95);
+  --secondaryFixed: light-dark(#766596, #ebddff);
+  --onSecondaryFixed: light-dark(#ffffff, #170634);
+  --secondaryFixedDim: light-dark(#5d4c7c, #d1bdf5);
+  --onSecondaryFixedVariant: light-dark(#ffffff, #3d2e5b);
+  --tertiaryFixed: light-dark(#b14291, #ffd8ed);
+  --onTertiaryFixed: light-dark(#ffffff, #29001f);
+  --tertiaryFixedDim: light-dark(#932777, #ffade0);
+  --onTertiaryFixedVariant: light-dark(#ffffff, #6a0054);
+  --surfaceDim: light-dark(#cbc4cf, #15121a);
+  --surfaceBright: light-dark(#fef7ff, #47434c);
+  --surfaceContainerLowest: light-dark(#ffffff, #08060d);
+  --surfaceContainerLow: light-dark(#f9f1fc, #1f1c24);
+  --surfaceContainer: light-dark(#ede6f1, #2a262f);
+  --surfaceContainerHigh: light-dark(#e2dae5, #353139);
+  --surfaceContainerHighest: light-dark(#d6cfda, #403c45);
+}
+
+/* High Contrast Mode */
+:root[data-contrast="high"] {
+  --primary: light-dark(#3a0082, #f6ecff);
+  --surfaceTint: light-dark(#6f43c0, #d3bbff);
+  --onPrimary: light-dark(#ffffff, #000000);
+  --primaryContainer: light-dark(#592aa9, #d0b6ff);
+  --onPrimaryContainer: light-dark(#ffffff, #110031);
+  --secondary: light-dark(#332451, #f6ecff);
+  --onSecondary: light-dark(#ffffff, #000000);
+  --secondaryContainer: light-dark(#514170, #cdb9f1);
+  --onSecondaryContainer: light-dark(#ffffff, #11012e);
+  --tertiary: light-dark(#580046, #ffebf3);
+  --onTertiary: light-dark(#ffffff, #000000);
+  --tertiaryContainer: light-dark(#84196b, #ffa7de);
+  --onTertiaryContainer: light-dark(#ffffff, #1e0016);
+  --error: light-dark(#600004, #ffece9);
+  --onError: light-dark(#ffffff, #000000);
+  --errorContainer: light-dark(#98000a, #ffaea4);
+  --onErrorContainer: light-dark(#ffffff, #220001);
+  --background: light-dark(#fef7ff, #15121a);
+  --onBackground: light-dark(#1d1a22, #e7e0eb);
+  --surface: light-dark(#fef7ff, #15121a);
+  --onSurface: light-dark(#000000, #ffffff);
+  --surfaceVariant: light-dark(#e8dff1, #4a4453);
+  --onSurfaceVariant: light-dark(#000000, #ffffff);
+  --outline: light-dark(#2f2a37, #f6ecff);
+  --outlineVariant: light-dark(#4c4755, #c8bfd1);
+  --shadow: light-dark(#000000, #000000);
+  --scrim: light-dark(#000000, #000000);
+  --inverseSurface: light-dark(#322f37, #e7e0eb);
+  --inverseOnSurface: light-dark(#ffffff, #000000);
+  --inversePrimary: light-dark(#d3bbff, #5828a8);
+  --primaryFixed: light-dark(#592aa9, #ebddff);
+  --onPrimaryFixed: light-dark(#ffffff, #000000);
+  --primaryFixedDim: light-dark(#420192, #d3bbff);
+  --onPrimaryFixedVariant: light-dark(#ffffff, #19003f);
+  --secondaryFixed: light-dark(#514170, #ebddff);
+  --onSecondaryFixed: light-dark(#ffffff, #000000);
+  --secondaryFixedDim: light-dark(#3a2a58, #d1bdf5);
+  --onSecondaryFixedVariant: light-dark(#ffffff, #170634);
+  --tertiaryFixed: light-dark(#84196b, #ffd8ed);
+  --onTertiaryFixed: light-dark(#ffffff, #000000);
+  --tertiaryFixedDim: light-dark(#64004f, #ffade0);
+  --onTertiaryFixedVariant: light-dark(#ffffff, #29001f);
+  --surfaceDim: light-dark(#bdb6c1, #15121a);
+  --surfaceBright: light-dark(#fef7ff, #534e57);
+  --surfaceContainerLowest: light-dark(#ffffff, #000000);
+  --surfaceContainerLow: light-dark(#f6eef9, #211e26);
+  --surfaceContainer: light-dark(#e7e0eb, #322f37);
+  --surfaceContainerHigh: light-dark(#d9d2dd, #3e3a42);
+  --surfaceContainerHighest: light-dark(#cbc4cf, #49454e);
+}
+
+/* Auto high contrast based on system preference */
+@media (prefers-contrast: more) {
+  :root:not([data-contrast]) {
+    --primary: light-dark(#3a0082, #f6ecff);
+    --surfaceTint: light-dark(#6f43c0, #d3bbff);
+    --onPrimary: light-dark(#ffffff, #000000);
+    --primaryContainer: light-dark(#592aa9, #d0b6ff);
+    --onPrimaryContainer: light-dark(#ffffff, #110031);
+    --secondary: light-dark(#332451, #f6ecff);
+    --onSecondary: light-dark(#ffffff, #000000);
+    --secondaryContainer: light-dark(#514170, #cdb9f1);
+    --onSecondaryContainer: light-dark(#ffffff, #11012e);
+    --tertiary: light-dark(#580046, #ffebf3);
+    --onTertiary: light-dark(#ffffff, #000000);
+    --tertiaryContainer: light-dark(#84196b, #ffa7de);
+    --onTertiaryContainer: light-dark(#ffffff, #1e0016);
+    --error: light-dark(#600004, #ffece9);
+    --onError: light-dark(#ffffff, #000000);
+    --errorContainer: light-dark(#98000a, #ffaea4);
+    --onErrorContainer: light-dark(#ffffff, #220001);
+    --background: light-dark(#fef7ff, #15121a);
+    --onBackground: light-dark(#1d1a22, #e7e0eb);
+    --surface: light-dark(#fef7ff, #15121a);
+    --onSurface: light-dark(#000000, #ffffff);
+    --surfaceVariant: light-dark(#e8dff1, #4a4453);
+    --onSurfaceVariant: light-dark(#000000, #ffffff);
+    --outline: light-dark(#2f2a37, #f6ecff);
+    --outlineVariant: light-dark(#4c4755, #c8bfd1);
+    --shadow: light-dark(#000000, #000000);
+    --scrim: light-dark(#000000, #000000);
+    --inverseSurface: light-dark(#322f37, #e7e0eb);
+    --inverseOnSurface: light-dark(#ffffff, #000000);
+    --inversePrimary: light-dark(#d3bbff, #5828a8);
+    --primaryFixed: light-dark(#592aa9, #ebddff);
+    --onPrimaryFixed: light-dark(#ffffff, #000000);
+    --primaryFixedDim: light-dark(#420192, #d3bbff);
+    --onPrimaryFixedVariant: light-dark(#ffffff, #19003f);
+    --secondaryFixed: light-dark(#514170, #ebddff);
+    --onSecondaryFixed: light-dark(#ffffff, #000000);
+    --secondaryFixedDim: light-dark(#3a2a58, #d1bdf5);
+    --onSecondaryFixedVariant: light-dark(#ffffff, #170634);
+    --tertiaryFixed: light-dark(#84196b, #ffd8ed);
+    --onTertiaryFixed: light-dark(#ffffff, #000000);
+    --tertiaryFixedDim: light-dark(#64004f, #ffade0);
+    --onTertiaryFixedVariant: light-dark(#ffffff, #29001f);
+    --surfaceDim: light-dark(#bdb6c1, #15121a);
+    --surfaceBright: light-dark(#fef7ff, #534e57);
+    --surfaceContainerLowest: light-dark(#ffffff, #000000);
+    --surfaceContainerLow: light-dark(#f6eef9, #211e26);
+    --surfaceContainer: light-dark(#e7e0eb, #322f37);
+    --surfaceContainerHigh: light-dark(#d9d2dd, #3e3a42);
+    --surfaceContainerHighest: light-dark(#cbc4cf, #49454e);
+  }
+}

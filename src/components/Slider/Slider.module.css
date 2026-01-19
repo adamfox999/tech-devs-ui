@@ -1,0 +1,347 @@
+/**
+ * M3 Slider Styles
+ * 
+ * Material Design 3 slider with standard, centered, and range variants.
+ * Supports discrete steps with stop indicators.
+ */
+
+/* ========================================
+   CONTAINER
+   ======================================== */
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 44px;
+  touch-action: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.container:focus-visible {
+  outline: none;
+}
+
+.container[data-disabled="true"] {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+/* Vertical orientation */
+.container[data-orientation="vertical"] {
+  flex-direction: column;
+  width: 44px;
+  min-height: 200px;
+}
+
+/* ========================================
+   TRACK
+   ======================================== */
+
+.track {
+  position: relative;
+  flex: 1;
+  height: 16px;
+  border-radius: var(--rad-corner-full);
+  background: var(--surfaceContainerHighest);
+  overflow: hidden;
+}
+
+/* Vertical track */
+.container[data-orientation="vertical"] .track {
+  width: 16px;
+  height: 100%;
+}
+
+/* Size variants */
+.container[data-size="xs"] .track { height: 4px; }
+.container[data-size="sm"] .track { height: 8px; }
+.container[data-size="md"] .track { height: 16px; }
+.container[data-size="lg"] .track { height: 20px; }
+.container[data-size="xl"] .track { height: 24px; }
+
+/* Active track (filled portion) */
+.activeTrack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--primary);
+  border-radius: inherit;
+  transition: width 50ms ease-out;
+}
+
+/* Vertical active track */
+.container[data-orientation="vertical"] .activeTrack {
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--active-track-height, 0%);
+}
+
+/* Centered slider - active track from center */
+.container[data-centered="true"] .activeTrack {
+  left: 50%;
+}
+
+.container[data-centered="true"][data-value-negative="true"] .activeTrack {
+  left: auto;
+  right: 50%;
+}
+
+/* Inactive track */
+.inactiveTrack {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background: var(--surfaceContainerHighest);
+  border-radius: inherit;
+}
+
+/* ========================================
+   THUMB
+   ======================================== */
+
+.thumb {
+  position: absolute;
+  top: 50%;
+  width: 4px;
+  height: 44px;
+  background: var(--primary);
+  border-radius: var(--rad-corner-full);
+  transform: translate(-50%, -50%);
+  transition: 
+    box-shadow var(--motion-duration-short-2) var(--motion-easing-standard),
+    width var(--motion-duration-short-2) var(--motion-easing-standard);
+  z-index: 1;
+  cursor: grab;
+}
+
+.thumb:active {
+  cursor: grabbing;
+}
+
+/* Thumb gap - space between thumb and track */
+.thumb::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  border-radius: var(--rad-corner-full);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Thumb halo on focus/hover */
+.thumb:focus-visible {
+  outline: none;
+}
+
+.thumb::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--primary);
+  opacity: var(--state-hover-opacity);
+  border-radius: var(--rad-corner-full);
+  transform: translate(-50%, -50%);
+  transition: all var(--motion-duration-short-2) var(--motion-easing-standard);
+  pointer-events: none;
+}
+
+.thumb:hover::after {
+  width: 40px;
+  height: 40px;
+}
+
+.thumb:focus-visible::after {
+  width: 40px;
+  height: 40px;
+  opacity: var(--state-focus-opacity);
+}
+
+.thumb:active::after {
+  width: 40px;
+  height: 40px;
+  opacity: var(--state-pressed-opacity);
+}
+
+/* Vertical thumb */
+.container[data-orientation="vertical"] .thumb {
+  top: auto;
+  left: 50%;
+  width: 44px;
+  height: 4px;
+  transform: translate(-50%, 50%);
+}
+
+/* Size-specific thumb heights */
+.container[data-size="xs"] .thumb { height: 24px; }
+.container[data-size="sm"] .thumb { height: 32px; }
+.container[data-size="md"] .thumb { height: 44px; }
+.container[data-size="lg"] .thumb { height: 48px; }
+.container[data-size="xl"] .thumb { height: 52px; }
+
+/* ========================================
+   VALUE INDICATOR (TOOLTIP)
+   ======================================== */
+
+.valueIndicator {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 12px;
+  background: var(--inverseSurface);
+  color: var(--inverseOnSurface);
+  border-radius: var(--rad-corner-small);
+  font-family: var(--font-plain);
+  font-size: var(--font-size-label-medium);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: 
+    opacity var(--motion-duration-short-2) var(--motion-easing-standard),
+    visibility var(--motion-duration-short-2) var(--motion-easing-standard);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Show value indicator on interaction */
+.thumb:hover .valueIndicator,
+.thumb:focus-visible .valueIndicator,
+.thumb:active .valueIndicator,
+.container[data-show-value="always"] .valueIndicator {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Arrow pointer */
+.valueIndicator::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--inverseSurface);
+}
+
+/* ========================================
+   STOP INDICATORS (DISCRETE)
+   ======================================== */
+
+.stops {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2px;
+  pointer-events: none;
+}
+
+.stop {
+  width: 4px;
+  height: 4px;
+  border-radius: var(--rad-corner-full);
+  background: var(--onSurfaceVariant);
+  opacity: 0.38;
+}
+
+/* Active stop (filled area) */
+.stop[data-active="true"] {
+  background: var(--onPrimary);
+  opacity: 1;
+}
+
+/* ========================================
+   RANGE SLIDER
+   ======================================== */
+
+.rangeTrack {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: var(--primary);
+  border-radius: inherit;
+}
+
+/* ========================================
+   ICONS (INSET)
+   ======================================== */
+
+.startIcon,
+.endIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--onSurfaceVariant);
+  flex-shrink: 0;
+}
+
+.startIcon {
+  margin-right: 8px;
+}
+
+.endIcon {
+  margin-left: 8px;
+}
+
+/* ========================================
+   LABEL
+   ======================================== */
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-body-medium);
+  font-weight: var(--font-weight-medium);
+  color: var(--onSurface);
+}
+
+/* ========================================
+   COLOR VARIANTS
+   ======================================== */
+
+[data-color="secondary"] .activeTrack,
+[data-color="secondary"] .rangeTrack,
+[data-color="secondary"] .thumb {
+  background: var(--secondary);
+}
+
+[data-color="secondary"] .thumb::after {
+  background: var(--secondary);
+}
+
+[data-color="secondary"] .stop[data-active="true"] {
+  background: var(--onSecondary);
+}
+
+[data-color="tertiary"] .activeTrack,
+[data-color="tertiary"] .rangeTrack,
+[data-color="tertiary"] .thumb {
+  background: var(--tertiary);
+}
+
+[data-color="tertiary"] .thumb::after {
+  background: var(--tertiary);
+}
+
+[data-color="tertiary"] .stop[data-active="true"] {
+  background: var(--onTertiary);
+}

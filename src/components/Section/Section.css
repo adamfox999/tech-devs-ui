@@ -1,0 +1,21 @@
+/* Section Component
+   Layout primitive for vertical rhythm and horizontal padding.
+   Uses semantic spacing tokens from spacing.css
+*/
+
+.ui-section {
+  /* Horizontal padding (left/right) */
+  padding-inline: var(--section-padding-inline, var(--margin-horizontal));
+  
+  /* Vertical margin (top/bottom) */
+  margin-block: var(--section-margin-block, var(--margin-vertical));
+}
+
+/* Variants */
+.ui-section--flush {
+  padding-inline: 0;
+}
+
+.ui-section--tight {
+  margin-block: 0;
+}

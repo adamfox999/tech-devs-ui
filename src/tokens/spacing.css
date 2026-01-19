@@ -1,0 +1,96 @@
+/**
+ * Spacing Tokens
+ *
+ * Use --size-* directly for component spacing.
+ * Semantic variables (e.g. --margin, --padding) handle responsive layout.
+ *
+ * Depends on: size.css, breakpoints.css (must be imported first)
+ */
+
+@layer tokens {
+  :root {
+    /* =========================================================================
+       SEMANTIC SPACING
+       Contextual spacing for layout (responsive)
+       ========================================================================= */
+    
+    --margin-vertical: var(--size-7);
+    --margin-horizontal: var(--size-7);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Responsive spacing overrides */
+
+/* Compact: --bp-compact-max (max-width: 599px) */
+@media (max-width: 599px) {
+  :root {
+    --margin-vertical: var(--size-4);
+    --margin-horizontal: var(--size-4);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Medium: --bp-medium-min to --bp-medium-max (600-839px) */
+@media (min-width: 600px) and (max-width: 839px) {
+  :root {
+    --margin-vertical: var(--size-7);
+    --margin-horizontal: var(--size-7);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Expanded: --bp-expanded-min to --bp-expanded-max (840-1199px) */
+@media (min-width: 840px) and (max-width: 1199px) {
+  :root {
+    --margin-vertical: var(--size-9);
+    --margin-horizontal: var(--size-9);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Large: --bp-large-min to --bp-large-max (1200-1599px) */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  :root {
+    --margin-vertical: var(--size-9);
+    --margin-horizontal: var(--size-9);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Extra Large: --bp-extra-large-min (>= 1600px) */
+@media (min-width: 1600px) {
+  :root {
+    --margin-vertical: var(--size-9);
+    --margin-horizontal: var(--size-9);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Icon utilities */
+.icon-mini {
+  height: var(--size-6);
+  width: var(--size-6);
+}
+
+.icon-small {
+  height: var(--size-7);
+  width: var(--size-7);
+}
+
+.icon-medium {
+  height: var(--size-10);
+  width: var(--size-10);
+}

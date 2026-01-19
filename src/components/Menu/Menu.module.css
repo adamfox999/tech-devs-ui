@@ -1,0 +1,273 @@
+/**
+ * M3 Menu Styles
+ * 
+ * Material Design 3 dropdown menus with items, icons, and dividers.
+ * Built on Radix UI primitives for accessibility.
+ */
+
+/* ========================================
+   MENU TRIGGER
+   ======================================== */
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   MENU CONTENT (DROPDOWN)
+   ======================================== */
+
+.content {
+  min-width: 112px;
+  max-width: 280px;
+  padding: 8px 0;
+  background: var(--surfaceContainer);
+  border-radius: var(--rad-corner-extra-small);
+  box-shadow: var(--elevation-2);
+  z-index: 50;
+  overflow: hidden;
+  
+  /* Animation origin */
+  transform-origin: var(--radix-dropdown-menu-content-transform-origin);
+}
+
+/* Animation */
+.content[data-state="open"] {
+  animation: menuOpen var(--motion-duration-medium-2) var(--motion-easing-emphasized-decelerate);
+}
+
+.content[data-state="closed"] {
+  animation: menuClose var(--motion-duration-short-2) var(--motion-easing-emphasized-accelerate);
+}
+
+@keyframes menuOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes menuClose {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* ========================================
+   MENU ITEM
+   ======================================== */
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 8px 12px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body-large);
+  color: var(--onSurface);
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+/* Hover state */
+.item[data-highlighted] {
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+/* Focus state */
+.item:focus-visible {
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-focus-opacity) * 100%), transparent);
+}
+
+/* Disabled state */
+.item[data-disabled] {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+/* ========================================
+   ITEM ICONS
+   ======================================== */
+
+.itemLeadingIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  color: var(--onSurfaceVariant);
+  flex-shrink: 0;
+}
+
+.itemTrailingIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  padding-left: 12px;
+  color: var(--onSurfaceVariant);
+  flex-shrink: 0;
+}
+
+/* Trailing text (keyboard shortcut) */
+.itemTrailingText {
+  margin-left: auto;
+  padding-left: 12px;
+  font-size: var(--font-size-body-medium);
+  color: var(--onSurfaceVariant);
+}
+
+/* ========================================
+   CHECKBOX / RADIO ITEM
+   ======================================== */
+
+.checkboxItem,
+.radioItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 8px 12px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body-large);
+  color: var(--onSurface);
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.checkboxItem[data-highlighted],
+.radioItem[data-highlighted] {
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.checkboxItem[data-disabled],
+.radioItem[data-disabled] {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+/* Indicator container */
+.itemIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  color: var(--primary);
+}
+
+/* ========================================
+   DIVIDER
+   ======================================== */
+
+.separator {
+  height: 1px;
+  margin: 8px 0;
+  background-color: var(--outlineVariant);
+}
+
+/* ========================================
+   SUBMENU
+   ======================================== */
+
+.subTrigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 8px 12px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body-large);
+  color: var(--onSurface);
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.subTrigger[data-highlighted] {
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.subTrigger[data-state="open"] {
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.subTriggerIcon {
+  margin-left: auto;
+  padding-left: 12px;
+  color: var(--onSurfaceVariant);
+}
+
+.subContent {
+  min-width: 112px;
+  max-width: 280px;
+  padding: 8px 0;
+  background: var(--surfaceContainer);
+  border-radius: var(--rad-corner-extra-small);
+  box-shadow: var(--elevation-2);
+  z-index: 50;
+  overflow: hidden;
+  transform-origin: var(--radix-dropdown-menu-content-transform-origin);
+}
+
+.subContent[data-state="open"] {
+  animation: menuOpen var(--motion-duration-medium-2) var(--motion-easing-emphasized-decelerate);
+}
+
+.subContent[data-state="closed"] {
+  animation: menuClose var(--motion-duration-short-2) var(--motion-easing-emphasized-accelerate);
+}
+
+/* ========================================
+   LABEL (GROUP HEADER)
+   ======================================== */
+
+.label {
+  padding: 8px 12px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-label-large);
+  font-weight: var(--font-weight-medium);
+  color: var(--onSurfaceVariant);
+}
+
+/* ========================================
+   GROUP
+   ======================================== */
+
+.group {
+  padding: 0;
+}

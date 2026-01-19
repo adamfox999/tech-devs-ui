@@ -1,0 +1,249 @@
+/* BreakoutCarousel Component
+   
+   A full-bleed horizontal scroll that aligns content with the page container.
+   The carousel spans 100vw but pads the left edge to match --container-max alignment.
+   
+   Visual Design:
+   - Apple-inspired edge-to-edge scrolling
+   - First item aligns with page container
+   - Premium momentum scrolling
+   - Glassmorphic navigation arrows
+   
+   Token Dependencies:
+   - --container-max (from Container.css or project theme)
+   - --margin-horizontal (from spacing.css)
+*/
+
+.ui-breakout-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  
+  /* Allow arrows to extend beyond content */
+  overflow: visible;
+}
+
+.ui-breakout-carousel {
+  /* The magic offset calculation:
+     (viewport - container) / 2 = distance from edge to container start */
+  --_container: var(--carousel-container-width, var(--container-max, 1400px));
+  --_gutter: var(--carousel-gutter, var(--margin-horizontal, 1.5rem));
+  --_gap: var(--carousel-gap, var(--size-5, 1.25rem));
+  --_offset: calc((100vw - var(--_container)) / 2);
+  
+  /* On small screens, use gutter; on large screens, use calculated offset */
+  --_padding-start: max(var(--_gutter), var(--_offset));
+
+  display: flex;
+  gap: var(--_gap);
+  
+  /* Full viewport width */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  
+  /* Enable horizontal scrolling */
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  
+  /* Align first item with container edge */
+  padding-inline-start: var(--_padding-start);
+  padding-inline-end: var(--_gutter);
+  
+  /* Vertical padding for hover effects and shadows */
+  padding-block: var(--size-2, 0.5rem);
+  
+  /* Premium momentum scrolling */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Scroll snapping */
+.ui-breakout-carousel--snap {
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline-start: var(--_padding-start);
+}
+
+/* Slow snap (proximity) variant */
+.ui-breakout-carousel--snap-proximity {
+  scroll-snap-type: x proximity;
+  scroll-padding-inline-start: var(--_padding-start);
+}
+
+/* Hide scrollbar */
+.ui-breakout-carousel--no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.ui-breakout-carousel--no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Carousel Items */
+.ui-breakout-carousel__item {
+  flex: 0 0 var(--carousel-item-width, 300px);
+  scroll-snap-align: start;
+  
+  /* Prevent items from shrinking */
+  min-width: 0;
+}
+
+/* Navigation Arrows - Glassmorphic premium design */
+.ui-breakout-carousel__arrow {
+  --_arrow-size: var(--carousel-arrow-size, 52px);
+  --_arrow-bg: var(--carousel-arrow-bg, rgba(255, 255, 255, 0.12));
+  --_arrow-bg-hover: var(--carousel-arrow-bg-hover, rgba(255, 255, 255, 0.2));
+  --_arrow-color: var(--carousel-arrow-color, var(--onSurface, #fff));
+  --_arrow-border: var(--carousel-arrow-border, rgba(255, 255, 255, 0.15));
+  --_arrow-shadow: var(--carousel-arrow-shadow, 0 4px 24px rgba(0, 0, 0, 0.25));
+  
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: var(--_arrow-size);
+  height: var(--_arrow-size);
+  padding: 0;
+  
+  /* Glassmorphic styling */
+  background: var(--_arrow-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  color: var(--_arrow-color);
+  
+  border: 1px solid var(--_arrow-border);
+  border-radius: 50%;
+  box-shadow: var(--_arrow-shadow);
+  
+  cursor: pointer;
+  
+  /* Premium spring transitions */
+  transition: 
+    opacity 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.ui-breakout-carousel__arrow:hover:not(:disabled) {
+  transform: translateY(-50%) scale(1.08);
+  background: var(--_arrow-bg-hover);
+  box-shadow: 
+    var(--_arrow-shadow),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.ui-breakout-carousel__arrow:active:not(:disabled) {
+  transform: translateY(-50%) scale(0.95);
+  transition-duration: 100ms;
+}
+
+.ui-breakout-carousel__arrow:disabled {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0.9);
+}
+
+.ui-breakout-carousel__arrow svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.5;
+  transition: transform 200ms ease;
+}
+
+/* Subtle hover animation on arrow icons */
+.ui-breakout-carousel__arrow--left:hover:not(:disabled) svg {
+  transform: translateX(-2px);
+}
+
+.ui-breakout-carousel__arrow--right:hover:not(:disabled) svg {
+  transform: translateX(2px);
+}
+
+/* Position arrows at container edges */
+.ui-breakout-carousel__arrow--left {
+  left: max(var(--_gutter), calc((100% - var(--_container)) / 2 + var(--size-4, 1rem)));
+}
+
+.ui-breakout-carousel__arrow--right {
+  right: var(--_gutter);
+}
+
+/* Responsive adjustments */
+@media (max-width: 839px) {
+  .ui-breakout-carousel__arrow {
+    --_arrow-size: 44px;
+  }
+  
+  .ui-breakout-carousel__arrow--left {
+    left: var(--size-4, 1rem);
+  }
+  
+  .ui-breakout-carousel__arrow--right {
+    right: var(--size-4, 1rem);
+  }
+  
+  .ui-breakout-carousel__arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Hide arrows on touch devices - rely on swipe */
+@media (hover: none) and (pointer: coarse) {
+  .ui-breakout-carousel__arrow {
+    display: none;
+  }
+}
+
+/* Focus styles - accessibility */
+.ui-breakout-carousel__arrow:focus-visible {
+  outline: 2px solid var(--primary, #6750a4);
+  outline-offset: 3px;
+}
+
+/* =========================================================================
+   Fade Edges (optional overlay for scroll indication)
+   ========================================================================= */
+
+.ui-breakout-carousel-wrapper--fade-edges::before,
+.ui-breakout-carousel-wrapper--fade-edges::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--size-10, 2.5rem);
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.ui-breakout-carousel-wrapper--fade-edges::before {
+  left: 0;
+  background: linear-gradient(
+    to right, 
+    var(--carousel-fade-color, var(--background, #121318)) 0%, 
+    transparent 100%
+  );
+}
+
+.ui-breakout-carousel-wrapper--fade-edges::after {
+  right: 0;
+  background: linear-gradient(
+    to left, 
+    var(--carousel-fade-color, var(--background, #121318)) 0%, 
+    transparent 100%
+  );
+}
+
+/* Show fades based on scroll state (controlled via JS data attributes) */
+.ui-breakout-carousel-wrapper--fade-edges[data-can-scroll-left="true"]::before,
+.ui-breakout-carousel-wrapper--fade-edges[data-can-scroll-right="true"]::after {
+  opacity: 1;
+}

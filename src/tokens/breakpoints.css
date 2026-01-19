@@ -1,0 +1,32 @@
+/**
+ * Breakpoint Tokens
+ *
+ * Viewport ranges for consistent responsive design without @custom-media.
+ *
+ * Notes:
+ * - CSS variables cannot be used inside media query conditions.
+ * - Use standard @media queries and override semantic tokens per range.
+ * - Provided flags (`--bp-current`, `--bp-is-*`) can help with calc()-based tweaks.
+ */
+
+:root {
+    /* Numeric tokens (documentation, reusable values) */
+    /* Compact */
+    --bp-compact-max: 599px;
+
+    /* Medium */
+    --bp-medium-min: 600px;
+    --bp-medium-max: 839px;
+
+    /* Expanded */
+    --bp-expanded-min: 840px;
+    --bp-expanded-max: 1199px;
+
+    /* Large */
+    --bp-large-min: 1200px;
+    --bp-large-max: 1599px;
+
+    /* Extra Large */
+    --bp-extra-large-min: 1600px;
+
+}

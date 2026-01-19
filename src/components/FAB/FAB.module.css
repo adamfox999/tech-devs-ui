@@ -1,0 +1,202 @@
+/**
+ * M3 FAB Styles
+ * 
+ * Material Design 3 Floating Action Button using design tokens.
+ */
+
+/* =============================================================================
+   BASE FAB
+   ============================================================================= */
+
+.fab {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Reset */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  
+  /* Elevation */
+  box-shadow: var(--elev-shadow-3);
+  
+  /* State layer */
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  
+  /* Motion */
+  transition: 
+    box-shadow var(--motion-duration-short-2) var(--motion-easing-standard),
+    transform var(--motion-duration-short-1) var(--motion-easing-standard);
+}
+
+.fab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity var(--motion-duration-short-2) var(--motion-easing-standard);
+  pointer-events: none;
+}
+
+.fab:hover {
+  box-shadow: var(--elev-shadow-4);
+}
+
+.fab:hover::before {
+  opacity: var(--state-hover-opacity);
+}
+
+.fab:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.fab:focus-visible::before {
+  opacity: var(--state-focus-opacity);
+}
+
+.fab:active {
+  box-shadow: var(--elev-shadow-3);
+}
+
+.fab:active::before {
+  opacity: var(--state-pressed-opacity);
+}
+
+.fab:disabled {
+  cursor: not-allowed;
+  opacity: var(--state-disabled-opacity);
+  box-shadow: var(--elev-shadow-0);
+}
+
+/* =============================================================================
+   SIZES
+   ============================================================================= */
+
+/* Small - 40px */
+.small {
+  width: var(--size-10);
+  height: var(--size-10);
+  border-radius: var(--rad-corner-medium);
+}
+
+/* Standard - 56px */
+.standard {
+  width: var(--size-12);
+  height: var(--size-12);
+  border-radius: var(--rad-corner-large);
+}
+
+/* Large - 96px */
+.large {
+  width: var(--size-16);
+  height: var(--size-16);
+  border-radius: var(--rad-corner-extra-large);
+}
+
+/* =============================================================================
+   COLORS
+   ============================================================================= */
+
+.primary {
+  background-color: var(--primaryContainer);
+  color: var(--onPrimaryContainer);
+}
+
+.secondary {
+  background-color: var(--secondaryContainer);
+  color: var(--onSecondaryContainer);
+}
+
+.tertiary {
+  background-color: var(--tertiaryContainer);
+  color: var(--onTertiaryContainer);
+}
+
+.surface {
+  background-color: var(--surfaceContainerHigh);
+  color: var(--primary);
+}
+
+/* =============================================================================
+   LOWERED VARIANT
+   ============================================================================= */
+
+.lowered {
+  box-shadow: var(--elev-shadow-1);
+}
+
+.lowered:hover {
+  box-shadow: var(--elev-shadow-2);
+}
+
+.lowered:active {
+  box-shadow: var(--elev-shadow-1);
+}
+
+/* =============================================================================
+   EXTENDED FAB
+   ============================================================================= */
+
+.extended {
+  width: auto;
+  gap: var(--size-4);
+  padding-inline: var(--size-5);
+}
+
+.extended.small {
+  padding-inline: var(--size-4);
+  height: var(--size-10);
+}
+
+.extended.standard {
+  padding-inline: var(--size-5);
+  height: var(--size-12);
+}
+
+.extended.large {
+  padding-inline: var(--size-7);
+  height: var(--size-16);
+}
+
+/* =============================================================================
+   INNER ELEMENTS
+   ============================================================================= */
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.small .icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.large .icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.label {
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-0);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1px;
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
