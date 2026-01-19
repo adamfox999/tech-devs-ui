@@ -1,0 +1,6520 @@
+/* @tech-devs/ui - Design Tokens */
+
+/* src/tokens/size.css */
+/**
+ * Size Scale - Foundation Layer
+ * 
+ * The base size scale that all other tokens reference.
+ * Uses a 4px grid system.
+ * 
+ * NEVER use hardcoded pixel values elsewhere - always reference --size-*
+ */
+
+@layer tokens {
+  :root {
+    /* =========================================================================
+       SIZE SCALE
+       Based on 4px increments for visual harmony
+       ========================================================================= */
+    
+    --size-1: 2px;
+    --size-2: 0.25rem;   /* 4px */
+    --size-3: 0.5rem;    /* 8px */
+    --size-4: 0.75rem;   /* 12px */
+    --size-5: 1rem;      /* 16px */
+    --size-6: 1.25rem;   /* 20px */
+    --size-7: 1.5rem;    /* 24px */
+    --size-8: 1.75rem;   /* 28px */
+    --size-9: 2rem;      /* 32px */
+    --size-10: 2.5rem;   /* 40px */
+    --size-11: 3rem;     /* 48px */
+    --size-12: 3.5rem;   /* 56px */
+    --size-13: 4rem;     /* 64px */
+    --size-14: 4.5rem;   /* 72px */
+    --size-15: 5rem;     /* 80px */
+    --size-16: 6rem;     /* 96px */
+    --size-17: 8rem;     /* 128px */
+    --size-18: 10rem;    /* 160px */
+    
+    /* =========================================================================
+       LAYOUT SIZES
+       Fixed sizes for layout components (navigation rails, sidebars, etc.)
+       ========================================================================= */
+    
+    --size-80: 320px;
+    --size-90: 360px;
+    --size-100: 400px;
+  }
+}
+
+
+/* src/tokens/colors.css */
+/**
+ * Color Tokens
+ * 
+ * Material Design 3 color system with automatic light/dark mode via light-dark().
+ * Includes contrast mode variants for accessibility.
+ * 
+ * Generated from _colors.scss
+ */
+
+:root {
+  color-scheme: light dark;
+  
+  /* Primary */
+  --primary: light-dark(#4f1c9e, #d3bbff);
+  --surfaceTint: light-dark(#6f43c0, #d3bbff);
+  --onPrimary: light-dark(#ffffff, #3f008d);
+  --primaryContainer: light-dark(#673ab7, #673ab7);
+  --onPrimaryContainer: light-dark(#d8c2ff, #d8c2ff);
+  
+  /* Secondary */
+  --secondary: light-dark(#675687, #d1bdf5);
+  --onSecondary: light-dark(#ffffff, #372855);
+  --secondaryContainer: light-dark(#dac5fe, #4e3e6d);
+  --onSecondaryContainer: light-dark(#605080, #c0ace3);
+  
+  /* Tertiary */
+  --tertiary: light-dark(#770860, #ffade0);
+  --onTertiary: light-dark(#ffffff, #60004c);
+  --tertiaryContainer: light-dark(#952979, #952979);
+  --onTertiaryContainer: light-dark(#ffb6e2, #ffb6e2);
+  
+  /* Error */
+  --error: light-dark(#ba1a1a, #ffb4ab);
+  --onError: light-dark(#ffffff, #690005);
+  --errorContainer: light-dark(#ffdad6, #93000a);
+  --onErrorContainer: light-dark(#93000a, #ffdad6);
+  
+  /* Background & Surface */
+  --background: light-dark(#fef7ff, #15121a);
+  --onBackground: light-dark(#1d1a22, #e7e0eb);
+  --surface: light-dark(#fef7ff, #15121a);
+  --onSurface: light-dark(#1d1a22, #e7e0eb);
+  --surfaceVariant: light-dark(#e8dff1, #4a4453);
+  --onSurfaceVariant: light-dark(#4a4453, #ccc3d5);
+  
+  /* Outline */
+  --outline: light-dark(#7b7484, #958e9e);
+  --outlineVariant: light-dark(#ccc3d5, #4a4453);
+  
+  /* Utility */
+  --shadow: light-dark(#000000, #000000);
+  --scrim: light-dark(#000000, #000000);
+  
+  /* Inverse */
+  --inverseSurface: light-dark(#322f37, #e7e0eb);
+  --inverseOnSurface: light-dark(#f6eef9, #322f37);
+  --inversePrimary: light-dark(#d3bbff, #6f43c0);
+  
+  /* Fixed Colors (don't change with theme) */
+  --primaryFixed: light-dark(#ebddff, #ebddff);
+  --onPrimaryFixed: light-dark(#250059, #250059);
+  --primaryFixedDim: light-dark(#d3bbff, #d3bbff);
+  --onPrimaryFixedVariant: light-dark(#5727a6, #5727a6);
+  --secondaryFixed: light-dark(#ebddff, #ebddff);
+  --onSecondaryFixed: light-dark(#22123f, #22123f);
+  --secondaryFixedDim: light-dark(#d1bdf5, #d1bdf5);
+  --onSecondaryFixedVariant: light-dark(#4e3e6d, #4e3e6d);
+  --tertiaryFixed: light-dark(#ffd8ed, #ffd8ed);
+  --onTertiaryFixed: light-dark(#3b002e, #3b002e);
+  --tertiaryFixedDim: light-dark(#ffade0, #ffade0);
+  --onTertiaryFixedVariant: light-dark(#811568, #811568);
+  
+  /* Surface Containers (elevation tones) */
+  --surfaceDim: light-dark(#dfd7e3, #15121a);
+  --surfaceBright: light-dark(#fef7ff, #3b3840);
+  --surfaceContainerLowest: light-dark(#ffffff, #100d14);
+  --surfaceContainerLow: light-dark(#f9f1fc, #1d1a22);
+  --surfaceContainer: light-dark(#f3ebf7, #211e26);
+  --surfaceContainerHigh: light-dark(#ede6f1, #2c2931);
+  --surfaceContainerHighest: light-dark(#e7e0eb, #37333c);
+}
+
+/* Medium Contrast Mode */
+:root[data-contrast="medium"] {
+  --primary: light-dark(#460a95, #e5d5ff);
+  --surfaceTint: light-dark(#6f43c0, #d3bbff);
+  --onPrimary: light-dark(#ffffff, #320072);
+  --primaryContainer: light-dark(#673ab7, #a478f7);
+  --onPrimaryContainer: light-dark(#fff9fd, #000000);
+  --secondary: light-dark(#3d2e5b, #e5d5ff);
+  --onSecondary: light-dark(#ffffff, #2c1d4a);
+  --secondaryContainer: light-dark(#766596, #9a88bc);
+  --onSecondaryContainer: light-dark(#ffffff, #000000);
+  --tertiary: light-dark(#6a0054, #ffcfe9);
+  --onTertiary: light-dark(#ffffff, #4d003d);
+  --tertiaryContainer: light-dark(#952979, #dc66b7);
+  --onTertiaryContainer: light-dark(#fffafa, #000000);
+  --error: light-dark(#740006, #ffd2cc);
+  --onError: light-dark(#ffffff, #540003);
+  --errorContainer: light-dark(#cf2c27, #ff5449);
+  --onErrorContainer: light-dark(#ffffff, #000000);
+  --background: light-dark(#fef7ff, #15121a);
+  --onBackground: light-dark(#1d1a22, #e7e0eb);
+  --surface: light-dark(#fef7ff, #15121a);
+  --onSurface: light-dark(#131017, #ffffff);
+  --surfaceVariant: light-dark(#e8dff1, #4a4453);
+  --onSurfaceVariant: light-dark(#393442, #e2d9eb);
+  --outline: light-dark(#56505f, #b7afc0);
+  --outlineVariant: light-dark(#716a7a, #958d9e);
+  --shadow: light-dark(#000000, #000000);
+  --scrim: light-dark(#000000, #000000);
+  --inverseSurface: light-dark(#322f37, #e7e0eb);
+  --inverseOnSurface: light-dark(#f6eef9, #2c2931);
+  --inversePrimary: light-dark(#d3bbff, #5828a8);
+  --primaryFixed: light-dark(#7f53d0, #ebddff);
+  --onPrimaryFixed: light-dark(#ffffff, #19003f);
+  --primaryFixedDim: light-dark(#6538b5, #d3bbff);
+  --onPrimaryFixedVariant: light-dark(#ffffff, #460a95);
+  --secondaryFixed: light-dark(#766596, #ebddff);
+  --onSecondaryFixed: light-dark(#ffffff, #170634);
+  --secondaryFixedDim: light-dark(#5d4c7c, #d1bdf5);
+  --onSecondaryFixedVariant: light-dark(#ffffff, #3d2e5b);
+  --tertiaryFixed: light-dark(#b14291, #ffd8ed);
+  --onTertiaryFixed: light-dark(#ffffff, #29001f);
+  --tertiaryFixedDim: light-dark(#932777, #ffade0);
+  --onTertiaryFixedVariant: light-dark(#ffffff, #6a0054);
+  --surfaceDim: light-dark(#cbc4cf, #15121a);
+  --surfaceBright: light-dark(#fef7ff, #47434c);
+  --surfaceContainerLowest: light-dark(#ffffff, #08060d);
+  --surfaceContainerLow: light-dark(#f9f1fc, #1f1c24);
+  --surfaceContainer: light-dark(#ede6f1, #2a262f);
+  --surfaceContainerHigh: light-dark(#e2dae5, #353139);
+  --surfaceContainerHighest: light-dark(#d6cfda, #403c45);
+}
+
+/* High Contrast Mode */
+:root[data-contrast="high"] {
+  --primary: light-dark(#3a0082, #f6ecff);
+  --surfaceTint: light-dark(#6f43c0, #d3bbff);
+  --onPrimary: light-dark(#ffffff, #000000);
+  --primaryContainer: light-dark(#592aa9, #d0b6ff);
+  --onPrimaryContainer: light-dark(#ffffff, #110031);
+  --secondary: light-dark(#332451, #f6ecff);
+  --onSecondary: light-dark(#ffffff, #000000);
+  --secondaryContainer: light-dark(#514170, #cdb9f1);
+  --onSecondaryContainer: light-dark(#ffffff, #11012e);
+  --tertiary: light-dark(#580046, #ffebf3);
+  --onTertiary: light-dark(#ffffff, #000000);
+  --tertiaryContainer: light-dark(#84196b, #ffa7de);
+  --onTertiaryContainer: light-dark(#ffffff, #1e0016);
+  --error: light-dark(#600004, #ffece9);
+  --onError: light-dark(#ffffff, #000000);
+  --errorContainer: light-dark(#98000a, #ffaea4);
+  --onErrorContainer: light-dark(#ffffff, #220001);
+  --background: light-dark(#fef7ff, #15121a);
+  --onBackground: light-dark(#1d1a22, #e7e0eb);
+  --surface: light-dark(#fef7ff, #15121a);
+  --onSurface: light-dark(#000000, #ffffff);
+  --surfaceVariant: light-dark(#e8dff1, #4a4453);
+  --onSurfaceVariant: light-dark(#000000, #ffffff);
+  --outline: light-dark(#2f2a37, #f6ecff);
+  --outlineVariant: light-dark(#4c4755, #c8bfd1);
+  --shadow: light-dark(#000000, #000000);
+  --scrim: light-dark(#000000, #000000);
+  --inverseSurface: light-dark(#322f37, #e7e0eb);
+  --inverseOnSurface: light-dark(#ffffff, #000000);
+  --inversePrimary: light-dark(#d3bbff, #5828a8);
+  --primaryFixed: light-dark(#592aa9, #ebddff);
+  --onPrimaryFixed: light-dark(#ffffff, #000000);
+  --primaryFixedDim: light-dark(#420192, #d3bbff);
+  --onPrimaryFixedVariant: light-dark(#ffffff, #19003f);
+  --secondaryFixed: light-dark(#514170, #ebddff);
+  --onSecondaryFixed: light-dark(#ffffff, #000000);
+  --secondaryFixedDim: light-dark(#3a2a58, #d1bdf5);
+  --onSecondaryFixedVariant: light-dark(#ffffff, #170634);
+  --tertiaryFixed: light-dark(#84196b, #ffd8ed);
+  --onTertiaryFixed: light-dark(#ffffff, #000000);
+  --tertiaryFixedDim: light-dark(#64004f, #ffade0);
+  --onTertiaryFixedVariant: light-dark(#ffffff, #29001f);
+  --surfaceDim: light-dark(#bdb6c1, #15121a);
+  --surfaceBright: light-dark(#fef7ff, #534e57);
+  --surfaceContainerLowest: light-dark(#ffffff, #000000);
+  --surfaceContainerLow: light-dark(#f6eef9, #211e26);
+  --surfaceContainer: light-dark(#e7e0eb, #322f37);
+  --surfaceContainerHigh: light-dark(#d9d2dd, #3e3a42);
+  --surfaceContainerHighest: light-dark(#cbc4cf, #49454e);
+}
+
+/* Auto high contrast based on system preference */
+@media (prefers-contrast: more) {
+  :root:not([data-contrast]) {
+    --primary: light-dark(#3a0082, #f6ecff);
+    --surfaceTint: light-dark(#6f43c0, #d3bbff);
+    --onPrimary: light-dark(#ffffff, #000000);
+    --primaryContainer: light-dark(#592aa9, #d0b6ff);
+    --onPrimaryContainer: light-dark(#ffffff, #110031);
+    --secondary: light-dark(#332451, #f6ecff);
+    --onSecondary: light-dark(#ffffff, #000000);
+    --secondaryContainer: light-dark(#514170, #cdb9f1);
+    --onSecondaryContainer: light-dark(#ffffff, #11012e);
+    --tertiary: light-dark(#580046, #ffebf3);
+    --onTertiary: light-dark(#ffffff, #000000);
+    --tertiaryContainer: light-dark(#84196b, #ffa7de);
+    --onTertiaryContainer: light-dark(#ffffff, #1e0016);
+    --error: light-dark(#600004, #ffece9);
+    --onError: light-dark(#ffffff, #000000);
+    --errorContainer: light-dark(#98000a, #ffaea4);
+    --onErrorContainer: light-dark(#ffffff, #220001);
+    --background: light-dark(#fef7ff, #15121a);
+    --onBackground: light-dark(#1d1a22, #e7e0eb);
+    --surface: light-dark(#fef7ff, #15121a);
+    --onSurface: light-dark(#000000, #ffffff);
+    --surfaceVariant: light-dark(#e8dff1, #4a4453);
+    --onSurfaceVariant: light-dark(#000000, #ffffff);
+    --outline: light-dark(#2f2a37, #f6ecff);
+    --outlineVariant: light-dark(#4c4755, #c8bfd1);
+    --shadow: light-dark(#000000, #000000);
+    --scrim: light-dark(#000000, #000000);
+    --inverseSurface: light-dark(#322f37, #e7e0eb);
+    --inverseOnSurface: light-dark(#ffffff, #000000);
+    --inversePrimary: light-dark(#d3bbff, #5828a8);
+    --primaryFixed: light-dark(#592aa9, #ebddff);
+    --onPrimaryFixed: light-dark(#ffffff, #000000);
+    --primaryFixedDim: light-dark(#420192, #d3bbff);
+    --onPrimaryFixedVariant: light-dark(#ffffff, #19003f);
+    --secondaryFixed: light-dark(#514170, #ebddff);
+    --onSecondaryFixed: light-dark(#ffffff, #000000);
+    --secondaryFixedDim: light-dark(#3a2a58, #d1bdf5);
+    --onSecondaryFixedVariant: light-dark(#ffffff, #170634);
+    --tertiaryFixed: light-dark(#84196b, #ffd8ed);
+    --onTertiaryFixed: light-dark(#ffffff, #000000);
+    --tertiaryFixedDim: light-dark(#64004f, #ffade0);
+    --onTertiaryFixedVariant: light-dark(#ffffff, #29001f);
+    --surfaceDim: light-dark(#bdb6c1, #15121a);
+    --surfaceBright: light-dark(#fef7ff, #534e57);
+    --surfaceContainerLowest: light-dark(#ffffff, #000000);
+    --surfaceContainerLow: light-dark(#f6eef9, #211e26);
+    --surfaceContainer: light-dark(#e7e0eb, #322f37);
+    --surfaceContainerHigh: light-dark(#d9d2dd, #3e3a42);
+    --surfaceContainerHighest: light-dark(#cbc4cf, #49454e);
+  }
+}
+
+
+/* src/tokens/spacing.css */
+/**
+ * Spacing Tokens
+ *
+ * Use --size-* directly for component spacing.
+ * Semantic variables (e.g. --margin, --padding) handle responsive layout.
+ *
+ * Depends on: size.css, breakpoints.css (must be imported first)
+ */
+
+@layer tokens {
+  :root {
+    /* =========================================================================
+       SEMANTIC SPACING
+       Contextual spacing for layout (responsive)
+       ========================================================================= */
+    
+    --margin-vertical: var(--size-7);
+    --margin-horizontal: var(--size-7);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Responsive spacing overrides */
+
+/* Compact: --bp-compact-max (max-width: 599px) */
+@media (max-width: 599px) {
+  :root {
+    --margin-vertical: var(--size-4);
+    --margin-horizontal: var(--size-4);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Medium: --bp-medium-min to --bp-medium-max (600-839px) */
+@media (min-width: 600px) and (max-width: 839px) {
+  :root {
+    --margin-vertical: var(--size-7);
+    --margin-horizontal: var(--size-7);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Expanded: --bp-expanded-min to --bp-expanded-max (840-1199px) */
+@media (min-width: 840px) and (max-width: 1199px) {
+  :root {
+    --margin-vertical: var(--size-9);
+    --margin-horizontal: var(--size-9);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Large: --bp-large-min to --bp-large-max (1200-1599px) */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  :root {
+    --margin-vertical: var(--size-9);
+    --margin-horizontal: var(--size-9);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Extra Large: --bp-extra-large-min (>= 1600px) */
+@media (min-width: 1600px) {
+  :root {
+    --margin-vertical: var(--size-9);
+    --margin-horizontal: var(--size-9);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Icon utilities */
+.icon-mini {
+  height: var(--size-6);
+  width: var(--size-6);
+}
+
+.icon-small {
+  height: var(--size-7);
+  width: var(--size-7);
+}
+
+.icon-medium {
+  height: var(--size-10);
+  width: var(--size-10);
+}
+
+
+/* src/tokens/shape.css */
+/**
+ * Shape Tokens
+ * 
+ * Material Design 3 Shape Scale
+ * Corner radius values for rounded shapes.
+ * 
+ * @see https://m3.material.io/styles/shape/overview
+ * 
+ * Depends on: size.css (must be imported first)
+ */
+
+@layer tokens {
+  :root {
+    /* =========================================================================
+       CORNER SIZE SCALE
+       Material Design 3 shape system with rounded corners.
+       ========================================================================= */
+    
+    --rad-corner-none: 0;                              /* 0dp - Fully rectangular */
+    --rad-corner-extra-small: var(--size-2);           /* 4dp */
+    --rad-corner-small: var(--size-3);                 /* 8dp */
+    --rad-corner-medium: var(--size-4);                /* 12dp */
+    --rad-corner-large: var(--size-5);                 /* 16dp */
+    --rad-corner-large-increased: var(--size-6);       /* 20dp */
+    --rad-corner-extra-large: var(--size-8);           /* 28dp */
+    --rad-corner-extra-large-increased: var(--size-9); /* 32dp */
+    --rad-corner-extra-extra-large: var(--size-13);    /* 48dp */
+    --rad-corner-full: 9999px;                         /* Pill/Circle - 50% equivalent */
+  }
+}
+
+
+/* src/tokens/elevation.css */
+/**
+ * Elevation Tokens
+ * 
+ * Material Design 3 elevation system with dual shadows.
+ * 
+ * Generated from _elevation.scss
+ */
+
+@layer tokens {
+  :root {
+    /* Level 0: No elevation */
+    --elev-shadow-0: 0px 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    
+    /* Level 1: Cards, raised buttons */
+    --elev-shadow-1: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    
+    /* Level 2: Menus, dropdowns */
+    --elev-shadow-2: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+    
+    /* Level 3: Navigation drawers, modals */
+    --elev-shadow-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+    
+    /* Level 4: Dialogs */
+    --elev-shadow-4: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.3);
+    
+    /* Level 5: Navigation bar, FAB (highest) */
+    --elev-shadow-5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Utility classes */
+.elevation-0 { box-shadow: var(--elev-shadow-0); }
+.elevation-1 { box-shadow: var(--elev-shadow-1); }
+.elevation-2 { box-shadow: var(--elev-shadow-2); }
+.elevation-3 { box-shadow: var(--elev-shadow-3); }
+.elevation-4 { box-shadow: var(--elev-shadow-4); }
+.elevation-5 { box-shadow: var(--elev-shadow-5); }
+
+
+/* src/tokens/motion.css */
+/**
+ * Motion Tokens
+ * 
+ * Material Design 3 easing curves and duration scale.
+ * 
+ * @see https://m3.material.io/styles/motion/easing-and-duration/applying-easing-and-duration
+ */
+
+@layer tokens {
+  :root {
+    /* =========================================================================
+       DURATION SCALE
+       Duration increases as animation area/distance increases.
+       ========================================================================= */
+    
+    /* Short - Small utility animations (icons, switches) */
+    --motion-duration-short-1: 50ms;
+    --motion-duration-short-2: 100ms;
+    --motion-duration-short-3: 150ms;
+    --motion-duration-short-4: 200ms;
+    
+    /* Medium - Component animations (cards, menus) */
+    --motion-duration-medium-1: 250ms;
+    --motion-duration-medium-2: 300ms;
+    --motion-duration-medium-3: 350ms;
+    --motion-duration-medium-4: 400ms;
+    
+    /* Long - Page transitions, modals */
+    --motion-duration-long-1: 450ms;
+    --motion-duration-long-2: 500ms;
+    --motion-duration-long-3: 550ms;
+    --motion-duration-long-4: 600ms;
+    
+    /* Extra Long - Complex choreographed animations */
+    --motion-duration-extra-long-1: 700ms;
+    --motion-duration-extra-long-2: 800ms;
+    --motion-duration-extra-long-3: 900ms;
+    --motion-duration-extra-long-4: 1000ms;
+    
+    /* =========================================================================
+       EASING CURVES
+       
+       Standard: Utility-focused animations (functional, less expressive)
+       Emphasized: Common M3-styled animations (expressive, branded)
+       Linear: Simple, non-stylized motion (progress bars, color fades)
+       ========================================================================= */
+    
+    /* Standard - Utility animations that start and end on screen */
+    --motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+    
+    /* Standard Decelerate - Utility animations entering the screen */
+    --motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+    
+    /* Standard Accelerate - Utility animations exiting the screen */
+    --motion-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
+    
+    /* Emphasized - M3-styled animations that start and end on screen
+       Note: M3 spec uses a path curve; this is the CSS cubic-bezier approximation */
+    --motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+    
+    /* Emphasized Decelerate - M3-styled animations entering the screen */
+    --motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+    
+    /* Emphasized Accelerate - M3-styled animations exiting the screen */
+    --motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+    
+    /* Linear - Non-stylized motion (progress indicators, color transitions) */
+    --motion-easing-linear: cubic-bezier(0, 0, 1, 1);
+    
+    /* =========================================================================
+       SPRING PARAMETERS (for JS animations)
+       
+       Fast: Small components (switches, buttons)
+       Default: Partial screen (bottom sheets, drawers)
+       Slow: Full screen animations
+       
+       Spatial: Position animations (x, y, scale)
+       Effects: Non-overshooting animations (color, opacity)
+       ========================================================================= */
+    
+    /* Fast Springs - Small component animations */
+    --motion-spring-fast-spatial-damping: 0.9;
+    --motion-spring-fast-spatial-stiffness: 1400;
+    --motion-spring-fast-effects-damping: 1;
+    --motion-spring-fast-effects-stiffness: 3800;
+    
+    /* Default Springs - Partial screen animations */
+    --motion-spring-default-spatial-damping: 0.9;
+    --motion-spring-default-spatial-stiffness: 700;
+    --motion-spring-default-effects-damping: 1;
+    --motion-spring-default-effects-stiffness: 1600;
+    
+    /* Slow Springs - Full screen animations */
+    --motion-spring-slow-spatial-damping: 0.9;
+    --motion-spring-slow-spatial-stiffness: 300;
+    --motion-spring-slow-effects-damping: 1;
+    --motion-spring-slow-effects-stiffness: 800;
+  }
+}
+
+
+/* src/tokens/typography.css */
+/**
+ * Typography Tokens
+ * 
+ * Material Design 3 type scale.
+ * Uses clamp() for fluid responsive sizing.
+ * 
+ * @see https://m3.material.io/styles/typography/overview
+ */
+
+@layer tokens {
+  :root {
+    /* =========================================================================
+       FONT FAMILIES
+       
+       - Brand: Display & headlines (personality, editorial)
+       - Plain: Body, labels, titles (readability, utility)
+       - Code: Monospace for code blocks
+       ========================================================================= */
+    
+    --font-brand: 'Lora', serif;
+    --font-plain: 'Roboto', sans-serif;
+    --font-code: 'JetBrains Mono', 'Fira Code', monospace;
+    
+    /* Font Weights */
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-bold: 700;
+    
+    /* Line Heights */
+    --line-height-large: 1.2;
+    --line-height-small: 1.5;
+    
+    /* Type Scale (based on 1.125 ratio, 14px base) */
+    --type-scale-n2: 0.69rem;   /* ~11px */
+    --type-scale-n1: 0.778rem;  /* ~12.5px */
+    --type-scale-0: 0.875rem;   /* 14px - base */
+    --type-scale-1: 0.984rem;   /* ~15.75px */
+    --type-scale-2: 1.107rem;   /* ~17.7px */
+    --type-scale-3: 1.246rem;   /* ~20px */
+    --type-scale-4: 1.402rem;   /* ~22.4px */
+    --type-scale-5: 1.577rem;   /* ~25.2px */
+    --type-scale-6: 1.774rem;   /* ~28.4px */
+    --type-scale-7: 1.996rem;   /* ~32px */
+    --type-scale-8: 2.245rem;   /* ~36px */
+    --type-scale-9: 2.526rem;   /* ~40px */
+    --type-scale-10: 2.841rem;  /* ~45px */
+    --type-scale-11: 3.196rem;  /* ~51px */
+    --type-scale-12: 3.595rem;  /* ~57.5px */
+  }
+}
+
+/* ============================================================================
+   BASELINE TYPOGRAPHY CLASSES
+   ============================================================================ */
+
+/* Display */
+.display-large {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-8), 10cqw, var(--type-scale-8));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-regular);
+  letter-spacing: -0.25px;
+}
+
+.display-medium {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-8), 10cqw, var(--type-scale-10));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0px;
+}
+
+.display-small {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-8), 10cqw, var(--type-scale-8));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0px;
+}
+
+/* Headline */
+.headline-large {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-5), 10cqw, var(--type-scale-7));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0px;
+}
+
+.headline-medium {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-5), 10cqw, var(--type-scale-6));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0px;
+}
+
+.headline-small {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-5), 10cqw, var(--type-scale-5));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0px;
+}
+
+/* Title */
+.title-large {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-0), 10cqw, var(--type-scale-4));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0px;
+}
+
+.title-medium {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-0), 10cqw, var(--type-scale-2));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.15px;
+}
+
+.title-small {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-0), 10cqw, var(--type-scale-0));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1px;
+}
+
+/* Body */
+.body-large {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n1), 10cqw, var(--type-scale-1));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0.5px;
+}
+
+.body-medium {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n1), 10cqw, var(--type-scale-0));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0.25px;
+}
+
+.body-small {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n1), 10cqw, var(--type-scale-n1));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0.4px;
+}
+
+/* Label */
+.label-large {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n2), 8cqw, var(--type-scale-0));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1px;
+}
+
+.label-medium {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n2), 8cqw, var(--type-scale-n1));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.5px;
+}
+
+.label-small {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n2), 8cqw, var(--type-scale-n2));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================================
+   EMPHASIZED TYPOGRAPHY CLASSES
+   ============================================================================ */
+
+.display-large-emphasized {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-8), 10cqw, var(--type-scale-12));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: -0.25px;
+}
+
+.display-medium-emphasized {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-8), 10cqw, var(--type-scale-10));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0px;
+}
+
+.display-small-emphasized {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-8), 10cqw, var(--type-scale-8));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0px;
+}
+
+.headline-large-emphasized {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-5), 10cqw, var(--type-scale-7));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0px;
+}
+
+.headline-medium-emphasized {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-5), 10cqw, var(--type-scale-6));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0px;
+}
+
+.headline-small-emphasized {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-5), 10cqw, var(--type-scale-5));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0px;
+}
+
+.title-large-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-0), 10cqw, var(--type-scale-4));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0px;
+}
+
+.title-medium-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-0), 10cqw, var(--type-scale-2));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.15px;
+}
+
+.title-small-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-0), 10cqw, var(--type-scale-0));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.1px;
+}
+
+.body-large-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n1), 10cqw, var(--type-scale-1));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.5px;
+}
+
+.body-medium-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n1), 10cqw, var(--type-scale-0));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.25px;
+}
+
+.body-small-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n1), 10cqw, var(--type-scale-n1));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.4px;
+}
+
+.label-large-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n2), 8cqw, var(--type-scale-0));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.1px;
+}
+
+.label-medium-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n2), 8cqw, var(--type-scale-n1));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.5px;
+}
+
+.label-small-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n2), 8cqw, var(--type-scale-n2));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.5px;
+}
+
+
+/* src/tokens/states.css */
+/**
+ * State Layer System
+ * 
+ * Material Design 3 state layers using currentColor for automatic inheritance.
+ * Apply .state-layer to any interactive element and the hover/focus/active
+ * states will automatically use the element's text color at the correct opacity.
+ * 
+ * @see https://m3.material.io/foundations/interaction/states
+ */
+
+@layer tokens {
+  :root {
+    /* State Layer Opacities (M3 Standard) */
+    --state-hover-opacity: 0.08;
+    --state-focus-opacity: 0.10;
+    --state-pressed-opacity: 0.10;
+    --state-dragged-opacity: 0.16;
+    --state-disabled-opacity: 0.38;
+    --state-disabled-container-opacity: 0.12;
+  }
+}
+
+/* =============================================================================
+   STATE LAYER UTILITY CLASSES
+   Uses background-image to overlay without replacing background-color.
+   currentColor inherits the element's text color (the "on" color in M3).
+   ============================================================================= */
+
+.state-layer {
+  position: relative;
+  isolation: isolate;
+}
+
+.state-layer:hover {
+  background-image: linear-gradient(
+    color-mix(in srgb, currentColor calc(var(--state-hover-opacity) * 100%), transparent),
+    color-mix(in srgb, currentColor calc(var(--state-hover-opacity) * 100%), transparent)
+  );
+}
+
+.state-layer:focus-visible {
+  background-image: linear-gradient(
+    color-mix(in srgb, currentColor calc(var(--state-focus-opacity) * 100%), transparent),
+    color-mix(in srgb, currentColor calc(var(--state-focus-opacity) * 100%), transparent)
+  );
+}
+
+.state-layer:active {
+  background-image: linear-gradient(
+    color-mix(in srgb, currentColor calc(var(--state-pressed-opacity) * 100%), transparent),
+    color-mix(in srgb, currentColor calc(var(--state-pressed-opacity) * 100%), transparent)
+  );
+}
+
+/* Dragged state - apply via JS when dragging */
+.state-layer--dragged,
+.state-layer.dragging {
+  background-image: linear-gradient(
+    color-mix(in srgb, currentColor calc(var(--state-dragged-opacity) * 100%), transparent),
+    color-mix(in srgb, currentColor calc(var(--state-dragged-opacity) * 100%), transparent)
+  );
+}
+
+/* Disabled state */
+.state-layer:disabled,
+.state-layer[aria-disabled="true"],
+.state-layer--disabled {
+  opacity: var(--state-disabled-opacity);
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+
+/* src/tokens/components.css */
+/**
+ * Component Tokens
+ * 
+ * Component-specific design tokens that reference the size scale.
+ * These define the standard dimensions for UI components following M3 Expressive.
+ * 
+ * Depends on: size.css, shape.css
+ * 
+ * RULE: NEVER hardcode sizes - always use --size-* tokens
+ * 
+ * @see https://m3.material.io/components/navigation-rail/specs
+ */
+
+@layer tokens {
+  :root {
+    /* =========================================================================
+       NAVIGATION RAIL
+       M3 Expressive measurements mapped to size scale
+       ========================================================================= */
+    
+    /* Container widths */
+    --nav-rail-width-collapsed: var(--size-16);  /* 96px - M3 Expressive */
+    --nav-rail-width-expanded: var(--size-80);   /* 320px - expanded state */
+    
+    /* Content spacing */
+    --nav-rail-content-margin-top: var(--size-11);    /* 48px (M3: 44dp, closest match) */
+    --nav-rail-header-margin-bottom: var(--size-10);  /* 40px - M3 Expressive */
+    --nav-rail-item-spacing: var(--size-2);           /* 4px - M3 Expressive */
+    --nav-rail-top-padding: var(--size-3);            /* 8px (M3: 6dp, closest match) */
+    --nav-rail-bottom-padding: var(--size-2);         /* 4px - M3 Expressive */
+    
+    /* Item dimensions */
+    --nav-rail-item-min-height: var(--size-13);           /* 64px - M3 Expressive */
+    --nav-rail-item-min-height-collapsed: var(--size-13); /* 64px */
+    --nav-rail-item-min-height-expanded: var(--size-12);  /* 56px */
+    
+    /* Active indicator (collapsed) */
+    --nav-rail-indicator-width: var(--size-12);           /* 56px - M3 */
+    --nav-rail-indicator-height: var(--size-9);           /* 32px - M3 */
+    --nav-rail-indicator-radius: var(--rad-corner-full);  /* pill shape */
+    --nav-rail-indicator-margin-horizontal: var(--size-2); /* 4px - M3 */
+    --nav-rail-indicator-label-padding: var(--size-2);    /* 4px - M3 */
+    
+    /* Active indicator (expanded) */
+    --nav-rail-indicator-expanded-height: var(--size-12); /* 56px - M3 */
+    --nav-rail-indicator-expanded-margin-horizontal: var(--size-6); /* 20px - M3 */
+    --nav-rail-indicator-expanded-padding: var(--size-5); /* 16px - M3 */
+    
+    /* Icon */
+    --nav-rail-icon-size: var(--size-7);          /* 24px - M3 */
+    --nav-rail-icon-label-spacing: var(--size-3); /* 8px - M3 horizontal spacing */
+    
+    /* =========================================================================
+       ICON BUTTON
+       Standard icon button dimensions
+       ========================================================================= */
+    
+    --icon-button-size: var(--size-10);       /* 40px - standard touch target */
+    --icon-button-size-small: var(--size-9);  /* 32px */
+    --icon-button-size-large: var(--size-11); /* 48px */
+    --icon-button-icon-size: var(--size-7);   /* 24px */
+    
+    /* =========================================================================
+       FAB (Floating Action Button)
+       Optional header element in navigation rail
+       ========================================================================= */
+    
+    --fab-size: var(--size-12);                       /* 56px - standard FAB */
+    --fab-size-small: var(--size-10);                 /* 40px */
+    --fab-size-large: var(--size-16);                 /* 96px */
+    --fab-icon-size: var(--size-7);                   /* 24px */
+    --fab-extended-height: var(--size-12);            /* 56px */
+    --fab-extended-padding-horizontal: var(--size-5); /* 16px */
+    
+    /* =========================================================================
+       BADGE
+       Notification badges on nav items
+       ========================================================================= */
+    
+    --badge-size-small: var(--size-3);            /* 8px - dot badge (M3: 6dp, closest) */
+    --badge-size-large: var(--size-5);            /* 16px - with count */
+    --badge-padding-horizontal: var(--size-2);    /* 4px */
+    
+    /* =========================================================================
+       AVATAR
+       User profile avatars
+       ========================================================================= */
+    
+    --avatar-size-small: var(--size-9);   /* 32px */
+    --avatar-size-medium: var(--size-10); /* 40px */
+    --avatar-size-large: var(--size-12);  /* 56px */
+    
+    /* =========================================================================
+       DIVIDER
+       Section separators
+       ========================================================================= */
+    
+    --divider-thickness: var(--size-1);           /* 2px (closest to 1px) */
+    --divider-margin-vertical: var(--size-3);     /* 8px */
+    
+    /* =========================================================================
+       COMMON BUTTON
+       M3 Expressive button measurements mapped to size scale
+       @see https://m3.material.io/components/buttons/specs
+       ========================================================================= */
+    
+    /* Container heights */
+    --button-height-xs: var(--size-9);    /* 32px */
+    --button-height-sm: var(--size-10);   /* 40px (default) */
+    --button-height-md: var(--size-11);   /* 48px */
+    --button-height-lg: var(--size-12);   /* 56px */
+    --button-height-xl: var(--size-14);   /* 72px */
+    
+    /* Horizontal padding (left/right) */
+    --button-padding-xs: var(--size-4);   /* 12px */
+    --button-padding-sm: var(--size-7);   /* 24px */
+    --button-padding-md: var(--size-7);   /* 24px */
+    --button-padding-lg: var(--size-9);   /* 32px */
+    --button-padding-xl: var(--size-10);  /* 40px */
+    
+    /* Icon sizes per button size */
+    --button-icon-size-xs: var(--size-5); /* 16px (M3: 18dp, closest) */
+    --button-icon-size-sm: var(--size-6); /* 20px */
+    --button-icon-size-md: var(--size-7); /* 24px */
+    --button-icon-size-lg: var(--size-7); /* 24px */
+    --button-icon-size-xl: var(--size-9); /* 32px */
+    
+    /* Icon-to-label spacing */
+    --button-icon-spacing-xs: var(--size-2); /* 4px */
+    --button-icon-spacing-sm: var(--size-3); /* 8px */
+    --button-icon-spacing-md: var(--size-3); /* 8px */
+    --button-icon-spacing-lg: var(--size-4); /* 12px */
+    --button-icon-spacing-xl: var(--size-5); /* 16px */
+  }
+}
+
+
+
+/* @tech-devs/ui - Component Styles */
+
+/* src\components\BottomNavigation\BottomNavigation.module.css */
+/**
+ * M3 Bottom Navigation (Navigation Bar) Styles
+ * 
+ * Material Design 3 navigation bar for switching between top-level views.
+ * Supports 3-5 destinations with active indicator.
+ */
+
+/* ========================================
+   CONTAINER
+   ======================================== */
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
+  background: var(--surfaceContainer);
+  box-shadow: var(--elevation-2);
+}
+
+/* M3 Expressive (shorter) */
+.navBar[data-expressive="true"] {
+  height: 64px;
+}
+
+/* Horizontal layout for medium+ screens */
+.navBar[data-layout="horizontal"] {
+  height: 64px;
+}
+
+/* ========================================
+   NAV ITEMS CONTAINER
+   ======================================== */
+
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 8px;
+  list-style: none;
+  margin: 0;
+}
+
+/* ========================================
+   NAV ITEM
+   ======================================== */
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 48px;
+  max-width: 96px;
+  height: 100%;
+  padding: 12px 0 16px;
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  transition: all var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+/* M3 Expressive item padding */
+.navBar[data-expressive="true"] .item {
+  padding: 6px 0;
+}
+
+/* Horizontal item layout (icon + label side by side) */
+.navBar[data-layout="horizontal"] .item {
+  flex-direction: row;
+  flex: 0 1 auto;
+  max-width: none;
+  padding: 0 16px;
+  gap: 4px;
+}
+
+/* ========================================
+   ACTIVE INDICATOR
+   ======================================== */
+
+.activeIndicator {
+  position: absolute;
+  top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 32px;
+  border-radius: var(--rad-corner-full);
+  background: transparent;
+  transition:
+    background-color var(--motion-duration-short-2) var(--motion-easing-standard),
+    width var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+/* M3 Expressive indicator */
+.navBar[data-expressive="true"] .activeIndicator {
+  width: 56px;
+}
+
+/* Active state */
+.item[data-active="true"] .activeIndicator {
+  background: var(--secondaryContainer);
+}
+
+/* Hover state */
+.item:hover .activeIndicator {
+  background: color-mix(in srgb, var(--onSurfaceVariant) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.item[data-active="true"]:hover .activeIndicator {
+  background: color-mix(in srgb, var(--onSecondaryContainer) calc(var(--state-hover-opacity) * 100%), var(--secondaryContainer));
+}
+
+/* Focus state */
+.item:focus-visible .activeIndicator {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Horizontal layout indicator */
+.navBar[data-layout="horizontal"] .activeIndicator {
+  position: static;
+  width: auto;
+  height: 56px;
+  padding: 0 16px;
+}
+
+/* ========================================
+   ICON
+   ======================================== */
+
+.icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--onSurfaceVariant);
+  z-index: 1;
+  transition: color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Active icon color */
+.item[data-active="true"] .icon {
+  color: var(--onSecondaryContainer);
+}
+
+/* Filled icon for active state */
+.iconFilled {
+  display: none;
+}
+
+.iconOutlined {
+  display: block;
+}
+
+.item[data-active="true"] .iconFilled {
+  display: block;
+}
+
+.item[data-active="true"] .iconOutlined {
+  display: none;
+}
+
+/* ========================================
+   LABEL
+   ======================================== */
+
+.label {
+  margin-top: 4px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-label-medium);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-label-medium);
+  color: var(--onSurfaceVariant);
+  text-align: center;
+  white-space: nowrap;
+  transition: color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+/* Active label */
+.item[data-active="true"] .label {
+  color: var(--onSurface);
+}
+
+/* M3 Expressive: no bold on active */
+.navBar[data-expressive="true"] .item[data-active="true"] .label {
+  font-weight: var(--font-weight-medium);
+}
+
+/* Horizontal layout label */
+.navBar[data-layout="horizontal"] .label {
+  margin-top: 0;
+  margin-left: 4px;
+}
+
+/* Hide label option */
+.item[data-show-label="false"] .label {
+  display: none;
+}
+
+.item[data-show-label="active-only"]:not([data-active="true"]) .label {
+  display: none;
+}
+
+/* ========================================
+   BADGE
+   ======================================== */
+
+.badge {
+  position: absolute;
+  top: 2px;
+  right: calc(50% - 22px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 6px;
+  height: 6px;
+  border-radius: var(--rad-corner-full);
+  background: var(--error);
+  z-index: 2;
+}
+
+/* Large badge with count */
+.badge[data-size="large"] {
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  right: calc(50% - 26px);
+}
+
+.badgeLabel {
+  font-family: var(--font-plain);
+  font-size: var(--font-size-label-small);
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  color: var(--onError);
+}
+
+/* ========================================
+   LABEL VISIBILITY MODES
+   ======================================== */
+
+/* Always show labels */
+.navBar[data-label-visibility="labeled"] .label {
+  display: block;
+}
+
+/* Show only active label */
+.navBar[data-label-visibility="selected"] .item:not([data-active="true"]) .label {
+  display: none;
+}
+
+/* Never show labels */
+.navBar[data-label-visibility="unlabeled"] .label {
+  display: none;
+}
+
+/* Auto - show labels when 3 items, hide when 4-5 */
+/* Controlled by JS based on item count */
+
+
+/* src\components\BreakoutCarousel\BreakoutCarousel.css */
+/* BreakoutCarousel Component
+   
+   A full-bleed horizontal scroll that aligns content with the page container.
+   The carousel spans 100vw but pads the left edge to match --container-max alignment.
+   
+   Visual Design:
+   - Apple-inspired edge-to-edge scrolling
+   - First item aligns with page container
+   - Premium momentum scrolling
+   - Glassmorphic navigation arrows
+   
+   Token Dependencies:
+   - --container-max (from Container.css or project theme)
+   - --margin-horizontal (from spacing.css)
+*/
+
+.ui-breakout-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  
+  /* Allow arrows to extend beyond content */
+  overflow: visible;
+}
+
+.ui-breakout-carousel {
+  /* The magic offset calculation:
+     (viewport - container) / 2 = distance from edge to container start */
+  --_container: var(--carousel-container-width, var(--container-max, 1400px));
+  --_gutter: var(--carousel-gutter, var(--margin-horizontal, 1.5rem));
+  --_gap: var(--carousel-gap, var(--size-5, 1.25rem));
+  --_offset: calc((100vw - var(--_container)) / 2);
+  
+  /* On small screens, use gutter; on large screens, use calculated offset */
+  --_padding-start: max(var(--_gutter), var(--_offset));
+
+  display: flex;
+  gap: var(--_gap);
+  
+  /* Full viewport width */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  
+  /* Enable horizontal scrolling */
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  
+  /* Align first item with container edge */
+  padding-inline-start: var(--_padding-start);
+  padding-inline-end: var(--_gutter);
+  
+  /* Vertical padding for hover effects and shadows */
+  padding-block: var(--size-2, 0.5rem);
+  
+  /* Premium momentum scrolling */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Scroll snapping */
+.ui-breakout-carousel--snap {
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline-start: var(--_padding-start);
+}
+
+/* Slow snap (proximity) variant */
+.ui-breakout-carousel--snap-proximity {
+  scroll-snap-type: x proximity;
+  scroll-padding-inline-start: var(--_padding-start);
+}
+
+/* Hide scrollbar */
+.ui-breakout-carousel--no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.ui-breakout-carousel--no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Carousel Items */
+.ui-breakout-carousel__item {
+  flex: 0 0 var(--carousel-item-width, 300px);
+  scroll-snap-align: start;
+  
+  /* Prevent items from shrinking */
+  min-width: 0;
+}
+
+/* Navigation Arrows - Glassmorphic premium design */
+.ui-breakout-carousel__arrow {
+  --_arrow-size: var(--carousel-arrow-size, 52px);
+  --_arrow-bg: var(--carousel-arrow-bg, rgba(255, 255, 255, 0.12));
+  --_arrow-bg-hover: var(--carousel-arrow-bg-hover, rgba(255, 255, 255, 0.2));
+  --_arrow-color: var(--carousel-arrow-color, var(--onSurface, #fff));
+  --_arrow-border: var(--carousel-arrow-border, rgba(255, 255, 255, 0.15));
+  --_arrow-shadow: var(--carousel-arrow-shadow, 0 4px 24px rgba(0, 0, 0, 0.25));
+  
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: var(--_arrow-size);
+  height: var(--_arrow-size);
+  padding: 0;
+  
+  /* Glassmorphic styling */
+  background: var(--_arrow-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  color: var(--_arrow-color);
+  
+  border: 1px solid var(--_arrow-border);
+  border-radius: 50%;
+  box-shadow: var(--_arrow-shadow);
+  
+  cursor: pointer;
+  
+  /* Premium spring transitions */
+  transition: 
+    opacity 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.ui-breakout-carousel__arrow:hover:not(:disabled) {
+  transform: translateY(-50%) scale(1.08);
+  background: var(--_arrow-bg-hover);
+  box-shadow: 
+    var(--_arrow-shadow),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.ui-breakout-carousel__arrow:active:not(:disabled) {
+  transform: translateY(-50%) scale(0.95);
+  transition-duration: 100ms;
+}
+
+.ui-breakout-carousel__arrow:disabled {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0.9);
+}
+
+.ui-breakout-carousel__arrow svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.5;
+  transition: transform 200ms ease;
+}
+
+/* Subtle hover animation on arrow icons */
+.ui-breakout-carousel__arrow--left:hover:not(:disabled) svg {
+  transform: translateX(-2px);
+}
+
+.ui-breakout-carousel__arrow--right:hover:not(:disabled) svg {
+  transform: translateX(2px);
+}
+
+/* Position arrows at container edges */
+.ui-breakout-carousel__arrow--left {
+  left: max(var(--_gutter), calc((100% - var(--_container)) / 2 + var(--size-4, 1rem)));
+}
+
+.ui-breakout-carousel__arrow--right {
+  right: var(--_gutter);
+}
+
+/* Responsive adjustments */
+@media (max-width: 839px) {
+  .ui-breakout-carousel__arrow {
+    --_arrow-size: 44px;
+  }
+  
+  .ui-breakout-carousel__arrow--left {
+    left: var(--size-4, 1rem);
+  }
+  
+  .ui-breakout-carousel__arrow--right {
+    right: var(--size-4, 1rem);
+  }
+  
+  .ui-breakout-carousel__arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Hide arrows on touch devices - rely on swipe */
+@media (hover: none) and (pointer: coarse) {
+  .ui-breakout-carousel__arrow {
+    display: none;
+  }
+}
+
+/* Focus styles - accessibility */
+.ui-breakout-carousel__arrow:focus-visible {
+  outline: 2px solid var(--primary, #6750a4);
+  outline-offset: 3px;
+}
+
+/* =========================================================================
+   Fade Edges (optional overlay for scroll indication)
+   ========================================================================= */
+
+.ui-breakout-carousel-wrapper--fade-edges::before,
+.ui-breakout-carousel-wrapper--fade-edges::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--size-10, 2.5rem);
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.ui-breakout-carousel-wrapper--fade-edges::before {
+  left: 0;
+  background: linear-gradient(
+    to right, 
+    var(--carousel-fade-color, var(--background, #121318)) 0%, 
+    transparent 100%
+  );
+}
+
+.ui-breakout-carousel-wrapper--fade-edges::after {
+  right: 0;
+  background: linear-gradient(
+    to left, 
+    var(--carousel-fade-color, var(--background, #121318)) 0%, 
+    transparent 100%
+  );
+}
+
+/* Show fades based on scroll state (controlled via JS data attributes) */
+.ui-breakout-carousel-wrapper--fade-edges[data-can-scroll-left="true"]::before,
+.ui-breakout-carousel-wrapper--fade-edges[data-can-scroll-right="true"]::after {
+  opacity: 1;
+}
+
+
+/* src\components\Button\Button.css */
+/**
+ * M3 Button Styles
+ * 
+ * Material Design 3 button variants using design tokens.
+ * Uses state layers for hover/focus/active states.
+ * 
+ * Class Prefix: .ui-button (per DESIGN_SYSTEM.MD spec)
+ */
+
+/* =============================================================================
+   BASE BUTTON
+   ============================================================================= */
+
+.ui-button {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-3);
+  
+  /* Reset */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  
+  /* Typography */
+  font-family: var(--font-plain);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1px;
+  white-space: nowrap;
+  
+  /* Shape - default round */
+  border-radius: var(--rad-corner-full);
+  
+  /* Motion */
+  transition: 
+    background-color var(--motion-duration-short-2) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-short-2) var(--motion-easing-standard),
+    transform var(--motion-duration-short-1) var(--motion-easing-standard);
+  
+  /* State layer via pseudo-element */
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.ui-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity var(--motion-duration-short-2) var(--motion-easing-standard);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* State layers */
+.ui-button:hover::before {
+  opacity: var(--state-hover-opacity);
+}
+
+.ui-button:focus-visible::before {
+  opacity: var(--state-focus-opacity);
+}
+
+.ui-button:active::before {
+  opacity: var(--state-pressed-opacity);
+}
+
+/* Disabled state */
+.ui-button:disabled {
+  cursor: not-allowed;
+  opacity: var(--state-disabled-opacity);
+}
+
+.ui-button:disabled::before {
+  display: none;
+}
+
+/* Loading state */
+.ui-button--loading {
+  cursor: wait;
+}
+
+/* =============================================================================
+   VARIANTS
+   ============================================================================= */
+
+/* Filled - Primary emphasis */
+.ui-button--filled {
+  background-color: var(--primary);
+  color: var(--onPrimary);
+}
+
+/* Tonal - Secondary emphasis */
+.ui-button--tonal {
+  background-color: var(--secondaryContainer);
+  color: var(--onSecondaryContainer);
+}
+
+/* Outlined - Medium emphasis */
+.ui-button--outlined {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--outline);
+}
+
+.ui-button--outlined:focus-visible {
+  border-color: var(--primary);
+}
+
+/* Elevated - Low emphasis with shadow */
+.ui-button--elevated {
+  background-color: var(--surfaceContainerLow);
+  color: var(--primary);
+  box-shadow: var(--elev-shadow-1);
+}
+
+.ui-button--elevated:hover {
+  box-shadow: var(--elev-shadow-2);
+}
+
+.ui-button--elevated:active {
+  box-shadow: var(--elev-shadow-1);
+}
+
+/* Text - Lowest emphasis */
+.ui-button--text {
+  background-color: transparent;
+  color: var(--primary);
+  padding-inline: var(--size-4);
+}
+
+/* =============================================================================
+   SIZES (M3 Expressive)
+   ============================================================================= */
+
+/* Extra Small - 28px height */
+.ui-button--xs {
+  height: var(--size-8);
+  padding-inline: var(--size-4);
+  font-size: var(--type-scale-n1);
+}
+
+/* Small - 40px height (default) */
+.ui-button--sm {
+  height: var(--size-10);
+  padding-inline: var(--size-7);
+  font-size: var(--type-scale-0);
+}
+
+/* Medium - 48px height */
+.ui-button--md {
+  height: var(--size-11);
+  padding-inline: var(--size-7);
+  font-size: var(--type-scale-0);
+}
+
+/* Large - 56px height */
+.ui-button--lg {
+  height: var(--size-12);
+  padding-inline: var(--size-9);
+  font-size: var(--type-scale-1);
+}
+
+/* Extra Large - 72px height */
+.ui-button--xl {
+  height: var(--size-14);
+  padding-inline: var(--size-10);
+  font-size: var(--type-scale-2);
+}
+
+/* =============================================================================
+   SHAPES
+   ============================================================================= */
+
+.ui-button--round {
+  border-radius: var(--rad-corner-full);
+}
+
+.ui-button--square {
+  border-radius: var(--rad-corner-medium);
+}
+
+/* =============================================================================
+   MODIFIERS
+   ============================================================================= */
+
+.ui-button--full-width {
+  width: 100%;
+}
+
+.ui-button--icon-only {
+  padding-inline: 0;
+  aspect-ratio: 1;
+}
+
+/* =============================================================================
+   INNER ELEMENTS
+   ============================================================================= */
+
+.ui-button__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ui-button__icon svg {
+  width: 1.125em;
+  height: 1.125em;
+}
+
+/* Adjust icon size per button size */
+.ui-button--xs .ui-button__icon svg {
+  width: 1em;
+  height: 1em;
+}
+
+.ui-button--lg .ui-button__icon svg,
+.ui-button--xl .ui-button__icon svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+/* Loading spinner */
+.ui-button__spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ui-button__spinner svg {
+  width: 1.25em;
+  height: 1.25em;
+  animation: ui-button-spin 1s linear infinite;
+}
+
+@keyframes ui-button-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* src\components\Card\Card.module.css */
+/**
+ * M3 Card Styles
+ * 
+ * Material Design 3 card variants using design tokens.
+ * Includes cinematic hero variant for full-bleed background images.
+ * 
+ * Class Prefix: .ui-card (per DESIGN_SYSTEM.MD spec)
+ */
+
+/* =============================================================================
+   BASE CARD
+   ============================================================================= */
+
+.ui-card {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  
+  /* Shape - Apple-style generous radius */
+  border-radius: var(--rad-corner-large, 20px);
+  
+  /* Transitions */
+  transition: 
+    box-shadow var(--motion-duration-short-2) var(--motion-easing-standard),
+    background-color var(--motion-duration-short-2) var(--motion-easing-standard),
+    transform var(--motion-duration-medium-1) var(--motion-easing-emphasized);
+  
+  /* Contain - critical for rounded corners */
+  overflow: hidden;
+  position: relative;
+  
+  /* Isolation for stacking context */
+  isolation: isolate;
+}
+
+/* =============================================================================
+   ASPECT RATIO VARIANTS
+   ============================================================================= */
+
+.ui-card--aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.ui-card--aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.ui-card--aspect-3-2 {
+  aspect-ratio: 3 / 2;
+}
+
+.ui-card--aspect-16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.ui-card--aspect-21-9 {
+  aspect-ratio: 21 / 9;
+}
+
+/* =============================================================================
+   STANDARD VARIANTS
+   ============================================================================= */
+
+/* Elevated - Shadow for separation */
+.ui-card--elevated {
+  background-color: var(--surfaceContainerLow);
+  color: var(--onSurface);
+  box-shadow: var(--elev-shadow-1);
+}
+
+/* Filled - Tonal container */
+.ui-card--filled {
+  background-color: var(--surfaceContainerHighest);
+  color: var(--onSurface);
+  box-shadow: var(--elev-shadow-0);
+}
+
+/* Outlined - Border for definition */
+.ui-card--outlined {
+  background-color: var(--surface);
+  color: var(--onSurface);
+  border: 1px solid var(--outlineVariant);
+  box-shadow: var(--elev-shadow-0);
+}
+
+/* =============================================================================
+   HERO VARIANT - Full-bleed cinematic card (Apple style)
+   ============================================================================= */
+
+.ui-card--hero {
+  /* Critical: hero cards need position context for absolute children */
+  position: relative;
+  
+  /* Default fallback background */
+  background-color: var(--surfaceContainerLow, #1a1a1a);
+  color: #fff;
+  
+  /* Apple-style dramatic shadow */
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.15),
+    0 8px 24px rgba(0, 0, 0, 0.1);
+  
+  /* Ensure rounded corners propagate */
+  border-radius: var(--rad-corner-large, 20px);
+  
+  /* Critical: clip all absolute children to card bounds */
+  overflow: hidden;
+  
+  /* Isolation for proper stacking */
+  isolation: isolate;
+}
+
+/* Hero background container - full bleed within card */
+.ui-card__hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+  
+  /* Inherit border radius from parent */
+  border-radius: inherit;
+}
+
+/* Hero background image - must fill container completely */
+.ui-card__hero-bg-img {
+  /* Fill the container */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Cover and center */
+  object-fit: cover;
+  object-position: center;
+  
+  /* Ensure it displays */
+  display: block;
+  
+  /* Smooth zoom on hover - Apple spring curve */
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ui-card--hero.ui-card--interactive:hover .ui-card__hero-bg-img {
+  transform: scale(1.06);
+}
+
+/* Gradient scrim overlay for text legibility */
+.ui-card__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 400ms ease;
+  
+  /* Inherit border radius from card */
+  border-radius: inherit;
+}
+
+/* Scrim positions */
+.ui-card__scrim--bottom {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.5) 35%,
+    transparent 70%
+  );
+}
+
+.ui-card__scrim--top {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.3) 30%,
+    transparent 60%
+  );
+}
+
+.ui-card__scrim--full {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 40%,
+    rgba(0, 0, 0, 0.4) 60%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+/* Scrim intensities */
+.ui-card__scrim--light {
+  opacity: 0.6;
+}
+
+.ui-card__scrim--medium {
+  opacity: 0.8;
+}
+
+.ui-card__scrim--heavy {
+  opacity: 1;
+}
+
+/* Darken scrim on hover for dramatic effect */
+.ui-card--hero.ui-card--interactive:hover .ui-card__scrim {
+  opacity: 1;
+}
+
+/* Hero content overlay */
+.ui-card__hero-content {
+  position: absolute;
+  z-index: 2;
+  padding: var(--size-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2);
+  color: #fff;
+  
+  /* Text shadow for extra legibility */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Content positions */
+.ui-card__hero-content--bottom-left {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.ui-card__hero-content--bottom-center {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  align-items: center;
+}
+
+.ui-card__hero-content--center {
+  inset: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ui-card__hero-content--top-left {
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Hero typography overrides - white text */
+.ui-card--hero .ui-card__headline,
+.ui-card__hero-content .ui-card__headline {
+  color: #fff;
+}
+
+.ui-card--hero .ui-card__subhead,
+.ui-card__hero-content .ui-card__subhead {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Badge for hero cards */
+.ui-card__badge {
+  position: absolute;
+  top: var(--size-4);
+  left: var(--size-4);
+  z-index: 3;
+  
+  padding: var(--size-1) var(--size-3);
+  
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  
+  color: #fff;
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-n2);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.02em;
+  
+  border-radius: var(--rad-corner-small);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =============================================================================
+   INTERACTIVE STATE
+   ============================================================================= */
+
+.ui-card--interactive {
+  cursor: pointer;
+  isolation: isolate;
+}
+
+/* State layer for standard cards */
+.ui-card--interactive:not(.ui-card--hero)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--onSurface);
+  opacity: 0;
+  transition: opacity var(--motion-duration-short-2) var(--motion-easing-standard);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ui-card--interactive:not(.ui-card--hero):hover::before {
+  opacity: var(--state-hover-opacity, 0.08);
+}
+
+.ui-card--interactive:not(.ui-card--hero):focus-visible::before {
+  opacity: var(--state-focus-opacity, 0.12);
+}
+
+.ui-card--interactive:not(.ui-card--hero):active::before {
+  opacity: var(--state-pressed-opacity, 0.12);
+}
+
+/* Hero interactive - Apple-style lift and subtle scale */
+.ui-card--hero.ui-card--interactive:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.ui-card--hero.ui-card--interactive:active {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 
+    0 12px 32px rgba(0, 0, 0, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Elevated interactive lifts on hover */
+.ui-card--elevated.ui-card--interactive:hover {
+  box-shadow: var(--elev-shadow-2);
+}
+
+.ui-card--elevated.ui-card--interactive:active {
+  box-shadow: var(--elev-shadow-1);
+}
+
+/* Focus ring for accessibility */
+.ui-card--interactive:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Dragged state */
+.ui-card--interactive[data-dragged="true"],
+.ui-card--elevated.ui-card--interactive[data-dragged="true"] {
+  box-shadow: var(--elev-shadow-4);
+}
+
+/* =============================================================================
+   CARD MEDIA
+   ============================================================================= */
+
+.ui-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--card-media-aspect, 16 / 9);
+  overflow: hidden;
+  background-color: var(--surfaceContainerHigh);
+}
+
+/* Media content (images, video) */
+.ui-card__media > img,
+.ui-card__media > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Media background image mode */
+.ui-card__media--bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* =============================================================================
+   CARD CONTENT AREAS
+   ============================================================================= */
+
+.ui-card__content {
+  padding: var(--size-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2);
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.ui-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4);
+  padding: var(--size-4);
+  position: relative;
+  z-index: 2;
+}
+
+.ui-card__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--size-2);
+  padding: var(--size-3) var(--size-4);
+  position: relative;
+  z-index: 2;
+}
+
+.ui-card__actions--end {
+  justify-content: flex-end;
+}
+
+.ui-card__actions--spread {
+  justify-content: space-between;
+}
+
+/* =============================================================================
+   TYPOGRAPHY
+   ============================================================================= */
+
+.ui-card__headline {
+  font-family: var(--font-title);
+  font-size: var(--type-scale-p2);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+  color: var(--onSurface);
+  margin: 0;
+}
+
+.ui-card__subhead {
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-n1);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  color: var(--onSurfaceVariant);
+  margin: 0;
+}
+
+.ui-card__supporting-text {
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-0);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--onSurfaceVariant);
+  margin: 0;
+}
+
+/* =============================================================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================================================= */
+
+@media (max-width: 600px) {
+  .ui-card__content {
+    padding: var(--size-3);
+  }
+  
+  .ui-card__header {
+    padding: var(--size-3);
+    gap: var(--size-3);
+  }
+  
+  .ui-card__hero-content {
+    padding: var(--size-4);
+  }
+  
+  .ui-card__badge {
+    top: var(--size-3);
+    left: var(--size-3);
+    font-size: var(--type-scale-n3);
+  }
+}
+
+/* =============================================================================
+   SUB-COMPONENTS
+   ============================================================================= */
+
+/* Media - Full-bleed image area */
+.ui-card__media {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.ui-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Header - Title area */
+.ui-card__header {
+  padding: var(--size-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-1);
+}
+
+/* Headline */
+.ui-card__headline {
+  font-family: var(--font-brand);
+  font-size: var(--type-scale-3);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-height-large);
+  color: var(--onSurface);
+  margin: 0;
+}
+
+/* Subhead */
+.ui-card__subhead {
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-0);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-small);
+  color: var(--onSurfaceVariant);
+  margin: 0;
+}
+
+/* Content - Body text area */
+.ui-card__content {
+  padding: 0 var(--size-5);
+  padding-bottom: var(--size-5);
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-0);
+  line-height: var(--line-height-small);
+  color: var(--onSurfaceVariant);
+}
+
+/* When no header, add top padding */
+.ui-card > .ui-card__content:first-child {
+  padding-top: var(--size-5);
+}
+
+/* Actions - Button area */
+.ui-card__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--size-3);
+  padding: var(--size-5);
+  padding-top: 0;
+}
+
+/* When actions follow media directly */
+.ui-card__media + .ui-card__actions {
+  padding-top: var(--size-5);
+}
+
+/* Ensure actions are above state layer */
+.ui-card__actions {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* src\components\Chip\Chip.module.css */
+/**
+ * M3 Chip Styles
+ * 
+ * Material Design 3 chip variants using design tokens.
+ */
+
+/* =============================================================================
+   BASE CHIP
+   ============================================================================= */
+
+.chip {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-3);
+  height: var(--size-9);
+  padding-inline: var(--size-5);
+  
+  /* Reset */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  
+  /* Typography */
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-0);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1px;
+  white-space: nowrap;
+  
+  /* Shape */
+  border-radius: var(--rad-corner-small);
+  
+  /* Base style */
+  background-color: transparent;
+  color: var(--onSurfaceVariant);
+  border: 1px solid var(--outline);
+  
+  /* State layer */
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  
+  /* Motion */
+  transition: 
+    background-color var(--motion-duration-short-2) var(--motion-easing-standard),
+    border-color var(--motion-duration-short-2) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.chip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity var(--motion-duration-short-2) var(--motion-easing-standard);
+  pointer-events: none;
+}
+
+.chip:hover::before {
+  opacity: var(--state-hover-opacity);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.chip:focus-visible::before {
+  opacity: var(--state-focus-opacity);
+}
+
+.chip:active::before {
+  opacity: var(--state-pressed-opacity);
+}
+
+.chip:disabled {
+  cursor: not-allowed;
+  opacity: var(--state-disabled-opacity);
+}
+
+/* =============================================================================
+   VARIANTS
+   ============================================================================= */
+
+/* Assist - For smart or contextual actions */
+.assist {
+  padding-left: var(--size-3);
+}
+
+/* Filter - For filtering content */
+.filter {
+  padding-left: var(--size-3);
+}
+
+/* Input - For user-entered information */
+.input {
+  padding-left: var(--size-3);
+  padding-right: var(--size-3);
+}
+
+/* Suggestion - For dynamically generated suggestions */
+.suggestion {
+  /* Same as base */
+}
+
+/* =============================================================================
+   ELEVATED STATE
+   ============================================================================= */
+
+.elevated {
+  background-color: var(--surfaceContainerLow);
+  border: none;
+  box-shadow: var(--elev-shadow-1);
+}
+
+.elevated:hover {
+  box-shadow: var(--elev-shadow-2);
+}
+
+/* =============================================================================
+   SELECTED STATE
+   ============================================================================= */
+
+.selected {
+  background-color: var(--secondaryContainer);
+  color: var(--onSecondaryContainer);
+  border-color: transparent;
+}
+
+.selected.elevated {
+  background-color: var(--secondaryContainer);
+  box-shadow: var(--elev-shadow-1);
+}
+
+/* =============================================================================
+   INNER ELEMENTS
+   ============================================================================= */
+
+.icon,
+.checkIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.icon svg,
+.checkIcon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.checkIcon {
+  color: var(--onSecondaryContainer);
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+}
+
+.removeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.removeButton svg {
+  width: 14px;
+  height: 14px;
+}
+
+.removeButton:hover {
+  background-color: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.removeButton:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+/* =============================================================================
+   CHIP GROUP
+   ============================================================================= */
+
+.chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-3);
+}
+
+
+/* src\components\Container\Container.css */
+/* Container Component
+   Layout primitive for constraining and centering content.
+*/
+
+.ui-container {
+  max-width: var(--container-max, 1400px);
+  margin-inline: auto;
+  width: 100%;
+}
+
+/* Variants */
+.ui-container--fluid {
+  max-width: none;
+}
+
+.ui-container--narrow {
+  max-width: var(--container-narrow, 800px);
+}
+
+
+/* src\components\Dialog\Dialog.module.css */
+/**
+ * M3 Dialog Styles
+ * 
+ * Material Design 3 dialog using design tokens.
+ * 
+ * Class Prefix: .ui-dialog (per DESIGN_SYSTEM.MD spec)
+ */
+
+/* =============================================================================
+   OVERLAY (SCRIM)
+   ============================================================================= */
+
+.ui-dialog__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: color-mix(in srgb, var(--scrim) 32%, transparent);
+  
+  /* Animation */
+  animation: ui-dialog-overlay-show var(--motion-duration-medium-2) var(--motion-easing-emphasized-decelerate);
+}
+
+@keyframes ui-dialog-overlay-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* =============================================================================
+   CONTENT (DIALOG CONTAINER)
+   ============================================================================= */
+
+.ui-dialog__content {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 50;
+  transform: translate(-50%, -50%);
+  
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  max-width: 560px;
+  max-height: 85vh;
+  
+  /* Style */
+  background-color: var(--surfaceContainerHigh);
+  color: var(--onSurface);
+  border-radius: var(--rad-corner-extra-large);
+  box-shadow: var(--elev-shadow-3);
+  
+  /* Padding */
+  padding: var(--size-7);
+  
+  /* Animation */
+  animation: ui-dialog-content-show var(--motion-duration-medium-2) var(--motion-easing-emphasized-decelerate);
+}
+
+@keyframes ui-dialog-content-show {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* =============================================================================
+   FULLSCREEN DIALOG
+   ============================================================================= */
+
+.ui-dialog--fullscreen {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
+  border-radius: 0;
+  padding: 0;
+  
+  animation: ui-dialog-fullscreen-show var(--motion-duration-medium-2) var(--motion-easing-emphasized-decelerate);
+}
+
+@keyframes ui-dialog-fullscreen-show {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.ui-dialog--fullscreen .ui-dialog__header {
+  padding: var(--size-5) var(--size-7);
+  border-bottom: 1px solid var(--outlineVariant);
+}
+
+.ui-dialog--fullscreen .ui-dialog__description {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--size-7);
+}
+
+.ui-dialog__close-button {
+  position: absolute;
+  top: var(--size-5);
+  right: var(--size-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-11);
+  height: var(--size-11);
+  border: none;
+  background: transparent;
+  color: var(--onSurfaceVariant);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.ui-dialog__close-button:hover {
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.ui-dialog__close-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.ui-dialog__close-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* =============================================================================
+   HEADER
+   ============================================================================= */
+
+.ui-dialog__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--size-5);
+  text-align: center;
+}
+
+/* Left-aligned variant (for dialogs without icon) */
+.ui-dialog__header:not(:has(.ui-dialog__icon)) {
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* =============================================================================
+   ICON
+   ============================================================================= */
+
+.ui-dialog__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+}
+
+.ui-dialog__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* =============================================================================
+   TITLE
+   ============================================================================= */
+
+.ui-dialog__title {
+  font-family: var(--font-brand);
+  font-size: var(--type-scale-5);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-large);
+  color: var(--onSurface);
+  margin: 0;
+}
+
+/* =============================================================================
+   DESCRIPTION (SUPPORTING TEXT)
+   ============================================================================= */
+
+.ui-dialog__description {
+  margin-top: var(--size-5);
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-0);
+  line-height: var(--line-height-small);
+  color: var(--onSurfaceVariant);
+}
+
+/* =============================================================================
+   ACTIONS
+   ============================================================================= */
+
+.ui-dialog__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--size-3);
+  margin-top: var(--size-7);
+}
+
+/* Fullscreen dialog actions in header */
+.ui-dialog--fullscreen .ui-dialog__actions {
+  position: absolute;
+  top: var(--size-5);
+  right: var(--size-14);
+  margin-top: 0;
+}
+
+
+/* src\components\Divider\Divider.module.css */
+/**
+ * M3 Divider Styles
+ * 
+ * Material Design 3 dividers - horizontal and vertical with inset options.
+ */
+
+/* ========================================
+   BASE DIVIDER
+   ======================================== */
+
+.divider {
+  flex-shrink: 0;
+  background-color: var(--outlineVariant);
+}
+
+/* ========================================
+   HORIZONTAL
+   ======================================== */
+
+.horizontal {
+  width: 100%;
+  height: 1px;
+}
+
+/* Heavy variant */
+.horizontal[data-variant="heavy"] {
+  height: 8px;
+}
+
+/* Inset variants */
+.horizontal[data-inset="start"] {
+  margin-left: 16px;
+  width: calc(100% - 16px);
+}
+
+.horizontal[data-inset="end"] {
+  margin-right: 16px;
+  width: calc(100% - 16px);
+}
+
+.horizontal[data-inset="both"] {
+  margin-left: 16px;
+  margin-right: 16px;
+  width: calc(100% - 32px);
+}
+
+/* Custom inset values */
+.horizontal[data-inset="start"][data-inset-start] {
+  margin-left: var(--inset-start, 16px);
+  width: calc(100% - var(--inset-start, 16px));
+}
+
+.horizontal[data-inset="end"][data-inset-end] {
+  margin-right: var(--inset-end, 16px);
+  width: calc(100% - var(--inset-end, 16px));
+}
+
+.horizontal[data-inset="both"][data-inset-start][data-inset-end] {
+  margin-left: var(--inset-start, 16px);
+  margin-right: var(--inset-end, 16px);
+  width: calc(100% - var(--inset-start, 16px) - var(--inset-end, 16px));
+}
+
+/* ========================================
+   VERTICAL
+   ======================================== */
+
+.vertical {
+  width: 1px;
+  height: 100%;
+  align-self: stretch;
+}
+
+/* Heavy variant */
+.vertical[data-variant="heavy"] {
+  width: 8px;
+}
+
+/* Inset variants */
+.vertical[data-inset="start"] {
+  margin-top: 16px;
+  height: calc(100% - 16px);
+}
+
+.vertical[data-inset="end"] {
+  margin-bottom: 16px;
+  height: calc(100% - 16px);
+}
+
+.vertical[data-inset="both"] {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  height: calc(100% - 32px);
+}
+
+/* ========================================
+   WITH TEXT (Subheader style)
+   ======================================== */
+
+.dividerWithText {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background-color: var(--outlineVariant);
+}
+
+.dividerText {
+  font-family: var(--font-plain);
+  font-size: var(--font-size-label-large);
+  font-weight: var(--font-weight-medium);
+  color: var(--onSurfaceVariant);
+  white-space: nowrap;
+}
+
+/* Text alignment */
+.dividerWithText[data-text-align="start"] .dividerLine:first-child {
+  flex: 0 0 16px;
+}
+
+.dividerWithText[data-text-align="end"] .dividerLine:last-child {
+  flex: 0 0 16px;
+}
+
+/* ========================================
+   SPACING VARIANTS
+   ======================================== */
+
+/* Vertical spacing (margin top/bottom) */
+.horizontal[data-spacing="none"] {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.horizontal[data-spacing="xs"] {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.horizontal[data-spacing="sm"] {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.horizontal[data-spacing="md"] {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.horizontal[data-spacing="lg"] {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+/* Horizontal spacing (margin left/right) */
+.vertical[data-spacing="none"] {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.vertical[data-spacing="xs"] {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.vertical[data-spacing="sm"] {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.vertical[data-spacing="md"] {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.vertical[data-spacing="lg"] {
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+
+/* src\components\FAB\FAB.module.css */
+/**
+ * M3 FAB Styles
+ * 
+ * Material Design 3 Floating Action Button using design tokens.
+ */
+
+/* =============================================================================
+   BASE FAB
+   ============================================================================= */
+
+.fab {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Reset */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  
+  /* Elevation */
+  box-shadow: var(--elev-shadow-3);
+  
+  /* State layer */
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  
+  /* Motion */
+  transition: 
+    box-shadow var(--motion-duration-short-2) var(--motion-easing-standard),
+    transform var(--motion-duration-short-1) var(--motion-easing-standard);
+}
+
+.fab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity var(--motion-duration-short-2) var(--motion-easing-standard);
+  pointer-events: none;
+}
+
+.fab:hover {
+  box-shadow: var(--elev-shadow-4);
+}
+
+.fab:hover::before {
+  opacity: var(--state-hover-opacity);
+}
+
+.fab:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.fab:focus-visible::before {
+  opacity: var(--state-focus-opacity);
+}
+
+.fab:active {
+  box-shadow: var(--elev-shadow-3);
+}
+
+.fab:active::before {
+  opacity: var(--state-pressed-opacity);
+}
+
+.fab:disabled {
+  cursor: not-allowed;
+  opacity: var(--state-disabled-opacity);
+  box-shadow: var(--elev-shadow-0);
+}
+
+/* =============================================================================
+   SIZES
+   ============================================================================= */
+
+/* Small - 40px */
+.small {
+  width: var(--size-10);
+  height: var(--size-10);
+  border-radius: var(--rad-corner-medium);
+}
+
+/* Standard - 56px */
+.standard {
+  width: var(--size-12);
+  height: var(--size-12);
+  border-radius: var(--rad-corner-large);
+}
+
+/* Large - 96px */
+.large {
+  width: var(--size-16);
+  height: var(--size-16);
+  border-radius: var(--rad-corner-extra-large);
+}
+
+/* =============================================================================
+   COLORS
+   ============================================================================= */
+
+.primary {
+  background-color: var(--primaryContainer);
+  color: var(--onPrimaryContainer);
+}
+
+.secondary {
+  background-color: var(--secondaryContainer);
+  color: var(--onSecondaryContainer);
+}
+
+.tertiary {
+  background-color: var(--tertiaryContainer);
+  color: var(--onTertiaryContainer);
+}
+
+.surface {
+  background-color: var(--surfaceContainerHigh);
+  color: var(--primary);
+}
+
+/* =============================================================================
+   LOWERED VARIANT
+   ============================================================================= */
+
+.lowered {
+  box-shadow: var(--elev-shadow-1);
+}
+
+.lowered:hover {
+  box-shadow: var(--elev-shadow-2);
+}
+
+.lowered:active {
+  box-shadow: var(--elev-shadow-1);
+}
+
+/* =============================================================================
+   EXTENDED FAB
+   ============================================================================= */
+
+.extended {
+  width: auto;
+  gap: var(--size-4);
+  padding-inline: var(--size-5);
+}
+
+.extended.small {
+  padding-inline: var(--size-4);
+  height: var(--size-10);
+}
+
+.extended.standard {
+  padding-inline: var(--size-5);
+  height: var(--size-12);
+}
+
+.extended.large {
+  padding-inline: var(--size-7);
+  height: var(--size-16);
+}
+
+/* =============================================================================
+   INNER ELEMENTS
+   ============================================================================= */
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.small .icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.large .icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.label {
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-0);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1px;
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+
+/* src\components\IconButton\IconButton.module.css */
+/**
+ * M3 IconButton Styles
+ * 
+ * Material Design 3 icon button variants using design tokens.
+ */
+
+/* =============================================================================
+   BASE ICON BUTTON
+   ============================================================================= */
+
+.iconButton {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Reset */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  
+  /* Shape */
+  border-radius: 50%;
+  
+  /* State layer */
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  
+  /* Motion */
+  transition: 
+    background-color var(--motion-duration-short-2) var(--motion-easing-standard),
+    border-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.iconButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity var(--motion-duration-short-2) var(--motion-easing-standard);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.iconButton:hover::before {
+  opacity: var(--state-hover-opacity);
+}
+
+.iconButton:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.iconButton:focus-visible::before {
+  opacity: var(--state-focus-opacity);
+}
+
+.iconButton:active::before {
+  opacity: var(--state-pressed-opacity);
+}
+
+.iconButton:disabled {
+  cursor: not-allowed;
+  opacity: var(--state-disabled-opacity);
+}
+
+.iconButton:disabled::before {
+  display: none;
+}
+
+/* =============================================================================
+   SIZES
+   ============================================================================= */
+
+.sm {
+  width: var(--size-10);
+  height: var(--size-10);
+}
+
+.md {
+  width: var(--size-11);
+  height: var(--size-11);
+}
+
+.lg {
+  width: var(--size-12);
+  height: var(--size-12);
+}
+
+/* =============================================================================
+   VARIANTS
+   ============================================================================= */
+
+/* Standard - No container */
+.standard {
+  color: var(--onSurfaceVariant);
+}
+
+.standard.selected {
+  color: var(--primary);
+}
+
+/* Filled */
+.filled {
+  background-color: var(--primary);
+  color: var(--onPrimary);
+}
+
+.filled.selected {
+  background-color: var(--primary);
+  color: var(--onPrimary);
+}
+
+.filled:not(.selected) {
+  background-color: var(--surfaceContainerHighest);
+  color: var(--primary);
+}
+
+/* Tonal */
+.tonal {
+  background-color: var(--secondaryContainer);
+  color: var(--onSecondaryContainer);
+}
+
+.tonal.selected {
+  background-color: var(--secondaryContainer);
+  color: var(--onSecondaryContainer);
+}
+
+.tonal:not(.selected) {
+  background-color: var(--surfaceContainerHighest);
+  color: var(--onSurfaceVariant);
+}
+
+/* Outlined */
+.outlined {
+  border: 1px solid var(--outline);
+  color: var(--onSurfaceVariant);
+}
+
+.outlined.selected {
+  background-color: var(--inverseSurface);
+  color: var(--inverseOnSurface);
+  border-color: transparent;
+}
+
+/* =============================================================================
+   INNER ELEMENTS
+   ============================================================================= */
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.sm .icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.lg .icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+
+/* src\components\List\List.module.css */
+/**
+ * M3 List Styles
+ * 
+ * Material Design 3 list items with one/two/three-line variants,
+ * leading/trailing content, and interactive states.
+ */
+
+/* ========================================
+   LIST CONTAINER
+   ======================================== */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Segmented style (cards) */
+.list[data-variant="segmented"] {
+  gap: 2px;
+}
+
+/* ========================================
+   LIST ITEM
+   ======================================== */
+
+.listItem {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  min-height: 56px;
+  padding: 8px 24px 8px 16px;
+  background: transparent;
+  cursor: default;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+/* Interactive items */
+.listItem[data-interactive="true"] {
+  cursor: pointer;
+}
+
+.listItem[data-interactive="true"]:hover {
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.listItem[data-interactive="true"]:focus-visible {
+  outline: none;
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-focus-opacity) * 100%), transparent);
+}
+
+.listItem[data-interactive="true"]:active {
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-pressed-opacity) * 100%), transparent);
+}
+
+/* Selected state */
+.listItem[data-selected="true"] {
+  background-color: var(--secondaryContainer);
+}
+
+.listItem[data-selected="true"]:hover {
+  background-color: color-mix(in srgb, var(--onSecondaryContainer) calc(var(--state-hover-opacity) * 100%), var(--secondaryContainer));
+}
+
+/* Disabled state */
+.listItem[data-disabled="true"] {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+/* Size variants based on line count */
+.listItem[data-lines="1"] {
+  min-height: 56px;
+  align-items: center;
+}
+
+.listItem[data-lines="2"] {
+  min-height: 72px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.listItem[data-lines="3"] {
+  min-height: 88px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  align-items: flex-start;
+}
+
+/* Segmented variant (card style) */
+.list[data-variant="segmented"] .listItem {
+  background: var(--surfaceContainerLow);
+  border-radius: var(--rad-corner-medium);
+}
+
+.list[data-variant="segmented"] .listItem:first-child {
+  border-radius: var(--rad-corner-extra-large) var(--rad-corner-extra-large) var(--rad-corner-medium) var(--rad-corner-medium);
+}
+
+.list[data-variant="segmented"] .listItem:last-child {
+  border-radius: var(--rad-corner-medium) var(--rad-corner-medium) var(--rad-corner-extra-large) var(--rad-corner-extra-large);
+}
+
+.list[data-variant="segmented"] .listItem:only-child {
+  border-radius: var(--rad-corner-extra-large);
+}
+
+/* ========================================
+   LEADING CONTENT
+   ======================================== */
+
+.leading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+
+/* Icon */
+.leadingIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--onSurfaceVariant);
+}
+
+/* Avatar container */
+.leadingAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--rad-corner-full);
+  overflow: hidden;
+  background: var(--primaryContainer);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leadingAvatarText {
+  font-family: var(--font-plain);
+  font-size: var(--font-size-title-medium);
+  font-weight: var(--font-weight-medium);
+  color: var(--onPrimaryContainer);
+}
+
+.leadingAvatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Image/Thumbnail */
+.leadingImage {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--rad-corner-small);
+  overflow: hidden;
+  background: var(--surfaceContainerHighest);
+}
+
+.leadingImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Video thumbnail (larger) */
+.leadingVideo {
+  width: 114px;
+  height: 64px;
+  border-radius: var(--rad-corner-medium);
+  overflow: hidden;
+  background: var(--surfaceContainerHighest);
+}
+
+.leadingVideo img,
+.leadingVideo video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Checkbox/Radio */
+.leadingCheckbox {
+  width: 24px;
+  height: 24px;
+}
+
+/* ========================================
+   CONTENT (TEXT AREA)
+   ======================================== */
+
+.content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+}
+
+/* Headline (primary text) */
+.headline {
+  font-family: var(--font-plain);
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body-large);
+  color: var(--onSurface);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.listItem[data-lines="2"] .headline,
+.listItem[data-lines="3"] .headline {
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+
+/* Supporting text (secondary text) */
+.supportingText {
+  font-family: var(--font-plain);
+  font-size: var(--font-size-body-medium);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body-medium);
+  color: var(--onSurfaceVariant);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.listItem[data-lines="3"] .supportingText {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+/* ========================================
+   TRAILING CONTENT
+   ======================================== */
+
+.trailing {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  margin-left: 16px;
+  gap: 8px;
+}
+
+/* Trailing icon */
+.trailingIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--onSurfaceVariant);
+}
+
+/* Trailing text (meta info) */
+.trailingText {
+  font-family: var(--font-plain);
+  font-size: var(--font-size-label-small);
+  font-weight: var(--font-weight-medium);
+  color: var(--onSurfaceVariant);
+  white-space: nowrap;
+}
+
+/* Trailing checkbox/switch */
+.trailingControl {
+  flex-shrink: 0;
+}
+
+/* ========================================
+   LIST SUBHEADER
+   ======================================== */
+
+.subheader {
+  padding: 16px 16px 8px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-title-small);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-title-small);
+  color: var(--onSurfaceVariant);
+}
+
+/* ========================================
+   DIVIDERS IN LIST
+   ======================================== */
+
+.listItem + .listItem::before {
+  display: none;
+}
+
+.list[data-dividers="full"] .listItem + .listItem::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--outlineVariant);
+}
+
+.list[data-dividers="inset"] .listItem + .listItem::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 56px;
+  right: 24px;
+  height: 1px;
+  background: var(--outlineVariant);
+}
+
+/* ========================================
+   DENSE VARIANT
+   ======================================== */
+
+.list[data-dense="true"] .listItem {
+  min-height: 48px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.list[data-dense="true"] .listItem[data-lines="2"] {
+  min-height: 64px;
+}
+
+.list[data-dense="true"] .listItem[data-lines="3"] {
+  min-height: 76px;
+}
+
+/* ========================================
+   INTERACTIVE RIPPLE EFFECT
+   ======================================== */
+
+.ripple {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+
+/* src\components\Menu\Menu.module.css */
+/**
+ * M3 Menu Styles
+ * 
+ * Material Design 3 dropdown menus with items, icons, and dividers.
+ * Built on Radix UI primitives for accessibility.
+ */
+
+/* ========================================
+   MENU TRIGGER
+   ======================================== */
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   MENU CONTENT (DROPDOWN)
+   ======================================== */
+
+.content {
+  min-width: 112px;
+  max-width: 280px;
+  padding: 8px 0;
+  background: var(--surfaceContainer);
+  border-radius: var(--rad-corner-extra-small);
+  box-shadow: var(--elevation-2);
+  z-index: 50;
+  overflow: hidden;
+  
+  /* Animation origin */
+  transform-origin: var(--radix-dropdown-menu-content-transform-origin);
+}
+
+/* Animation */
+.content[data-state="open"] {
+  animation: menuOpen var(--motion-duration-medium-2) var(--motion-easing-emphasized-decelerate);
+}
+
+.content[data-state="closed"] {
+  animation: menuClose var(--motion-duration-short-2) var(--motion-easing-emphasized-accelerate);
+}
+
+@keyframes menuOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes menuClose {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* ========================================
+   MENU ITEM
+   ======================================== */
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 8px 12px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body-large);
+  color: var(--onSurface);
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+/* Hover state */
+.item[data-highlighted] {
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+/* Focus state */
+.item:focus-visible {
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-focus-opacity) * 100%), transparent);
+}
+
+/* Disabled state */
+.item[data-disabled] {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+/* ========================================
+   ITEM ICONS
+   ======================================== */
+
+.itemLeadingIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  color: var(--onSurfaceVariant);
+  flex-shrink: 0;
+}
+
+.itemTrailingIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  padding-left: 12px;
+  color: var(--onSurfaceVariant);
+  flex-shrink: 0;
+}
+
+/* Trailing text (keyboard shortcut) */
+.itemTrailingText {
+  margin-left: auto;
+  padding-left: 12px;
+  font-size: var(--font-size-body-medium);
+  color: var(--onSurfaceVariant);
+}
+
+/* ========================================
+   CHECKBOX / RADIO ITEM
+   ======================================== */
+
+.checkboxItem,
+.radioItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 8px 12px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body-large);
+  color: var(--onSurface);
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.checkboxItem[data-highlighted],
+.radioItem[data-highlighted] {
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.checkboxItem[data-disabled],
+.radioItem[data-disabled] {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+/* Indicator container */
+.itemIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  color: var(--primary);
+}
+
+/* ========================================
+   DIVIDER
+   ======================================== */
+
+.separator {
+  height: 1px;
+  margin: 8px 0;
+  background-color: var(--outlineVariant);
+}
+
+/* ========================================
+   SUBMENU
+   ======================================== */
+
+.subTrigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 8px 12px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body-large);
+  color: var(--onSurface);
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.subTrigger[data-highlighted] {
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.subTrigger[data-state="open"] {
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.subTriggerIcon {
+  margin-left: auto;
+  padding-left: 12px;
+  color: var(--onSurfaceVariant);
+}
+
+.subContent {
+  min-width: 112px;
+  max-width: 280px;
+  padding: 8px 0;
+  background: var(--surfaceContainer);
+  border-radius: var(--rad-corner-extra-small);
+  box-shadow: var(--elevation-2);
+  z-index: 50;
+  overflow: hidden;
+  transform-origin: var(--radix-dropdown-menu-content-transform-origin);
+}
+
+.subContent[data-state="open"] {
+  animation: menuOpen var(--motion-duration-medium-2) var(--motion-easing-emphasized-decelerate);
+}
+
+.subContent[data-state="closed"] {
+  animation: menuClose var(--motion-duration-short-2) var(--motion-easing-emphasized-accelerate);
+}
+
+/* ========================================
+   LABEL (GROUP HEADER)
+   ======================================== */
+
+.label {
+  padding: 8px 12px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-label-large);
+  font-weight: var(--font-weight-medium);
+  color: var(--onSurfaceVariant);
+}
+
+/* ========================================
+   GROUP
+   ======================================== */
+
+.group {
+  padding: 0;
+}
+
+
+/* src\components\NavigationRail\NavigationRail.css */
+/**
+ * Navigation Rail
+ * 
+ * Material 3 Expressive vertical navigation component.
+ * Supports collapsed (icon-only) and expanded states with mobile drawer.
+ * 
+ * M3 Expressive Specifications:
+ * - Collapsed Rail: 96px width
+ * - Expanded Drawer: 220-360px width (default 280px)
+ * - Item Height: 56px
+ * - Active Indicator: Pill-shaped 56×32px (collapsed), full-width (expanded)
+ * - Icon Size: 24px
+ * - FAB: 56×56px, Extended FAB in expanded state
+ * 
+ * Uses tokens from /tokens/
+ * @see https://m3.material.io/components/navigation-rail
+ */
+
+/* ============================================================================
+   CSS CUSTOM PROPERTIES (Component Hooks)
+   ============================================================================ */
+
+.ui-navigation-rail {
+  /* M3 Expressive Dimensions */
+  --rail-width-collapsed: var(--navigation-rail-width-collapsed, 96px);
+  --rail-width-expanded: var(--navigation-rail-width-expanded, 280px);
+  --rail-width-expanded-min: 220px;
+  --rail-width-expanded-max: 360px;
+  
+  /* M3 Expressive Spacing */
+  --rail-header-height: 72px;
+  --rail-item-height: 56px;
+  --rail-icon-size: 24px;
+  --rail-fab-size: 56px;
+  --rail-indicator-height: 32px;
+  --rail-indicator-width: 56px;
+  --rail-indicator-radius: 16px;
+  --rail-item-gap: 4px;
+  --rail-group-gap: 8px;
+  --rail-section-padding-top: 12px;
+  --rail-section-padding-bottom: 8px;
+  --rail-content-padding: 12px;
+  --rail-fab-margin: 16px;
+  
+  /* Motion - M3 Standard */
+  --rail-transition: var(--navigation-rail-transition, var(--motion-duration-Medium-2, 300ms) var(--motion-ease-Standard, cubic-bezier(0.2, 0, 0, 1)));
+  --rail-expand-duration: 400ms;
+  
+  /* M3 Expressive Colors */
+  --rail-bg: var(--navigation-rail-bg, var(--surfaceContainerLow, #F3F3F3));
+  --rail-surface-container: var(--surfaceContainer, #F0F0F0);
+  --rail-border-color: var(--navigation-rail-border, transparent);
+  
+  /* Item Colors - M3 Expressive */
+  --rail-item-color: var(--navigation-rail-item-color, var(--onSurfaceVariant, #49454F));
+  --rail-item-hover-bg: var(--navigation-rail-item-hover-bg, color-mix(in srgb, var(--onSurface, #1D1B20) 8%, transparent));
+  --rail-item-active-bg: var(--navigation-rail-item-active-bg, var(--secondaryContainer, #E8DEF8));
+  --rail-item-active-color: var(--navigation-rail-item-active-color, var(--onSecondaryContainer, #1D1B20));
+  
+  /* Badge */
+  --rail-badge-bg: var(--navigation-rail-badge-bg, var(--error, #ba1a1a));
+  --rail-badge-color: var(--navigation-rail-badge-color, var(--onError, #ffffff));
+  
+  /* Avatar */
+  --rail-avatar-bg: var(--navigation-rail-avatar-bg, var(--primaryContainer, #E8DEF8));
+  --rail-avatar-color: var(--navigation-rail-avatar-color, var(--onPrimaryContainer, #1D1B20));
+  
+  /* FAB */
+  --rail-fab-bg: var(--navigation-rail-fab-bg, var(--primaryContainer, #E8DEF8));
+  --rail-fab-color: var(--navigation-rail-fab-color, var(--onPrimaryContainer, #1D1B20));
+  --rail-fab-radius: 16px;
+}
+
+/* ============================================================================
+   LAYOUT & STRUCTURE
+   ============================================================================ */
+
+.ui-navigation-rail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  
+  display: flex;
+  flex-direction: column;
+  
+  width: var(--rail-width-collapsed);
+  height: 100dvh;
+  
+  background-color: var(--rail-bg);
+  
+  transition: width var(--rail-expand-duration) var(--motion-ease-Standard, cubic-bezier(0.2, 0, 0, 1));
+  overflow: hidden;
+}
+
+.ui-navigation-rail[data-expanded="true"] {
+  width: var(--rail-width-expanded);
+  min-width: var(--rail-width-expanded-min);
+  max-width: var(--rail-width-expanded-max);
+}
+
+/* ============================================================================
+   HEADER
+   ============================================================================ */
+
+.ui-navigation-rail__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  min-height: var(--rail-header-height);
+  padding: var(--rail-content-padding);
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__header {
+  justify-content: flex-start;
+  padding: var(--rail-content-padding) 16px;
+}
+
+/* ============================================================================
+   FAB (Floating Action Button)
+   ============================================================================ */
+
+.ui-navigation-rail__fab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: var(--rail-fab-size);
+  height: var(--rail-fab-size);
+  margin: 0 auto var(--rail-fab-margin);
+  
+  background-color: var(--rail-fab-bg);
+  border: none;
+  border-radius: var(--rail-fab-radius);
+  
+  color: var(--rail-fab-color);
+  cursor: pointer;
+  
+  transition: 
+    width var(--rail-expand-duration) var(--motion-ease-Standard, cubic-bezier(0.2, 0, 0, 1)),
+    border-radius var(--rail-expand-duration) var(--motion-ease-Standard, cubic-bezier(0.2, 0, 0, 1)),
+    box-shadow var(--motion-duration-Short-4, 200ms) ease;
+  
+  box-shadow: var(--elevation-1, 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15));
+}
+
+.ui-navigation-rail__fab:hover {
+  box-shadow: var(--elevation-2, 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15));
+}
+
+.ui-navigation-rail__fab:active {
+  transform: scale(0.96);
+}
+
+.ui-navigation-rail__fab svg {
+  width: var(--rail-icon-size);
+  height: var(--rail-icon-size);
+  flex-shrink: 0;
+}
+
+.ui-navigation-rail__fab-label {
+  display: none;
+  margin-left: 12px;
+  
+  font-family: var(--font-plain, system-ui, sans-serif);
+  font-size: var(--type-scale-0, 1rem);
+  font-weight: var(--weight-medium, 500);
+  letter-spacing: 0.1px;
+  
+  white-space: nowrap;
+}
+
+/* Extended FAB when expanded */
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__fab {
+  width: calc(100% - 32px);
+  border-radius: var(--rail-fab-radius);
+  justify-content: flex-start;
+  padding: 0 16px;
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__fab-label {
+  display: block;
+}
+
+/* ============================================================================
+   CONTENT AREA
+   ============================================================================ */
+
+.ui-navigation-rail__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-group-gap);
+  
+  padding: var(--rail-content-padding);
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.ui-navigation-rail__content::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================================================
+   NAVIGATION GROUPS
+   ============================================================================ */
+
+.ui-navigation-rail__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rail-item-gap);
+}
+
+.ui-navigation-rail__group-label {
+  display: none;
+  
+  padding: var(--rail-section-padding-top) 16px var(--rail-section-padding-bottom);
+  
+  font-family: var(--font-plain, system-ui, sans-serif);
+  font-size: var(--type-scale-n2, 0.6875rem);
+  font-weight: var(--weight-semibold, 600);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  
+  color: var(--rail-item-color);
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__group-label {
+  display: block;
+}
+
+/* ============================================================================
+   NAVIGATION ITEMS - M3 Expressive
+   ============================================================================ */
+
+.ui-navigation-rail__item {
+  position: relative;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  
+  height: var(--rail-item-height);
+  padding: 0;
+  
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  
+  color: var(--rail-item-color);
+  text-decoration: none;
+  
+  cursor: pointer;
+  transition: color var(--motion-duration-Short-4, 200ms) ease;
+}
+
+/* Expanded state - horizontal layout with full-width pill */
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__item {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 12px;
+  
+  height: var(--rail-item-height);
+  padding: 0 16px;
+  margin: 0 8px;
+  
+  border-radius: 28px;
+  
+  transition: 
+    background-color var(--motion-duration-Short-4, 200ms) ease,
+    color var(--motion-duration-Short-4, 200ms) ease;
+}
+
+/* Icon container - pill indicator in collapsed state */
+.ui-navigation-rail__item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: var(--rail-indicator-width);
+  height: var(--rail-indicator-height);
+  
+  border-radius: var(--rail-indicator-radius);
+  
+  background-color: transparent;
+  
+  transition: 
+    background-color var(--motion-duration-Short-4, 200ms) ease,
+    transform var(--motion-duration-Short-4, 200ms) ease;
+}
+
+.ui-navigation-rail__item-icon svg {
+  width: var(--rail-icon-size);
+  height: var(--rail-icon-size);
+  flex-shrink: 0;
+  
+  transition: transform var(--motion-duration-Short-4, 200ms) ease;
+}
+
+/* In expanded state, icon container is just for the icon */
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__item-icon {
+  width: var(--rail-icon-size);
+  height: var(--rail-icon-size);
+  border-radius: 0;
+  background-color: transparent;
+}
+
+/* Label */
+.ui-navigation-rail__item-label {
+  font-family: var(--font-plain, system-ui, sans-serif);
+  font-size: var(--type-scale-n2, 0.75rem);
+  font-weight: var(--weight-medium, 500);
+  letter-spacing: 0.4px;
+  line-height: 1;
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__item-label {
+  font-size: var(--type-scale-0, 0.875rem);
+  font-weight: var(--weight-medium, 500);
+  letter-spacing: 0.1px;
+}
+
+/* ============================================================================
+   STATES - M3 Expressive
+   ============================================================================ */
+
+/* Hover State - Collapsed (show pill bg on icon) */
+.ui-navigation-rail__item:hover .ui-navigation-rail__item-icon {
+  background-color: var(--rail-item-hover-bg);
+}
+
+/* Hover State - Expanded (full row highlight) */
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__item:hover {
+  background-color: var(--rail-item-hover-bg);
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__item:hover .ui-navigation-rail__item-icon {
+  background-color: transparent;
+}
+
+/* Active/Selected State - Collapsed (pill indicator) */
+.ui-navigation-rail__item[data-active="true"] .ui-navigation-rail__item-icon {
+  background-color: var(--rail-item-active-bg);
+}
+
+.ui-navigation-rail__item[data-active="true"] {
+  color: var(--rail-item-active-color);
+}
+
+.ui-navigation-rail__item[data-active="true"] .ui-navigation-rail__item-label {
+  font-weight: var(--weight-semibold, 600);
+}
+
+/* Active/Selected State - Expanded (full row pill) */
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__item[data-active="true"] {
+  background-color: var(--rail-item-active-bg);
+  color: var(--rail-item-active-color);
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__item[data-active="true"] .ui-navigation-rail__item-icon {
+  background-color: transparent;
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__item[data-active="true"] .ui-navigation-rail__item-label {
+  font-weight: var(--weight-semibold, 600);
+}
+
+/* Focus State */
+.ui-navigation-rail__item:focus-visible {
+  outline: 2px solid var(--primary, #6750A4);
+  outline-offset: 2px;
+}
+
+/* Pressed State */
+.ui-navigation-rail__item:active .ui-navigation-rail__item-icon {
+  transform: scale(0.92);
+}
+
+/* ============================================================================
+   BADGE
+   ============================================================================ */
+
+.ui-navigation-rail__badge {
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  
+  border-radius: 8px;
+  
+  background-color: var(--rail-badge-bg);
+  color: var(--rail-badge-color);
+  
+  font-family: var(--font-plain, system-ui, sans-serif);
+  font-size: 11px;
+  font-weight: var(--weight-medium, 500);
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__badge {
+  position: static;
+  margin-left: auto;
+}
+
+/* ============================================================================
+   DIVIDER
+   ============================================================================ */
+
+.ui-navigation-rail__divider {
+  width: var(--rail-indicator-width);
+  height: 1px;
+  margin: var(--rail-group-gap) auto;
+  
+  background-color: var(--outlineVariant, #CAC4D0);
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__divider {
+  width: calc(100% - 32px);
+}
+
+/* ============================================================================
+   FOOTER
+   ============================================================================ */
+
+.ui-navigation-rail__footer {
+  margin-top: auto;
+  
+  padding: var(--rail-content-padding);
+  
+  border-top: 1px solid var(--outlineVariant, #CAC4D0);
+}
+
+/* ============================================================================
+   USER PROFILE
+   ============================================================================ */
+
+.ui-navigation-rail__user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  
+  padding: 12px;
+  
+  border-radius: 16px;
+  
+  cursor: pointer;
+  transition: background-color var(--motion-duration-Short-4, 200ms) ease;
+}
+
+.ui-navigation-rail__user:hover {
+  background-color: var(--rail-item-hover-bg);
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__user {
+  flex-direction: row;
+  padding: 12px 16px;
+}
+
+.ui-navigation-rail__avatar {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  
+  border-radius: 20px;
+  
+  background-color: var(--rail-avatar-bg);
+  color: var(--rail-avatar-color);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-family: var(--font-plain, system-ui, sans-serif);
+  font-size: var(--type-scale-0, 1rem);
+  font-weight: var(--weight-medium, 500);
+  
+  overflow: hidden;
+}
+
+.ui-navigation-rail__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ui-navigation-rail__user-info {
+  display: none;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  gap: 2px;
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__user-info {
+  display: flex;
+}
+
+.ui-navigation-rail__user-name {
+  font-family: var(--font-plain, system-ui, sans-serif);
+  font-size: var(--type-scale-0, 0.875rem);
+  font-weight: var(--weight-medium, 500);
+  
+  color: var(--onSurface, #1D1B20);
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ui-navigation-rail__user-email {
+  font-family: var(--font-plain, system-ui, sans-serif);
+  font-size: var(--type-scale-n1, 0.75rem);
+  
+  color: var(--rail-item-color);
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============================================================================
+   TOGGLE BUTTON
+   ============================================================================ */
+
+.ui-navigation-rail__toggle {
+  position: absolute;
+  bottom: 88px;
+  right: -12px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 24px;
+  height: 24px;
+  
+  border: 1px solid var(--outlineVariant, #CAC4D0);
+  border-radius: 12px;
+  
+  background-color: var(--surface, #FFFBFE);
+  color: var(--rail-item-color);
+  
+  cursor: pointer;
+  
+  transition: 
+    background-color var(--motion-duration-Short-4, 200ms) ease,
+    transform var(--motion-duration-Short-4, 200ms) ease;
+}
+
+.ui-navigation-rail__toggle:hover {
+  background-color: var(--surfaceContainerHigh, #ECE6F0);
+}
+
+.ui-navigation-rail__toggle svg {
+  width: 16px;
+  height: 16px;
+  
+  transition: transform var(--rail-expand-duration) var(--motion-ease-Standard, cubic-bezier(0.2, 0, 0, 1));
+}
+
+.ui-navigation-rail[data-expanded="true"] .ui-navigation-rail__toggle svg {
+  transform: rotate(180deg);
+}
+
+/* ============================================================================
+   MOBILE OVERLAY
+   ============================================================================ */
+
+.ui-navigation-rail__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  
+  background-color: var(--scrim, rgba(0, 0, 0, 0.32));
+}
+
+/* ============================================================================
+   MOBILE RESPONSIVE
+   ============================================================================ */
+
+@media (max-width: 599px) {
+  .ui-navigation-rail {
+    transform: translateX(-100%);
+  }
+  
+  .ui-navigation-rail[data-mobile-open="true"] {
+    transform: translateX(0);
+    width: var(--rail-width-expanded);
+  }
+}
+
+/* ============================================================================
+   MOBILE TRIGGER
+   ============================================================================ */
+
+.ui-navigation-rail__mobile-trigger {
+  display: none;
+  
+  width: 48px;
+  height: 48px;
+  
+  align-items: center;
+  justify-content: center;
+  
+  border: none;
+  border-radius: 24px;
+  
+  background-color: transparent;
+  color: var(--onSurface, #1D1B20);
+  
+  cursor: pointer;
+  transition: background-color var(--motion-duration-Short-4, 200ms) ease;
+}
+
+.ui-navigation-rail__mobile-trigger:hover {
+  background-color: var(--rail-item-hover-bg);
+}
+
+.ui-navigation-rail__mobile-trigger svg {
+  width: var(--rail-icon-size);
+  height: var(--rail-icon-size);
+}
+
+@media (max-width: 599px) {
+  .ui-navigation-rail__mobile-trigger {
+    display: flex;
+  }
+  
+  .ui-navigation-rail__toggle {
+    display: none;
+  }
+}
+
+
+/* src\components\ProgressIndicator\ProgressIndicator.module.css */
+/**
+ * M3 Progress Indicator Styles
+ * 
+ * Material Design 3 progress indicators - linear and circular variants
+ * with determinate and indeterminate modes.
+ */
+
+/* ========================================
+   LINEAR PROGRESS INDICATOR
+   ======================================== */
+
+.linearContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--surfaceContainerHighest);
+}
+
+/* Size variants */
+.linearContainer[data-size="thin"] {
+  height: 4px;
+  border-radius: var(--rad-corner-full);
+}
+
+.linearContainer[data-size="default"] {
+  height: 4px;
+  border-radius: var(--rad-corner-full);
+}
+
+.linearContainer[data-size="thick"] {
+  height: 8px;
+  border-radius: var(--rad-corner-small);
+}
+
+/* Track */
+.linearTrack {
+  position: absolute;
+  inset: 0;
+  background: var(--surfaceContainerHighest);
+  border-radius: inherit;
+}
+
+/* Active indicator */
+.linearIndicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--primary);
+  border-radius: inherit;
+  transition: width var(--motion-duration-medium-2) var(--motion-easing-standard);
+}
+
+/* Stop indicator (determinate) */
+.linearStop {
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  width: 4px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: var(--rad-corner-full);
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.linearContainer[data-determinate="true"] .linearStop {
+  opacity: 1;
+}
+
+/* Indeterminate animation */
+.linearIndicator[data-indeterminate="true"] {
+  width: 50%;
+  animation: linearIndeterminate var(--motion-duration-extra-long-4) var(--motion-easing-standard) infinite;
+}
+
+@keyframes linearIndeterminate {
+  0% {
+    left: -50%;
+  }
+  50% {
+    left: 100%;
+  }
+  50.01% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Wavy variant animation */
+.linearContainer[data-wavy="true"] .linearIndicator[data-indeterminate="true"] {
+  animation: linearWavy var(--motion-duration-extra-long-4) var(--motion-easing-emphasized) infinite;
+  clip-path: url(#wavy-clip);
+}
+
+@keyframes linearWavy {
+  0% {
+    left: -60%;
+    transform: translateX(0);
+  }
+  100% {
+    left: 100%;
+    transform: translateX(0);
+  }
+}
+
+/* ========================================
+   CIRCULAR PROGRESS INDICATOR
+   ======================================== */
+
+.circularContainer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Size variants */
+.circularContainer[data-size="small"] {
+  width: 24px;
+  height: 24px;
+}
+
+.circularContainer[data-size="default"] {
+  width: 48px;
+  height: 48px;
+}
+
+.circularContainer[data-size="large"] {
+  width: 64px;
+  height: 64px;
+}
+
+.circularSvg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+/* Track circle */
+.circularTrack {
+  fill: none;
+  stroke: var(--surfaceContainerHighest);
+}
+
+.circularContainer[data-size="small"] .circularTrack {
+  stroke-width: 3px;
+}
+
+.circularContainer[data-size="default"] .circularTrack {
+  stroke-width: 4px;
+}
+
+.circularContainer[data-size="large"] .circularTrack {
+  stroke-width: 4px;
+}
+
+/* Indicator circle */
+.circularIndicator {
+  fill: none;
+  stroke: var(--primary);
+  stroke-linecap: round;
+  transition: stroke-dashoffset var(--motion-duration-medium-2) var(--motion-easing-standard);
+}
+
+.circularContainer[data-size="small"] .circularIndicator {
+  stroke-width: 3px;
+}
+
+.circularContainer[data-size="default"] .circularIndicator {
+  stroke-width: 4px;
+}
+
+.circularContainer[data-size="large"] .circularIndicator {
+  stroke-width: 4px;
+}
+
+/* Indeterminate animation */
+.circularSvg[data-indeterminate="true"] {
+  animation: circularRotate var(--motion-duration-extra-long-4) linear infinite;
+}
+
+.circularIndicator[data-indeterminate="true"] {
+  stroke-dasharray: 80, 200;
+  stroke-dashoffset: 0;
+  animation: circularDash var(--motion-duration-extra-long-2) var(--motion-easing-emphasized) infinite;
+}
+
+@keyframes circularRotate {
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes circularDash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -15;
+  }
+  100% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -125;
+  }
+}
+
+/* ========================================
+   COLOR VARIANTS
+   ======================================== */
+
+/* Primary (default) */
+.linearIndicator,
+.circularIndicator {
+  stroke: var(--primary);
+  background: var(--primary);
+}
+
+/* Secondary */
+[data-color="secondary"] .linearIndicator,
+[data-color="secondary"] .linearStop {
+  background: var(--secondary);
+}
+
+[data-color="secondary"] .circularIndicator {
+  stroke: var(--secondary);
+}
+
+/* Tertiary */
+[data-color="tertiary"] .linearIndicator,
+[data-color="tertiary"] .linearStop {
+  background: var(--tertiary);
+}
+
+[data-color="tertiary"] .circularIndicator {
+  stroke: var(--tertiary);
+}
+
+/* Error */
+[data-color="error"] .linearIndicator,
+[data-color="error"] .linearStop {
+  background: var(--error);
+}
+
+[data-color="error"] .circularIndicator {
+  stroke: var(--error);
+}
+
+/* ========================================
+   LABEL
+   ======================================== */
+
+.label {
+  position: absolute;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-label-small);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-label-small);
+  color: var(--onSurfaceVariant);
+}
+
+/* Linear label positioning */
+.linearContainer .label {
+  right: 0;
+  top: calc(100% + 4px);
+}
+
+/* Circular label (centered) */
+.circularContainer .label {
+  position: static;
+  margin-top: 8px;
+}
+
+/* Circular label inside */
+.circularLabelInside {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-plain);
+  font-size: var(--font-size-label-medium);
+  font-weight: var(--font-weight-medium);
+  color: var(--onSurface);
+}
+
+/* Buffer (for video/streaming progress) */
+.linearBuffer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--primaryContainer);
+  border-radius: inherit;
+  opacity: 0.38;
+  transition: width var(--motion-duration-medium-2) var(--motion-easing-standard);
+}
+
+
+/* src\components\SearchBar\SearchBar.module.css */
+/**
+ * M3 Search Bar Styles
+ * 
+ * Material Design 3 search bar and search view for app-wide search.
+ * Supports leading/trailing icons, suggestions, and expanded state.
+ */
+
+/* ========================================
+   SEARCH BAR (COLLAPSED)
+   ======================================== */
+
+.searchBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 720px;
+  height: 56px;
+  padding: 0 8px 0 16px;
+  background: var(--surfaceContainerHigh);
+  border-radius: var(--rad-corner-full);
+  cursor: text;
+  transition: all var(--motion-duration-medium-2) var(--motion-easing-standard);
+}
+
+/* Centered text variant */
+.searchBar[data-centered="true"] {
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.searchBar[data-centered="true"] .input {
+  text-align: center;
+}
+
+/* Elevated (focus/expanded) */
+.searchBar[data-elevated="true"] {
+  box-shadow: var(--elevation-2);
+}
+
+/* Disabled state */
+.searchBar[data-disabled="true"] {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+/* ========================================
+   LEADING ICON
+   ======================================== */
+
+.leadingIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+  color: var(--onSurface);
+  flex-shrink: 0;
+}
+
+.leadingIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Clickable leading icon (back button) */
+.leadingIconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-right: 4px;
+  margin-left: -8px;
+  border-radius: var(--rad-corner-full);
+  color: var(--onSurface);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.leadingIconButton:hover {
+  background: color-mix(in srgb, var(--onSurface) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.leadingIconButton:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+
+/* ========================================
+   INPUT
+   ======================================== */
+
+.input {
+  flex: 1;
+  height: 100%;
+  padding: 0;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body-large);
+  color: var(--onSurface);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--onSurfaceVariant);
+}
+
+/* ========================================
+   TRAILING CONTENT
+   ======================================== */
+
+.trailing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+}
+
+/* Trailing icon button */
+.trailingIconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--rad-corner-full);
+  color: var(--onSurfaceVariant);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.trailingIconButton:hover {
+  background: color-mix(in srgb, var(--onSurfaceVariant) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.trailingIconButton:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+
+.trailingIconButton svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Avatar in trailing position */
+.avatar {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+  border-radius: var(--rad-corner-full);
+  overflow: hidden;
+  background: var(--primaryContainer);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ========================================
+   SEARCH VIEW (EXPANDED)
+   ======================================== */
+
+.searchView {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  z-index: 100;
+}
+
+/* Animation */
+.searchView[data-state="open"] {
+  animation: searchViewOpen var(--motion-duration-medium-2) var(--motion-easing-emphasized-decelerate);
+}
+
+.searchView[data-state="closed"] {
+  animation: searchViewClose var(--motion-duration-short-2) var(--motion-easing-emphasized-accelerate);
+}
+
+@keyframes searchViewOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes searchViewClose {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(-8px);
+  }
+}
+
+/* Search view header */
+.searchViewHeader {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  padding: 0 4px;
+  border-bottom: 1px solid var(--outlineVariant);
+}
+
+.searchViewInput {
+  flex: 1;
+  height: 100%;
+  padding: 0 16px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-regular);
+  color: var(--onSurface);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.searchViewInput::placeholder {
+  color: var(--onSurfaceVariant);
+}
+
+/* Search view content */
+.searchViewContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+/* ========================================
+   SUGGESTIONS
+   ======================================== */
+
+.suggestions {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+}
+
+.suggestion {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  padding: 8px 16px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-body-large);
+  color: var(--onSurface);
+  cursor: pointer;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.suggestion:hover {
+  background: color-mix(in srgb, var(--onSurface) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.suggestion:focus-visible {
+  outline: none;
+  background: color-mix(in srgb, var(--onSurface) calc(var(--state-focus-opacity) * 100%), transparent);
+}
+
+.suggestionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+  color: var(--onSurfaceVariant);
+}
+
+.suggestionText {
+  flex: 1;
+}
+
+.suggestionTrailing {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+  color: var(--onSurfaceVariant);
+}
+
+/* ========================================
+   DIVIDER IN SEARCH VIEW
+   ======================================== */
+
+.searchDivider {
+  height: 1px;
+  margin: 8px 0;
+  background: var(--outlineVariant);
+}
+
+/* Section header */
+.searchSectionHeader {
+  padding: 16px 16px 8px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-title-small);
+  font-weight: var(--font-weight-medium);
+  color: var(--onSurfaceVariant);
+}
+
+
+/* src\components\Section\Section.css */
+/* Section Component
+   Layout primitive for vertical rhythm and horizontal padding.
+   Uses semantic spacing tokens from spacing.css
+*/
+
+.ui-section {
+  /* Horizontal padding (left/right) */
+  padding-inline: var(--section-padding-inline, var(--margin-horizontal));
+  
+  /* Vertical margin (top/bottom) */
+  margin-block: var(--section-margin-block, var(--margin-vertical));
+}
+
+/* Variants */
+.ui-section--flush {
+  padding-inline: 0;
+}
+
+.ui-section--tight {
+  margin-block: 0;
+}
+
+
+/* src\components\Slider\Slider.module.css */
+/**
+ * M3 Slider Styles
+ * 
+ * Material Design 3 slider with standard, centered, and range variants.
+ * Supports discrete steps with stop indicators.
+ */
+
+/* ========================================
+   CONTAINER
+   ======================================== */
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 44px;
+  touch-action: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.container:focus-visible {
+  outline: none;
+}
+
+.container[data-disabled="true"] {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+/* Vertical orientation */
+.container[data-orientation="vertical"] {
+  flex-direction: column;
+  width: 44px;
+  min-height: 200px;
+}
+
+/* ========================================
+   TRACK
+   ======================================== */
+
+.track {
+  position: relative;
+  flex: 1;
+  height: 16px;
+  border-radius: var(--rad-corner-full);
+  background: var(--surfaceContainerHighest);
+  overflow: hidden;
+}
+
+/* Vertical track */
+.container[data-orientation="vertical"] .track {
+  width: 16px;
+  height: 100%;
+}
+
+/* Size variants */
+.container[data-size="xs"] .track { height: 4px; }
+.container[data-size="sm"] .track { height: 8px; }
+.container[data-size="md"] .track { height: 16px; }
+.container[data-size="lg"] .track { height: 20px; }
+.container[data-size="xl"] .track { height: 24px; }
+
+/* Active track (filled portion) */
+.activeTrack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--primary);
+  border-radius: inherit;
+  transition: width 50ms ease-out;
+}
+
+/* Vertical active track */
+.container[data-orientation="vertical"] .activeTrack {
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--active-track-height, 0%);
+}
+
+/* Centered slider - active track from center */
+.container[data-centered="true"] .activeTrack {
+  left: 50%;
+}
+
+.container[data-centered="true"][data-value-negative="true"] .activeTrack {
+  left: auto;
+  right: 50%;
+}
+
+/* Inactive track */
+.inactiveTrack {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background: var(--surfaceContainerHighest);
+  border-radius: inherit;
+}
+
+/* ========================================
+   THUMB
+   ======================================== */
+
+.thumb {
+  position: absolute;
+  top: 50%;
+  width: 4px;
+  height: 44px;
+  background: var(--primary);
+  border-radius: var(--rad-corner-full);
+  transform: translate(-50%, -50%);
+  transition: 
+    box-shadow var(--motion-duration-short-2) var(--motion-easing-standard),
+    width var(--motion-duration-short-2) var(--motion-easing-standard);
+  z-index: 1;
+  cursor: grab;
+}
+
+.thumb:active {
+  cursor: grabbing;
+}
+
+/* Thumb gap - space between thumb and track */
+.thumb::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  border-radius: var(--rad-corner-full);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Thumb halo on focus/hover */
+.thumb:focus-visible {
+  outline: none;
+}
+
+.thumb::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--primary);
+  opacity: var(--state-hover-opacity);
+  border-radius: var(--rad-corner-full);
+  transform: translate(-50%, -50%);
+  transition: all var(--motion-duration-short-2) var(--motion-easing-standard);
+  pointer-events: none;
+}
+
+.thumb:hover::after {
+  width: 40px;
+  height: 40px;
+}
+
+.thumb:focus-visible::after {
+  width: 40px;
+  height: 40px;
+  opacity: var(--state-focus-opacity);
+}
+
+.thumb:active::after {
+  width: 40px;
+  height: 40px;
+  opacity: var(--state-pressed-opacity);
+}
+
+/* Vertical thumb */
+.container[data-orientation="vertical"] .thumb {
+  top: auto;
+  left: 50%;
+  width: 44px;
+  height: 4px;
+  transform: translate(-50%, 50%);
+}
+
+/* Size-specific thumb heights */
+.container[data-size="xs"] .thumb { height: 24px; }
+.container[data-size="sm"] .thumb { height: 32px; }
+.container[data-size="md"] .thumb { height: 44px; }
+.container[data-size="lg"] .thumb { height: 48px; }
+.container[data-size="xl"] .thumb { height: 52px; }
+
+/* ========================================
+   VALUE INDICATOR (TOOLTIP)
+   ======================================== */
+
+.valueIndicator {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 12px;
+  background: var(--inverseSurface);
+  color: var(--inverseOnSurface);
+  border-radius: var(--rad-corner-small);
+  font-family: var(--font-plain);
+  font-size: var(--font-size-label-medium);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: 
+    opacity var(--motion-duration-short-2) var(--motion-easing-standard),
+    visibility var(--motion-duration-short-2) var(--motion-easing-standard);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Show value indicator on interaction */
+.thumb:hover .valueIndicator,
+.thumb:focus-visible .valueIndicator,
+.thumb:active .valueIndicator,
+.container[data-show-value="always"] .valueIndicator {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Arrow pointer */
+.valueIndicator::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--inverseSurface);
+}
+
+/* ========================================
+   STOP INDICATORS (DISCRETE)
+   ======================================== */
+
+.stops {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2px;
+  pointer-events: none;
+}
+
+.stop {
+  width: 4px;
+  height: 4px;
+  border-radius: var(--rad-corner-full);
+  background: var(--onSurfaceVariant);
+  opacity: 0.38;
+}
+
+/* Active stop (filled area) */
+.stop[data-active="true"] {
+  background: var(--onPrimary);
+  opacity: 1;
+}
+
+/* ========================================
+   RANGE SLIDER
+   ======================================== */
+
+.rangeTrack {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: var(--primary);
+  border-radius: inherit;
+}
+
+/* ========================================
+   ICONS (INSET)
+   ======================================== */
+
+.startIcon,
+.endIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--onSurfaceVariant);
+  flex-shrink: 0;
+}
+
+.startIcon {
+  margin-right: 8px;
+}
+
+.endIcon {
+  margin-left: 8px;
+}
+
+/* ========================================
+   LABEL
+   ======================================== */
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-body-medium);
+  font-weight: var(--font-weight-medium);
+  color: var(--onSurface);
+}
+
+/* ========================================
+   COLOR VARIANTS
+   ======================================== */
+
+[data-color="secondary"] .activeTrack,
+[data-color="secondary"] .rangeTrack,
+[data-color="secondary"] .thumb {
+  background: var(--secondary);
+}
+
+[data-color="secondary"] .thumb::after {
+  background: var(--secondary);
+}
+
+[data-color="secondary"] .stop[data-active="true"] {
+  background: var(--onSecondary);
+}
+
+[data-color="tertiary"] .activeTrack,
+[data-color="tertiary"] .rangeTrack,
+[data-color="tertiary"] .thumb {
+  background: var(--tertiary);
+}
+
+[data-color="tertiary"] .thumb::after {
+  background: var(--tertiary);
+}
+
+[data-color="tertiary"] .stop[data-active="true"] {
+  background: var(--onTertiary);
+}
+
+
+/* src\components\Snackbar\Snackbar.module.css */
+/**
+ * M3 Snackbar Styles
+ * 
+ * Material Design 3 snackbar using design tokens.
+ */
+
+/* =============================================================================
+   VIEWPORT
+   ============================================================================= */
+
+.viewport {
+  position: fixed;
+  bottom: var(--size-7);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-3);
+  max-width: 100vw;
+  padding: 0 var(--size-5);
+  pointer-events: none;
+}
+
+/* Mobile: full width at bottom */
+@media (max-width: 599px) {
+  .viewport {
+    bottom: var(--size-5);
+    left: 0;
+    right: 0;
+    transform: none;
+  }
+}
+
+/* =============================================================================
+   SNACKBAR CONTAINER
+   ============================================================================= */
+
+.snackbar {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  gap: var(--size-3);
+  min-height: var(--size-11);
+  padding: 0 var(--size-3) 0 var(--size-5);
+  
+  /* Style */
+  background-color: var(--inverseSurface);
+  color: var(--inverseOnSurface);
+  border-radius: var(--rad-corner-extra-small);
+  box-shadow: var(--elev-shadow-3);
+  
+  /* Pointer events */
+  pointer-events: auto;
+  
+  /* Animation */
+  animation: snackbarIn var(--motion-duration-medium-1) var(--motion-easing-emphasized-decelerate);
+}
+
+.snackbar[data-state='closed'] {
+  animation: snackbarOut var(--motion-duration-short-4) var(--motion-easing-emphasized-accelerate);
+}
+
+@keyframes snackbarIn {
+  from {
+    opacity: 0;
+    transform: translateY(100%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes snackbarOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%) scale(0.95);
+  }
+}
+
+/* =============================================================================
+   MULTILINE VARIANT
+   ============================================================================= */
+
+.multiline {
+  flex-direction: column;
+  align-items: stretch;
+  padding: var(--size-4) var(--size-3) var(--size-3) var(--size-5);
+  gap: var(--size-2);
+}
+
+.multiline .message {
+  /* Allow wrapping */
+}
+
+.multiline .action,
+.multiline .close {
+  align-self: flex-end;
+}
+
+/* =============================================================================
+   MESSAGE
+   ============================================================================= */
+
+.message {
+  flex: 1;
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-0);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-small);
+  color: var(--inverseOnSurface);
+}
+
+/* =============================================================================
+   ACTION BUTTON
+   ============================================================================= */
+
+.action {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--size-10);
+  padding: 0 var(--size-4);
+  
+  /* Reset */
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  
+  /* Typography */
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-0);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1px;
+  
+  /* Color */
+  color: var(--inversePrimary);
+  
+  /* Shape */
+  border-radius: var(--rad-corner-full);
+  
+  /* Transition */
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.action:hover {
+  background-color: color-mix(in srgb, var(--inversePrimary) 8%, transparent);
+}
+
+.action:focus-visible {
+  outline: 2px solid var(--inversePrimary);
+  outline-offset: 2px;
+}
+
+.action:active {
+  background-color: color-mix(in srgb, var(--inversePrimary) 12%, transparent);
+}
+
+/* =============================================================================
+   CLOSE BUTTON
+   ============================================================================= */
+
+.close {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-11);
+  height: var(--size-11);
+  
+  /* Reset */
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  
+  /* Color */
+  color: var(--inverseOnSurface);
+  
+  /* Shape */
+  border-radius: 50%;
+  
+  /* Transition */
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.close svg {
+  width: 20px;
+  height: 20px;
+}
+
+.close:hover {
+  background-color: color-mix(in srgb, var(--inverseOnSurface) 8%, transparent);
+}
+
+.close:focus-visible {
+  outline: 2px solid var(--inversePrimary);
+  outline-offset: 2px;
+}
+
+.close:active {
+  background-color: color-mix(in srgb, var(--inverseOnSurface) 12%, transparent);
+}
+
+
+/* src\components\TextField\TextField.module.css */
+/**
+ * M3 TextField Styles
+ * 
+ * Material Design 3 text input using design tokens.
+ */
+
+/* =============================================================================
+   BASE TEXT FIELD
+   ============================================================================= */
+
+.textField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2);
+  width: 100%;
+}
+
+/* =============================================================================
+   CONTAINER
+   ============================================================================= */
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: var(--size-5);
+  position: relative;
+  min-height: var(--size-12);
+  cursor: text;
+}
+
+/* =============================================================================
+   FILLED VARIANT
+   ============================================================================= */
+
+.filled .container {
+  background-color: var(--surfaceContainerHighest);
+  border-radius: var(--rad-corner-extra-small) var(--rad-corner-extra-small) 0 0;
+  padding: 0 var(--size-5);
+}
+
+.filled .activeIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--onSurfaceVariant);
+  transition: 
+    height var(--motion-duration-short-2) var(--motion-easing-standard),
+    background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.filled.focused .activeIndicator {
+  height: 2px;
+  background-color: var(--primary);
+}
+
+.filled.error .activeIndicator {
+  background-color: var(--error);
+}
+
+.filled:hover:not(.focused):not(.disabled) .container {
+  background-color: color-mix(in srgb, var(--surfaceContainerHighest) 92%, var(--onSurface));
+}
+
+/* =============================================================================
+   OUTLINED VARIANT
+   ============================================================================= */
+
+.outlined .container {
+  background-color: transparent;
+  border: 1px solid var(--outline);
+  border-radius: var(--rad-corner-extra-small);
+  padding: 0 var(--size-5);
+  transition: border-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.outlined.focused .container {
+  border-color: var(--primary);
+  border-width: 2px;
+  padding: 0 calc(var(--size-5) - 1px);
+}
+
+.outlined.error .container {
+  border-color: var(--error);
+}
+
+.outlined:hover:not(.focused):not(.disabled) .container {
+  border-color: var(--onSurface);
+}
+
+/* =============================================================================
+   INPUT WRAPPER
+   ============================================================================= */
+
+.inputWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: var(--size-3);
+  padding-bottom: var(--size-3);
+}
+
+/* =============================================================================
+   LABEL
+   ============================================================================= */
+
+.label {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--onSurfaceVariant);
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-1);
+  font-weight: var(--weight-regular);
+  pointer-events: none;
+  transition: 
+    transform var(--motion-duration-short-2) var(--motion-easing-standard),
+    font-size var(--motion-duration-short-2) var(--motion-easing-standard),
+    color var(--motion-duration-short-2) var(--motion-easing-standard);
+  transform-origin: left center;
+  white-space: nowrap;
+}
+
+.labelFloating {
+  transform: translateY(-120%);
+  font-size: var(--type-scale-n1);
+}
+
+/* Focused label color */
+.focused .label {
+  color: var(--primary);
+}
+
+/* Error label color */
+.error .label {
+  color: var(--error);
+}
+
+/* Outlined floating label background */
+.outlined .labelFloating {
+  background-color: var(--surface);
+  padding: 0 var(--size-1);
+  margin-left: calc(var(--size-1) * -1);
+}
+
+/* =============================================================================
+   INPUT
+   ============================================================================= */
+
+.input {
+  flex: 1;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--onSurface);
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-1);
+  line-height: var(--line-height-small);
+  caret-color: var(--primary);
+}
+
+.input::placeholder {
+  color: transparent;
+}
+
+.focused .input::placeholder {
+  color: var(--onSurfaceVariant);
+  opacity: 0.6;
+}
+
+.input:disabled {
+  color: var(--onSurface);
+  opacity: var(--state-disabled-opacity);
+  cursor: not-allowed;
+}
+
+/* Error caret color */
+.error .input {
+  caret-color: var(--error);
+}
+
+/* =============================================================================
+   ICONS
+   ============================================================================= */
+
+.leadingIcon,
+.trailingIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--onSurfaceVariant);
+  flex-shrink: 0;
+}
+
+.leadingIcon svg,
+.trailingIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.error .trailingIcon {
+  color: var(--error);
+}
+
+/* =============================================================================
+   PREFIX / SUFFIX
+   ============================================================================= */
+
+.prefix,
+.suffix {
+  color: var(--onSurfaceVariant);
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-1);
+  white-space: nowrap;
+}
+
+.prefix {
+  margin-right: var(--size-1);
+}
+
+.suffix {
+  margin-left: var(--size-1);
+}
+
+/* =============================================================================
+   SUPPORTING TEXT
+   ============================================================================= */
+
+.supportingText {
+  padding-inline: var(--size-5);
+  color: var(--onSurfaceVariant);
+  font-family: var(--font-plain);
+  font-size: var(--type-scale-n1);
+  line-height: var(--line-height-small);
+}
+
+.error .supportingText {
+  color: var(--error);
+}
+
+/* =============================================================================
+   DISABLED STATE
+   ============================================================================= */
+
+.disabled {
+  pointer-events: none;
+}
+
+.disabled .container {
+  opacity: var(--state-disabled-container-opacity);
+}
+
+.disabled .label,
+.disabled .supportingText {
+  opacity: var(--state-disabled-opacity);
+}
+
+
+/* src\components\TopAppBar\TopAppBar.module.css */
+/**
+ * M3 Top App Bar Styles
+ * 
+ * Material Design 3 app bars - small, medium, and large variants
+ * with scroll behavior support.
+ */
+
+/* ========================================
+   BASE APP BAR
+   ======================================== */
+
+.appBar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--surface);
+  z-index: 10;
+  transition: 
+    background-color var(--motion-duration-medium-2) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-medium-2) var(--motion-easing-standard);
+}
+
+/* Elevated (scrolled) state */
+.appBar[data-elevated="true"] {
+  background: var(--surfaceContainer);
+  box-shadow: var(--elevation-2);
+}
+
+/* Sticky positioning */
+.appBar[data-sticky="true"] {
+  position: sticky;
+  top: 0;
+}
+
+/* Fixed positioning */
+.appBar[data-fixed="true"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* ========================================
+   SMALL APP BAR (Default)
+   ======================================== */
+
+.small {
+  min-height: 64px;
+}
+
+.smallContent {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 4px;
+}
+
+/* ========================================
+   CENTER-ALIGNED
+   ======================================== */
+
+.appBar[data-align="center"] .title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+/* ========================================
+   MEDIUM APP BAR
+   ======================================== */
+
+.medium {
+  min-height: 112px;
+}
+
+.mediumContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.mediumTopRow {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 4px;
+}
+
+.mediumBottomRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 16px 20px;
+}
+
+/* ========================================
+   LARGE APP BAR
+   ======================================== */
+
+.large {
+  min-height: 152px;
+}
+
+.largeContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.largeTopRow {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 4px;
+}
+
+.largeBottomRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+  padding: 0 16px 28px;
+}
+
+/* ========================================
+   NAVIGATION ICON
+   ======================================== */
+
+.navigationIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-left: 4px;
+  border-radius: var(--rad-corner-full);
+  color: var(--onSurface);
+  cursor: pointer;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.navigationIcon:hover {
+  background-color: color-mix(in srgb, var(--onSurface) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.navigationIcon:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.navigationIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ========================================
+   TITLE
+   ======================================== */
+
+.title {
+  flex: 1;
+  padding: 0 16px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-title-large);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-title-large);
+  color: var(--onSurface);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Subtitle */
+.subtitle {
+  margin-top: 4px;
+  font-family: var(--font-plain);
+  font-size: var(--font-size-title-medium);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-title-medium);
+  color: var(--onSurfaceVariant);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Medium title sizing */
+.mediumBottomRow .title {
+  font-size: var(--font-size-headline-small);
+  line-height: var(--line-height-headline-small);
+  padding: 0;
+}
+
+/* Large title sizing */
+.largeBottomRow .title {
+  font-size: var(--font-size-headline-medium);
+  line-height: var(--line-height-headline-medium);
+  padding: 0;
+}
+
+/* ========================================
+   ACTIONS
+   ======================================== */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding-right: 4px;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--rad-corner-full);
+  color: var(--onSurfaceVariant);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-standard);
+}
+
+.action:hover {
+  background-color: color-mix(in srgb, var(--onSurfaceVariant) calc(var(--state-hover-opacity) * 100%), transparent);
+}
+
+.action:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.action svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ========================================
+   CONTEXTUAL MODE
+   ======================================== */
+
+.appBar[data-contextual="true"] {
+  background: var(--primaryContainer);
+}
+
+.appBar[data-contextual="true"] .navigationIcon,
+.appBar[data-contextual="true"] .title,
+.appBar[data-contextual="true"] .action {
+  color: var(--onPrimaryContainer);
+}
+
+/* ========================================
+   COLLAPSING BEHAVIOR
+   ======================================== */
+
+/* CSS for scroll-based collapse - use with Intersection Observer in JS */
+.appBar[data-collapsed="true"].medium {
+  min-height: 64px;
+}
+
+.appBar[data-collapsed="true"].medium .mediumBottomRow {
+  display: none;
+}
+
+.appBar[data-collapsed="true"].medium .mediumTopRow .title {
+  display: block;
+}
+
+.appBar[data-collapsed="true"].large {
+  min-height: 64px;
+}
+
+.appBar[data-collapsed="true"].large .largeBottomRow {
+  display: none;
+}
+
+.appBar[data-collapsed="true"].large .largeTopRow .title {
+  display: block;
+}
+
+/* Transition for collapse */
+.appBar.medium,
+.appBar.large {
+  transition:
+    min-height var(--motion-duration-medium-2) var(--motion-easing-standard),
+    background-color var(--motion-duration-medium-2) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-medium-2) var(--motion-easing-standard);
+}
+
+/* ========================================
+   COLOR VARIANTS
+   ======================================== */
+
+.appBar[data-color="primary"] {
+  background: var(--primary);
+}
+
+.appBar[data-color="primary"] .navigationIcon,
+.appBar[data-color="primary"] .title,
+.appBar[data-color="primary"] .subtitle,
+.appBar[data-color="primary"] .action {
+  color: var(--onPrimary);
+}
+
+.appBar[data-color="surface-container"] {
+  background: var(--surfaceContainer);
+}
+
+

@@ -1,0 +1,1087 @@
+/* @tech-devs/ui - Design Tokens */
+
+/* src/tokens/size.css */
+/**
+ * Size Scale - Foundation Layer
+ * 
+ * The base size scale that all other tokens reference.
+ * Uses a 4px grid system.
+ * 
+ * NEVER use hardcoded pixel values elsewhere - always reference --size-*
+ */
+
+@layer tokens {
+  :root {
+    /* =========================================================================
+       SIZE SCALE
+       Based on 4px increments for visual harmony
+       ========================================================================= */
+    
+    --size-1: 2px;
+    --size-2: 0.25rem;   /* 4px */
+    --size-3: 0.5rem;    /* 8px */
+    --size-4: 0.75rem;   /* 12px */
+    --size-5: 1rem;      /* 16px */
+    --size-6: 1.25rem;   /* 20px */
+    --size-7: 1.5rem;    /* 24px */
+    --size-8: 1.75rem;   /* 28px */
+    --size-9: 2rem;      /* 32px */
+    --size-10: 2.5rem;   /* 40px */
+    --size-11: 3rem;     /* 48px */
+    --size-12: 3.5rem;   /* 56px */
+    --size-13: 4rem;     /* 64px */
+    --size-14: 4.5rem;   /* 72px */
+    --size-15: 5rem;     /* 80px */
+    --size-16: 6rem;     /* 96px */
+    --size-17: 8rem;     /* 128px */
+    --size-18: 10rem;    /* 160px */
+    
+    /* =========================================================================
+       LAYOUT SIZES
+       Fixed sizes for layout components (navigation rails, sidebars, etc.)
+       ========================================================================= */
+    
+    --size-80: 320px;
+    --size-90: 360px;
+    --size-100: 400px;
+  }
+}
+
+
+/* src/tokens/colors.css */
+/**
+ * Color Tokens
+ * 
+ * Material Design 3 color system with automatic light/dark mode via light-dark().
+ * Includes contrast mode variants for accessibility.
+ * 
+ * Generated from _colors.scss
+ */
+
+:root {
+  color-scheme: light dark;
+  
+  /* Primary */
+  --primary: light-dark(#4f1c9e, #d3bbff);
+  --surfaceTint: light-dark(#6f43c0, #d3bbff);
+  --onPrimary: light-dark(#ffffff, #3f008d);
+  --primaryContainer: light-dark(#673ab7, #673ab7);
+  --onPrimaryContainer: light-dark(#d8c2ff, #d8c2ff);
+  
+  /* Secondary */
+  --secondary: light-dark(#675687, #d1bdf5);
+  --onSecondary: light-dark(#ffffff, #372855);
+  --secondaryContainer: light-dark(#dac5fe, #4e3e6d);
+  --onSecondaryContainer: light-dark(#605080, #c0ace3);
+  
+  /* Tertiary */
+  --tertiary: light-dark(#770860, #ffade0);
+  --onTertiary: light-dark(#ffffff, #60004c);
+  --tertiaryContainer: light-dark(#952979, #952979);
+  --onTertiaryContainer: light-dark(#ffb6e2, #ffb6e2);
+  
+  /* Error */
+  --error: light-dark(#ba1a1a, #ffb4ab);
+  --onError: light-dark(#ffffff, #690005);
+  --errorContainer: light-dark(#ffdad6, #93000a);
+  --onErrorContainer: light-dark(#93000a, #ffdad6);
+  
+  /* Background & Surface */
+  --background: light-dark(#fef7ff, #15121a);
+  --onBackground: light-dark(#1d1a22, #e7e0eb);
+  --surface: light-dark(#fef7ff, #15121a);
+  --onSurface: light-dark(#1d1a22, #e7e0eb);
+  --surfaceVariant: light-dark(#e8dff1, #4a4453);
+  --onSurfaceVariant: light-dark(#4a4453, #ccc3d5);
+  
+  /* Outline */
+  --outline: light-dark(#7b7484, #958e9e);
+  --outlineVariant: light-dark(#ccc3d5, #4a4453);
+  
+  /* Utility */
+  --shadow: light-dark(#000000, #000000);
+  --scrim: light-dark(#000000, #000000);
+  
+  /* Inverse */
+  --inverseSurface: light-dark(#322f37, #e7e0eb);
+  --inverseOnSurface: light-dark(#f6eef9, #322f37);
+  --inversePrimary: light-dark(#d3bbff, #6f43c0);
+  
+  /* Fixed Colors (don't change with theme) */
+  --primaryFixed: light-dark(#ebddff, #ebddff);
+  --onPrimaryFixed: light-dark(#250059, #250059);
+  --primaryFixedDim: light-dark(#d3bbff, #d3bbff);
+  --onPrimaryFixedVariant: light-dark(#5727a6, #5727a6);
+  --secondaryFixed: light-dark(#ebddff, #ebddff);
+  --onSecondaryFixed: light-dark(#22123f, #22123f);
+  --secondaryFixedDim: light-dark(#d1bdf5, #d1bdf5);
+  --onSecondaryFixedVariant: light-dark(#4e3e6d, #4e3e6d);
+  --tertiaryFixed: light-dark(#ffd8ed, #ffd8ed);
+  --onTertiaryFixed: light-dark(#3b002e, #3b002e);
+  --tertiaryFixedDim: light-dark(#ffade0, #ffade0);
+  --onTertiaryFixedVariant: light-dark(#811568, #811568);
+  
+  /* Surface Containers (elevation tones) */
+  --surfaceDim: light-dark(#dfd7e3, #15121a);
+  --surfaceBright: light-dark(#fef7ff, #3b3840);
+  --surfaceContainerLowest: light-dark(#ffffff, #100d14);
+  --surfaceContainerLow: light-dark(#f9f1fc, #1d1a22);
+  --surfaceContainer: light-dark(#f3ebf7, #211e26);
+  --surfaceContainerHigh: light-dark(#ede6f1, #2c2931);
+  --surfaceContainerHighest: light-dark(#e7e0eb, #37333c);
+}
+
+/* Medium Contrast Mode */
+:root[data-contrast="medium"] {
+  --primary: light-dark(#460a95, #e5d5ff);
+  --surfaceTint: light-dark(#6f43c0, #d3bbff);
+  --onPrimary: light-dark(#ffffff, #320072);
+  --primaryContainer: light-dark(#673ab7, #a478f7);
+  --onPrimaryContainer: light-dark(#fff9fd, #000000);
+  --secondary: light-dark(#3d2e5b, #e5d5ff);
+  --onSecondary: light-dark(#ffffff, #2c1d4a);
+  --secondaryContainer: light-dark(#766596, #9a88bc);
+  --onSecondaryContainer: light-dark(#ffffff, #000000);
+  --tertiary: light-dark(#6a0054, #ffcfe9);
+  --onTertiary: light-dark(#ffffff, #4d003d);
+  --tertiaryContainer: light-dark(#952979, #dc66b7);
+  --onTertiaryContainer: light-dark(#fffafa, #000000);
+  --error: light-dark(#740006, #ffd2cc);
+  --onError: light-dark(#ffffff, #540003);
+  --errorContainer: light-dark(#cf2c27, #ff5449);
+  --onErrorContainer: light-dark(#ffffff, #000000);
+  --background: light-dark(#fef7ff, #15121a);
+  --onBackground: light-dark(#1d1a22, #e7e0eb);
+  --surface: light-dark(#fef7ff, #15121a);
+  --onSurface: light-dark(#131017, #ffffff);
+  --surfaceVariant: light-dark(#e8dff1, #4a4453);
+  --onSurfaceVariant: light-dark(#393442, #e2d9eb);
+  --outline: light-dark(#56505f, #b7afc0);
+  --outlineVariant: light-dark(#716a7a, #958d9e);
+  --shadow: light-dark(#000000, #000000);
+  --scrim: light-dark(#000000, #000000);
+  --inverseSurface: light-dark(#322f37, #e7e0eb);
+  --inverseOnSurface: light-dark(#f6eef9, #2c2931);
+  --inversePrimary: light-dark(#d3bbff, #5828a8);
+  --primaryFixed: light-dark(#7f53d0, #ebddff);
+  --onPrimaryFixed: light-dark(#ffffff, #19003f);
+  --primaryFixedDim: light-dark(#6538b5, #d3bbff);
+  --onPrimaryFixedVariant: light-dark(#ffffff, #460a95);
+  --secondaryFixed: light-dark(#766596, #ebddff);
+  --onSecondaryFixed: light-dark(#ffffff, #170634);
+  --secondaryFixedDim: light-dark(#5d4c7c, #d1bdf5);
+  --onSecondaryFixedVariant: light-dark(#ffffff, #3d2e5b);
+  --tertiaryFixed: light-dark(#b14291, #ffd8ed);
+  --onTertiaryFixed: light-dark(#ffffff, #29001f);
+  --tertiaryFixedDim: light-dark(#932777, #ffade0);
+  --onTertiaryFixedVariant: light-dark(#ffffff, #6a0054);
+  --surfaceDim: light-dark(#cbc4cf, #15121a);
+  --surfaceBright: light-dark(#fef7ff, #47434c);
+  --surfaceContainerLowest: light-dark(#ffffff, #08060d);
+  --surfaceContainerLow: light-dark(#f9f1fc, #1f1c24);
+  --surfaceContainer: light-dark(#ede6f1, #2a262f);
+  --surfaceContainerHigh: light-dark(#e2dae5, #353139);
+  --surfaceContainerHighest: light-dark(#d6cfda, #403c45);
+}
+
+/* High Contrast Mode */
+:root[data-contrast="high"] {
+  --primary: light-dark(#3a0082, #f6ecff);
+  --surfaceTint: light-dark(#6f43c0, #d3bbff);
+  --onPrimary: light-dark(#ffffff, #000000);
+  --primaryContainer: light-dark(#592aa9, #d0b6ff);
+  --onPrimaryContainer: light-dark(#ffffff, #110031);
+  --secondary: light-dark(#332451, #f6ecff);
+  --onSecondary: light-dark(#ffffff, #000000);
+  --secondaryContainer: light-dark(#514170, #cdb9f1);
+  --onSecondaryContainer: light-dark(#ffffff, #11012e);
+  --tertiary: light-dark(#580046, #ffebf3);
+  --onTertiary: light-dark(#ffffff, #000000);
+  --tertiaryContainer: light-dark(#84196b, #ffa7de);
+  --onTertiaryContainer: light-dark(#ffffff, #1e0016);
+  --error: light-dark(#600004, #ffece9);
+  --onError: light-dark(#ffffff, #000000);
+  --errorContainer: light-dark(#98000a, #ffaea4);
+  --onErrorContainer: light-dark(#ffffff, #220001);
+  --background: light-dark(#fef7ff, #15121a);
+  --onBackground: light-dark(#1d1a22, #e7e0eb);
+  --surface: light-dark(#fef7ff, #15121a);
+  --onSurface: light-dark(#000000, #ffffff);
+  --surfaceVariant: light-dark(#e8dff1, #4a4453);
+  --onSurfaceVariant: light-dark(#000000, #ffffff);
+  --outline: light-dark(#2f2a37, #f6ecff);
+  --outlineVariant: light-dark(#4c4755, #c8bfd1);
+  --shadow: light-dark(#000000, #000000);
+  --scrim: light-dark(#000000, #000000);
+  --inverseSurface: light-dark(#322f37, #e7e0eb);
+  --inverseOnSurface: light-dark(#ffffff, #000000);
+  --inversePrimary: light-dark(#d3bbff, #5828a8);
+  --primaryFixed: light-dark(#592aa9, #ebddff);
+  --onPrimaryFixed: light-dark(#ffffff, #000000);
+  --primaryFixedDim: light-dark(#420192, #d3bbff);
+  --onPrimaryFixedVariant: light-dark(#ffffff, #19003f);
+  --secondaryFixed: light-dark(#514170, #ebddff);
+  --onSecondaryFixed: light-dark(#ffffff, #000000);
+  --secondaryFixedDim: light-dark(#3a2a58, #d1bdf5);
+  --onSecondaryFixedVariant: light-dark(#ffffff, #170634);
+  --tertiaryFixed: light-dark(#84196b, #ffd8ed);
+  --onTertiaryFixed: light-dark(#ffffff, #000000);
+  --tertiaryFixedDim: light-dark(#64004f, #ffade0);
+  --onTertiaryFixedVariant: light-dark(#ffffff, #29001f);
+  --surfaceDim: light-dark(#bdb6c1, #15121a);
+  --surfaceBright: light-dark(#fef7ff, #534e57);
+  --surfaceContainerLowest: light-dark(#ffffff, #000000);
+  --surfaceContainerLow: light-dark(#f6eef9, #211e26);
+  --surfaceContainer: light-dark(#e7e0eb, #322f37);
+  --surfaceContainerHigh: light-dark(#d9d2dd, #3e3a42);
+  --surfaceContainerHighest: light-dark(#cbc4cf, #49454e);
+}
+
+/* Auto high contrast based on system preference */
+@media (prefers-contrast: more) {
+  :root:not([data-contrast]) {
+    --primary: light-dark(#3a0082, #f6ecff);
+    --surfaceTint: light-dark(#6f43c0, #d3bbff);
+    --onPrimary: light-dark(#ffffff, #000000);
+    --primaryContainer: light-dark(#592aa9, #d0b6ff);
+    --onPrimaryContainer: light-dark(#ffffff, #110031);
+    --secondary: light-dark(#332451, #f6ecff);
+    --onSecondary: light-dark(#ffffff, #000000);
+    --secondaryContainer: light-dark(#514170, #cdb9f1);
+    --onSecondaryContainer: light-dark(#ffffff, #11012e);
+    --tertiary: light-dark(#580046, #ffebf3);
+    --onTertiary: light-dark(#ffffff, #000000);
+    --tertiaryContainer: light-dark(#84196b, #ffa7de);
+    --onTertiaryContainer: light-dark(#ffffff, #1e0016);
+    --error: light-dark(#600004, #ffece9);
+    --onError: light-dark(#ffffff, #000000);
+    --errorContainer: light-dark(#98000a, #ffaea4);
+    --onErrorContainer: light-dark(#ffffff, #220001);
+    --background: light-dark(#fef7ff, #15121a);
+    --onBackground: light-dark(#1d1a22, #e7e0eb);
+    --surface: light-dark(#fef7ff, #15121a);
+    --onSurface: light-dark(#000000, #ffffff);
+    --surfaceVariant: light-dark(#e8dff1, #4a4453);
+    --onSurfaceVariant: light-dark(#000000, #ffffff);
+    --outline: light-dark(#2f2a37, #f6ecff);
+    --outlineVariant: light-dark(#4c4755, #c8bfd1);
+    --shadow: light-dark(#000000, #000000);
+    --scrim: light-dark(#000000, #000000);
+    --inverseSurface: light-dark(#322f37, #e7e0eb);
+    --inverseOnSurface: light-dark(#ffffff, #000000);
+    --inversePrimary: light-dark(#d3bbff, #5828a8);
+    --primaryFixed: light-dark(#592aa9, #ebddff);
+    --onPrimaryFixed: light-dark(#ffffff, #000000);
+    --primaryFixedDim: light-dark(#420192, #d3bbff);
+    --onPrimaryFixedVariant: light-dark(#ffffff, #19003f);
+    --secondaryFixed: light-dark(#514170, #ebddff);
+    --onSecondaryFixed: light-dark(#ffffff, #000000);
+    --secondaryFixedDim: light-dark(#3a2a58, #d1bdf5);
+    --onSecondaryFixedVariant: light-dark(#ffffff, #170634);
+    --tertiaryFixed: light-dark(#84196b, #ffd8ed);
+    --onTertiaryFixed: light-dark(#ffffff, #000000);
+    --tertiaryFixedDim: light-dark(#64004f, #ffade0);
+    --onTertiaryFixedVariant: light-dark(#ffffff, #29001f);
+    --surfaceDim: light-dark(#bdb6c1, #15121a);
+    --surfaceBright: light-dark(#fef7ff, #534e57);
+    --surfaceContainerLowest: light-dark(#ffffff, #000000);
+    --surfaceContainerLow: light-dark(#f6eef9, #211e26);
+    --surfaceContainer: light-dark(#e7e0eb, #322f37);
+    --surfaceContainerHigh: light-dark(#d9d2dd, #3e3a42);
+    --surfaceContainerHighest: light-dark(#cbc4cf, #49454e);
+  }
+}
+
+
+/* src/tokens/spacing.css */
+/**
+ * Spacing Tokens
+ *
+ * Use --size-* directly for component spacing.
+ * Semantic variables (e.g. --margin, --padding) handle responsive layout.
+ *
+ * Depends on: size.css, breakpoints.css (must be imported first)
+ */
+
+@layer tokens {
+  :root {
+    /* =========================================================================
+       SEMANTIC SPACING
+       Contextual spacing for layout (responsive)
+       ========================================================================= */
+    
+    --margin-vertical: var(--size-7);
+    --margin-horizontal: var(--size-7);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Responsive spacing overrides */
+
+/* Compact: --bp-compact-max (max-width: 599px) */
+@media (max-width: 599px) {
+  :root {
+    --margin-vertical: var(--size-4);
+    --margin-horizontal: var(--size-4);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Medium: --bp-medium-min to --bp-medium-max (600-839px) */
+@media (min-width: 600px) and (max-width: 839px) {
+  :root {
+    --margin-vertical: var(--size-7);
+    --margin-horizontal: var(--size-7);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Expanded: --bp-expanded-min to --bp-expanded-max (840-1199px) */
+@media (min-width: 840px) and (max-width: 1199px) {
+  :root {
+    --margin-vertical: var(--size-9);
+    --margin-horizontal: var(--size-9);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Large: --bp-large-min to --bp-large-max (1200-1599px) */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  :root {
+    --margin-vertical: var(--size-9);
+    --margin-horizontal: var(--size-9);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Extra Large: --bp-extra-large-min (>= 1600px) */
+@media (min-width: 1600px) {
+  :root {
+    --margin-vertical: var(--size-9);
+    --margin-horizontal: var(--size-9);
+    --padding: var(--size-5);
+    --group: var(--size-3);
+    --spacer: var(--size-12);
+  }
+}
+
+/* Icon utilities */
+.icon-mini {
+  height: var(--size-6);
+  width: var(--size-6);
+}
+
+.icon-small {
+  height: var(--size-7);
+  width: var(--size-7);
+}
+
+.icon-medium {
+  height: var(--size-10);
+  width: var(--size-10);
+}
+
+
+/* src/tokens/shape.css */
+/**
+ * Shape Tokens
+ * 
+ * Material Design 3 Shape Scale
+ * Corner radius values for rounded shapes.
+ * 
+ * @see https://m3.material.io/styles/shape/overview
+ * 
+ * Depends on: size.css (must be imported first)
+ */
+
+@layer tokens {
+  :root {
+    /* =========================================================================
+       CORNER SIZE SCALE
+       Material Design 3 shape system with rounded corners.
+       ========================================================================= */
+    
+    --rad-corner-none: 0;                              /* 0dp - Fully rectangular */
+    --rad-corner-extra-small: var(--size-2);           /* 4dp */
+    --rad-corner-small: var(--size-3);                 /* 8dp */
+    --rad-corner-medium: var(--size-4);                /* 12dp */
+    --rad-corner-large: var(--size-5);                 /* 16dp */
+    --rad-corner-large-increased: var(--size-6);       /* 20dp */
+    --rad-corner-extra-large: var(--size-8);           /* 28dp */
+    --rad-corner-extra-large-increased: var(--size-9); /* 32dp */
+    --rad-corner-extra-extra-large: var(--size-13);    /* 48dp */
+    --rad-corner-full: 9999px;                         /* Pill/Circle - 50% equivalent */
+  }
+}
+
+
+/* src/tokens/elevation.css */
+/**
+ * Elevation Tokens
+ * 
+ * Material Design 3 elevation system with dual shadows.
+ * 
+ * Generated from _elevation.scss
+ */
+
+@layer tokens {
+  :root {
+    /* Level 0: No elevation */
+    --elev-shadow-0: 0px 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    
+    /* Level 1: Cards, raised buttons */
+    --elev-shadow-1: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    
+    /* Level 2: Menus, dropdowns */
+    --elev-shadow-2: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+    
+    /* Level 3: Navigation drawers, modals */
+    --elev-shadow-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+    
+    /* Level 4: Dialogs */
+    --elev-shadow-4: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.3);
+    
+    /* Level 5: Navigation bar, FAB (highest) */
+    --elev-shadow-5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Utility classes */
+.elevation-0 { box-shadow: var(--elev-shadow-0); }
+.elevation-1 { box-shadow: var(--elev-shadow-1); }
+.elevation-2 { box-shadow: var(--elev-shadow-2); }
+.elevation-3 { box-shadow: var(--elev-shadow-3); }
+.elevation-4 { box-shadow: var(--elev-shadow-4); }
+.elevation-5 { box-shadow: var(--elev-shadow-5); }
+
+
+/* src/tokens/motion.css */
+/**
+ * Motion Tokens
+ * 
+ * Material Design 3 easing curves and duration scale.
+ * 
+ * @see https://m3.material.io/styles/motion/easing-and-duration/applying-easing-and-duration
+ */
+
+@layer tokens {
+  :root {
+    /* =========================================================================
+       DURATION SCALE
+       Duration increases as animation area/distance increases.
+       ========================================================================= */
+    
+    /* Short - Small utility animations (icons, switches) */
+    --motion-duration-short-1: 50ms;
+    --motion-duration-short-2: 100ms;
+    --motion-duration-short-3: 150ms;
+    --motion-duration-short-4: 200ms;
+    
+    /* Medium - Component animations (cards, menus) */
+    --motion-duration-medium-1: 250ms;
+    --motion-duration-medium-2: 300ms;
+    --motion-duration-medium-3: 350ms;
+    --motion-duration-medium-4: 400ms;
+    
+    /* Long - Page transitions, modals */
+    --motion-duration-long-1: 450ms;
+    --motion-duration-long-2: 500ms;
+    --motion-duration-long-3: 550ms;
+    --motion-duration-long-4: 600ms;
+    
+    /* Extra Long - Complex choreographed animations */
+    --motion-duration-extra-long-1: 700ms;
+    --motion-duration-extra-long-2: 800ms;
+    --motion-duration-extra-long-3: 900ms;
+    --motion-duration-extra-long-4: 1000ms;
+    
+    /* =========================================================================
+       EASING CURVES
+       
+       Standard: Utility-focused animations (functional, less expressive)
+       Emphasized: Common M3-styled animations (expressive, branded)
+       Linear: Simple, non-stylized motion (progress bars, color fades)
+       ========================================================================= */
+    
+    /* Standard - Utility animations that start and end on screen */
+    --motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+    
+    /* Standard Decelerate - Utility animations entering the screen */
+    --motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+    
+    /* Standard Accelerate - Utility animations exiting the screen */
+    --motion-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
+    
+    /* Emphasized - M3-styled animations that start and end on screen
+       Note: M3 spec uses a path curve; this is the CSS cubic-bezier approximation */
+    --motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+    
+    /* Emphasized Decelerate - M3-styled animations entering the screen */
+    --motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+    
+    /* Emphasized Accelerate - M3-styled animations exiting the screen */
+    --motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+    
+    /* Linear - Non-stylized motion (progress indicators, color transitions) */
+    --motion-easing-linear: cubic-bezier(0, 0, 1, 1);
+    
+    /* =========================================================================
+       SPRING PARAMETERS (for JS animations)
+       
+       Fast: Small components (switches, buttons)
+       Default: Partial screen (bottom sheets, drawers)
+       Slow: Full screen animations
+       
+       Spatial: Position animations (x, y, scale)
+       Effects: Non-overshooting animations (color, opacity)
+       ========================================================================= */
+    
+    /* Fast Springs - Small component animations */
+    --motion-spring-fast-spatial-damping: 0.9;
+    --motion-spring-fast-spatial-stiffness: 1400;
+    --motion-spring-fast-effects-damping: 1;
+    --motion-spring-fast-effects-stiffness: 3800;
+    
+    /* Default Springs - Partial screen animations */
+    --motion-spring-default-spatial-damping: 0.9;
+    --motion-spring-default-spatial-stiffness: 700;
+    --motion-spring-default-effects-damping: 1;
+    --motion-spring-default-effects-stiffness: 1600;
+    
+    /* Slow Springs - Full screen animations */
+    --motion-spring-slow-spatial-damping: 0.9;
+    --motion-spring-slow-spatial-stiffness: 300;
+    --motion-spring-slow-effects-damping: 1;
+    --motion-spring-slow-effects-stiffness: 800;
+  }
+}
+
+
+/* src/tokens/typography.css */
+/**
+ * Typography Tokens
+ * 
+ * Material Design 3 type scale.
+ * Uses clamp() for fluid responsive sizing.
+ * 
+ * @see https://m3.material.io/styles/typography/overview
+ */
+
+@layer tokens {
+  :root {
+    /* =========================================================================
+       FONT FAMILIES
+       
+       - Brand: Display & headlines (personality, editorial)
+       - Plain: Body, labels, titles (readability, utility)
+       - Code: Monospace for code blocks
+       ========================================================================= */
+    
+    --font-brand: 'Lora', serif;
+    --font-plain: 'Roboto', sans-serif;
+    --font-code: 'JetBrains Mono', 'Fira Code', monospace;
+    
+    /* Font Weights */
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-bold: 700;
+    
+    /* Line Heights */
+    --line-height-large: 1.2;
+    --line-height-small: 1.5;
+    
+    /* Type Scale (based on 1.125 ratio, 14px base) */
+    --type-scale-n2: 0.69rem;   /* ~11px */
+    --type-scale-n1: 0.778rem;  /* ~12.5px */
+    --type-scale-0: 0.875rem;   /* 14px - base */
+    --type-scale-1: 0.984rem;   /* ~15.75px */
+    --type-scale-2: 1.107rem;   /* ~17.7px */
+    --type-scale-3: 1.246rem;   /* ~20px */
+    --type-scale-4: 1.402rem;   /* ~22.4px */
+    --type-scale-5: 1.577rem;   /* ~25.2px */
+    --type-scale-6: 1.774rem;   /* ~28.4px */
+    --type-scale-7: 1.996rem;   /* ~32px */
+    --type-scale-8: 2.245rem;   /* ~36px */
+    --type-scale-9: 2.526rem;   /* ~40px */
+    --type-scale-10: 2.841rem;  /* ~45px */
+    --type-scale-11: 3.196rem;  /* ~51px */
+    --type-scale-12: 3.595rem;  /* ~57.5px */
+  }
+}
+
+/* ============================================================================
+   BASELINE TYPOGRAPHY CLASSES
+   ============================================================================ */
+
+/* Display */
+.display-large {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-8), 10cqw, var(--type-scale-8));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-regular);
+  letter-spacing: -0.25px;
+}
+
+.display-medium {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-8), 10cqw, var(--type-scale-10));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0px;
+}
+
+.display-small {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-8), 10cqw, var(--type-scale-8));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0px;
+}
+
+/* Headline */
+.headline-large {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-5), 10cqw, var(--type-scale-7));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0px;
+}
+
+.headline-medium {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-5), 10cqw, var(--type-scale-6));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0px;
+}
+
+.headline-small {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-5), 10cqw, var(--type-scale-5));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0px;
+}
+
+/* Title */
+.title-large {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-0), 10cqw, var(--type-scale-4));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0px;
+}
+
+.title-medium {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-0), 10cqw, var(--type-scale-2));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.15px;
+}
+
+.title-small {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-0), 10cqw, var(--type-scale-0));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1px;
+}
+
+/* Body */
+.body-large {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n1), 10cqw, var(--type-scale-1));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0.5px;
+}
+
+.body-medium {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n1), 10cqw, var(--type-scale-0));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0.25px;
+}
+
+.body-small {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n1), 10cqw, var(--type-scale-n1));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0.4px;
+}
+
+/* Label */
+.label-large {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n2), 8cqw, var(--type-scale-0));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1px;
+}
+
+.label-medium {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n2), 8cqw, var(--type-scale-n1));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.5px;
+}
+
+.label-small {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n2), 8cqw, var(--type-scale-n2));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================================
+   EMPHASIZED TYPOGRAPHY CLASSES
+   ============================================================================ */
+
+.display-large-emphasized {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-8), 10cqw, var(--type-scale-12));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: -0.25px;
+}
+
+.display-medium-emphasized {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-8), 10cqw, var(--type-scale-10));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0px;
+}
+
+.display-small-emphasized {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-8), 10cqw, var(--type-scale-8));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0px;
+}
+
+.headline-large-emphasized {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-5), 10cqw, var(--type-scale-7));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0px;
+}
+
+.headline-medium-emphasized {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-5), 10cqw, var(--type-scale-6));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0px;
+}
+
+.headline-small-emphasized {
+  font-family: var(--font-brand);
+  font-size: clamp(var(--type-scale-5), 10cqw, var(--type-scale-5));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0px;
+}
+
+.title-large-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-0), 10cqw, var(--type-scale-4));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0px;
+}
+
+.title-medium-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-0), 10cqw, var(--type-scale-2));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.15px;
+}
+
+.title-small-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-0), 10cqw, var(--type-scale-0));
+  line-height: var(--line-height-large);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.1px;
+}
+
+.body-large-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n1), 10cqw, var(--type-scale-1));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.5px;
+}
+
+.body-medium-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n1), 10cqw, var(--type-scale-0));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.25px;
+}
+
+.body-small-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n1), 10cqw, var(--type-scale-n1));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.4px;
+}
+
+.label-large-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n2), 8cqw, var(--type-scale-0));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.1px;
+}
+
+.label-medium-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n2), 8cqw, var(--type-scale-n1));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.5px;
+}
+
+.label-small-emphasized {
+  font-family: var(--font-plain);
+  font-size: clamp(var(--type-scale-n2), 8cqw, var(--type-scale-n2));
+  line-height: var(--line-height-small);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.5px;
+}
+
+
+/* src/tokens/states.css */
+/**
+ * State Layer System
+ * 
+ * Material Design 3 state layers using currentColor for automatic inheritance.
+ * Apply .state-layer to any interactive element and the hover/focus/active
+ * states will automatically use the element's text color at the correct opacity.
+ * 
+ * @see https://m3.material.io/foundations/interaction/states
+ */
+
+@layer tokens {
+  :root {
+    /* State Layer Opacities (M3 Standard) */
+    --state-hover-opacity: 0.08;
+    --state-focus-opacity: 0.10;
+    --state-pressed-opacity: 0.10;
+    --state-dragged-opacity: 0.16;
+    --state-disabled-opacity: 0.38;
+    --state-disabled-container-opacity: 0.12;
+  }
+}
+
+/* =============================================================================
+   STATE LAYER UTILITY CLASSES
+   Uses background-image to overlay without replacing background-color.
+   currentColor inherits the element's text color (the "on" color in M3).
+   ============================================================================= */
+
+.state-layer {
+  position: relative;
+  isolation: isolate;
+}
+
+.state-layer:hover {
+  background-image: linear-gradient(
+    color-mix(in srgb, currentColor calc(var(--state-hover-opacity) * 100%), transparent),
+    color-mix(in srgb, currentColor calc(var(--state-hover-opacity) * 100%), transparent)
+  );
+}
+
+.state-layer:focus-visible {
+  background-image: linear-gradient(
+    color-mix(in srgb, currentColor calc(var(--state-focus-opacity) * 100%), transparent),
+    color-mix(in srgb, currentColor calc(var(--state-focus-opacity) * 100%), transparent)
+  );
+}
+
+.state-layer:active {
+  background-image: linear-gradient(
+    color-mix(in srgb, currentColor calc(var(--state-pressed-opacity) * 100%), transparent),
+    color-mix(in srgb, currentColor calc(var(--state-pressed-opacity) * 100%), transparent)
+  );
+}
+
+/* Dragged state - apply via JS when dragging */
+.state-layer--dragged,
+.state-layer.dragging {
+  background-image: linear-gradient(
+    color-mix(in srgb, currentColor calc(var(--state-dragged-opacity) * 100%), transparent),
+    color-mix(in srgb, currentColor calc(var(--state-dragged-opacity) * 100%), transparent)
+  );
+}
+
+/* Disabled state */
+.state-layer:disabled,
+.state-layer[aria-disabled="true"],
+.state-layer--disabled {
+  opacity: var(--state-disabled-opacity);
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+
+/* src/tokens/components.css */
+/**
+ * Component Tokens
+ * 
+ * Component-specific design tokens that reference the size scale.
+ * These define the standard dimensions for UI components following M3 Expressive.
+ * 
+ * Depends on: size.css, shape.css
+ * 
+ * RULE: NEVER hardcode sizes - always use --size-* tokens
+ * 
+ * @see https://m3.material.io/components/navigation-rail/specs
+ */
+
+@layer tokens {
+  :root {
+    /* =========================================================================
+       NAVIGATION RAIL
+       M3 Expressive measurements mapped to size scale
+       ========================================================================= */
+    
+    /* Container widths */
+    --nav-rail-width-collapsed: var(--size-16);  /* 96px - M3 Expressive */
+    --nav-rail-width-expanded: var(--size-80);   /* 320px - expanded state */
+    
+    /* Content spacing */
+    --nav-rail-content-margin-top: var(--size-11);    /* 48px (M3: 44dp, closest match) */
+    --nav-rail-header-margin-bottom: var(--size-10);  /* 40px - M3 Expressive */
+    --nav-rail-item-spacing: var(--size-2);           /* 4px - M3 Expressive */
+    --nav-rail-top-padding: var(--size-3);            /* 8px (M3: 6dp, closest match) */
+    --nav-rail-bottom-padding: var(--size-2);         /* 4px - M3 Expressive */
+    
+    /* Item dimensions */
+    --nav-rail-item-min-height: var(--size-13);           /* 64px - M3 Expressive */
+    --nav-rail-item-min-height-collapsed: var(--size-13); /* 64px */
+    --nav-rail-item-min-height-expanded: var(--size-12);  /* 56px */
+    
+    /* Active indicator (collapsed) */
+    --nav-rail-indicator-width: var(--size-12);           /* 56px - M3 */
+    --nav-rail-indicator-height: var(--size-9);           /* 32px - M3 */
+    --nav-rail-indicator-radius: var(--rad-corner-full);  /* pill shape */
+    --nav-rail-indicator-margin-horizontal: var(--size-2); /* 4px - M3 */
+    --nav-rail-indicator-label-padding: var(--size-2);    /* 4px - M3 */
+    
+    /* Active indicator (expanded) */
+    --nav-rail-indicator-expanded-height: var(--size-12); /* 56px - M3 */
+    --nav-rail-indicator-expanded-margin-horizontal: var(--size-6); /* 20px - M3 */
+    --nav-rail-indicator-expanded-padding: var(--size-5); /* 16px - M3 */
+    
+    /* Icon */
+    --nav-rail-icon-size: var(--size-7);          /* 24px - M3 */
+    --nav-rail-icon-label-spacing: var(--size-3); /* 8px - M3 horizontal spacing */
+    
+    /* =========================================================================
+       ICON BUTTON
+       Standard icon button dimensions
+       ========================================================================= */
+    
+    --icon-button-size: var(--size-10);       /* 40px - standard touch target */
+    --icon-button-size-small: var(--size-9);  /* 32px */
+    --icon-button-size-large: var(--size-11); /* 48px */
+    --icon-button-icon-size: var(--size-7);   /* 24px */
+    
+    /* =========================================================================
+       FAB (Floating Action Button)
+       Optional header element in navigation rail
+       ========================================================================= */
+    
+    --fab-size: var(--size-12);                       /* 56px - standard FAB */
+    --fab-size-small: var(--size-10);                 /* 40px */
+    --fab-size-large: var(--size-16);                 /* 96px */
+    --fab-icon-size: var(--size-7);                   /* 24px */
+    --fab-extended-height: var(--size-12);            /* 56px */
+    --fab-extended-padding-horizontal: var(--size-5); /* 16px */
+    
+    /* =========================================================================
+       BADGE
+       Notification badges on nav items
+       ========================================================================= */
+    
+    --badge-size-small: var(--size-3);            /* 8px - dot badge (M3: 6dp, closest) */
+    --badge-size-large: var(--size-5);            /* 16px - with count */
+    --badge-padding-horizontal: var(--size-2);    /* 4px */
+    
+    /* =========================================================================
+       AVATAR
+       User profile avatars
+       ========================================================================= */
+    
+    --avatar-size-small: var(--size-9);   /* 32px */
+    --avatar-size-medium: var(--size-10); /* 40px */
+    --avatar-size-large: var(--size-12);  /* 56px */
+    
+    /* =========================================================================
+       DIVIDER
+       Section separators
+       ========================================================================= */
+    
+    --divider-thickness: var(--size-1);           /* 2px (closest to 1px) */
+    --divider-margin-vertical: var(--size-3);     /* 8px */
+    
+    /* =========================================================================
+       COMMON BUTTON
+       M3 Expressive button measurements mapped to size scale
+       @see https://m3.material.io/components/buttons/specs
+       ========================================================================= */
+    
+    /* Container heights */
+    --button-height-xs: var(--size-9);    /* 32px */
+    --button-height-sm: var(--size-10);   /* 40px (default) */
+    --button-height-md: var(--size-11);   /* 48px */
+    --button-height-lg: var(--size-12);   /* 56px */
+    --button-height-xl: var(--size-14);   /* 72px */
+    
+    /* Horizontal padding (left/right) */
+    --button-padding-xs: var(--size-4);   /* 12px */
+    --button-padding-sm: var(--size-7);   /* 24px */
+    --button-padding-md: var(--size-7);   /* 24px */
+    --button-padding-lg: var(--size-9);   /* 32px */
+    --button-padding-xl: var(--size-10);  /* 40px */
+    
+    /* Icon sizes per button size */
+    --button-icon-size-xs: var(--size-5); /* 16px (M3: 18dp, closest) */
+    --button-icon-size-sm: var(--size-6); /* 20px */
+    --button-icon-size-md: var(--size-7); /* 24px */
+    --button-icon-size-lg: var(--size-7); /* 24px */
+    --button-icon-size-xl: var(--size-9); /* 32px */
+    
+    /* Icon-to-label spacing */
+    --button-icon-spacing-xs: var(--size-2); /* 4px */
+    --button-icon-spacing-sm: var(--size-3); /* 8px */
+    --button-icon-spacing-md: var(--size-3); /* 8px */
+    --button-icon-spacing-lg: var(--size-4); /* 12px */
+    --button-icon-spacing-xl: var(--size-5); /* 16px */
+  }
+}
+
+
